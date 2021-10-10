@@ -4,5 +4,11 @@
     justify-content: center;
     .nav-button {
         margin: 15px;
+        cursor: pointer;
+        transition: 0.25s;
+        &:hover {
+            text-shadow: 0 0 10px #69e0ff, 0 0 20px #69e0ff, 0 0 40px #69e0ff;
+            color: #fff;
+        }
     }
 }

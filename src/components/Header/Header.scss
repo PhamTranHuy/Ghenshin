@@ -17,6 +17,7 @@
         width: 30px;
         height: 30px;
         margin-left: 70px;
+        cursor: pointer;
     }
     .logo {
         height: 100%;
@@ -29,11 +30,19 @@
     .login {
         display: flex;
         align-items: center;
+        padding: 0 20px;
+        cursor: pointer;
         .icon {
             margin-left: 18px;
             width: 28px;
             height: 28px;
             opacity: 0.6;
+        }
+        &:hover {
+            color: #fff;
+            .icon {
+                opacity: 1;
+            }
         }
     }
     .download {
@@ -42,7 +51,6 @@
         align-items: center;
         width: 200px;
         height: 100%;
-        margin-left: 20px;
 
         text-align: center;
         font-size: 1.5em;
