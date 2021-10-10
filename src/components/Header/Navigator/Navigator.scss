@@ -12,3 +12,10 @@
         }
     }
 }
+.header_nav-pointer {
+    position: absolute;
+    top: 0;
+    height: 5px;
+    background: rgb(105, 224, 255);
+    transition: 0.2s ease-out;
+}
