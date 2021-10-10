@@ -21,6 +21,7 @@
     .logo {
         height: 100%;
         margin: 0 -55px 0 -70px;
+        pointer-events: none;
     }
     .space {
         flex: 1;
@@ -32,6 +33,7 @@
             margin-left: 18px;
             width: 28px;
             height: 28px;
+            opacity: 0.6;
         }
     }
     .download {
@@ -46,7 +48,7 @@
         font-size: 1.5em;
         letter-spacing: 3px;
         font-weight: 600;
-        
+
         color: #554528;
         background-color: rgb(255, 207, 13);
     }
