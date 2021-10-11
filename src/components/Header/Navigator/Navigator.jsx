@@ -6,7 +6,7 @@ function Navigator() {
         const getLeftPosition = () => {
             return target.getBoundingClientRect().left;
         }
-        
+
         const pointerBar = document.querySelector('.header_nav-pointer');
         const pointerWidth = target.offsetWidth;
         const pointerOffsetX = getLeftPosition();
@@ -31,7 +31,7 @@ function Navigator() {
                 <div className="nav-button">HOME</div>
                 <div className="nav-button">NEWS</div>
                 <div className="nav-button">CHARACTERS</div>
-                <div className="nav-button">EXPLORE</div>
+                <div className="nav-button nav-button--more">EXPLORE</div>
                 <div className="nav-button">HoYoLAB</div>
                 <div className="nav-button">TOP-UP</div>
                 <div className="nav-button">REDEEM CODE</div>

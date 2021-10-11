@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: center;
     .nav-button {
+        position: relative;
         margin: 15px;
         cursor: pointer;
         transition: 0.25s;
@@ -11,10 +12,22 @@
             color: #fff;
         }
     }
+    .nav-button--more {
+        display: flex;
+        align-items: center;
+        &::after {
+            content: '';
+            margin-top: 6px;
+            margin-left: 10px;
+            border: 4.5px solid transparent;
+            border-top: 5px solid #fff;
+        }
+    }
 }
 .header_nav-pointer {
     position: absolute;
     top: 0;
+    left: 0;
     height: 5px;
     background: rgb(105, 224, 255);
     transition: 0.2s ease-out;
