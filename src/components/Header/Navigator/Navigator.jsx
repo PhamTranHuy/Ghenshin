@@ -16,13 +16,16 @@ function Navigator() {
     }
     useEffect(() => {
         const navButtons = document.querySelectorAll('.nav-button');
-
+        
         navButtons.forEach((button) => { 
             button.addEventListener('mouseover', (e) => { setPointerBarPosition(e.target) })
         })
-        return navButtons.forEach((button) => { 
-            button.removeEventListener('mouseover', (e) => { setPointerBarPosition(e.target) })
-        })
+
+        return () => { 
+            navButtons.forEach((button) => { 
+                button.removeEventListener('mouseover', (e) => { setPointerBarPosition(e.target) })
+            })
+        }
     }, [])
 
     return (
@@ -31,7 +34,15 @@ function Navigator() {
                 <div className="nav-button">HOME</div>
                 <div className="nav-button">NEWS</div>
                 <div className="nav-button">CHARACTERS</div>
-                <div className="nav-button nav-button--more">EXPLORE</div>
+                <div id="explore" className="sub-list-wrapper">
+                    <div className="nav-button nav-button--more">EXPLORE</div>
+                    <ul className="sub-list explore">
+                        <li className="sub-items">ABOUT GAME</li>
+                        <li className="sub-items">TEYVAT</li>
+                        <li className="sub-items">ITINERARY</li>
+                        <li className="sub-items">MANGA</li>
+                    </ul>
+                </div>
                 <div className="nav-button">HoYoLAB</div>
                 <div className="nav-button">TOP-UP</div>
                 <div className="nav-button">REDEEM CODE</div>

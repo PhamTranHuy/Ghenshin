@@ -3,7 +3,6 @@
     align-items: center;
     justify-content: center;
     .nav-button {
-        position: relative;
         margin: 15px;
         cursor: pointer;
         transition: 0.25s;
@@ -21,6 +20,31 @@
             margin-left: 10px;
             border: 4.5px solid transparent;
             border-top: 5px solid #fff;
+        }
+    }
+    .sub-list-wrapper {
+        &:hover .sub-list {
+            opacity: 1;
+            pointer-events: all;
+            transition: 0.2s ease-in;
+        }
+        .sub-list {
+            position: absolute;
+            width: 210px;
+            background: #2d2c2e;
+            color: #fff;
+            opacity: 0;
+            transition: 0.2s ease-in 0.2s;
+            pointer-events: none;
+            .sub-items {
+                display: block;
+                padding: 10px 25px;
+                cursor: pointer;
+                padding: 17px 15px;
+                &:hover {
+                    background: #3f3e40;
+                }
+            }
         }
     }
 }
