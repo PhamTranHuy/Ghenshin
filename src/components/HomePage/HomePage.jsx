@@ -3,8 +3,14 @@ import './HomePage.scss'
 
 function HomePage() {
     return (
-        <div className="home-page">
-            <div className="poster"></div>
+        <div className="home">
+            <div className="home_poster">
+                <div className="background-wrapper">
+                    <video autoplay="autoplay" muted="true" loop>
+                        <source src="https://genshin.mihoyo.com/_nuxt/videos/3e78e80.mp4" type="audio/mp4"/>
+                    </video>
+                </div>
+            </div>
         </div>
     )
 }

@@ -1,7 +1,17 @@
-.home-page {
-    .poster {
+.home_poster {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    .background-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100%;
-        height: 100vh;
-        background: chocolate;
+        height: 100%;
+        overflow: hidden;
+        min-width: 1200px;
+        video {
+            height: 100%;
+        }
     }
 }
