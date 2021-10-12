@@ -77,5 +77,43 @@
                 }
             }
         }
+        .poster-arrow-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 20px;
+            @keyframes arrow {
+                0% {
+                    opacity: 1;
+                }
+                33% {
+                    opacity: 0.5;
+                }
+                66% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 0.5;
+                }
+            }
+            .poster-arrow {
+                display: block;
+                margin-top: -5px;
+                animation-name: arrow;
+                animation-duration: 1.5s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                &.poster-arrow_first {
+                    animation-delay: 0;
+                }
+                &.poster-arrow_second {
+                    animation-delay: 0.5s;
+                }
+                &.poster-arrow_third {
+                    animation-delay: 1s;
+                }
+            }
+        }
     }
 }
