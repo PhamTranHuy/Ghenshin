@@ -28,9 +28,9 @@ function HomePage() {
                         <a href="#" className="download-button"><img src={windows_logo}/></a>
                     </div>
                     <div className="poster-arrow-wrapper">
-                        <img className="poster-arrow poster-arrow_first" src={poster_arrow_icon} alt="" />
-                        <img className="poster-arrow poster-arrow_second" src={poster_arrow_icon} alt="" />
-                        <img className="poster-arrow poster-arrow_third" src={poster_arrow_icon} alt="" />
+                        <img className="poster-arrow poster-arrow--first" src={poster_arrow_icon} alt="" />
+                        <img className="poster-arrow poster-arrow--second" src={poster_arrow_icon} alt="" />
+                        <img className="poster-arrow poster-arrow--third" src={poster_arrow_icon} alt="" />
                     </div>
                 </div>
                 <div className="poster-age">

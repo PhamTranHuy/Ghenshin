@@ -104,13 +104,13 @@
                 animation-duration: 1.5s;
                 animation-iteration-count: infinite;
                 animation-timing-function: linear;
-                &.poster-arrow_first {
+                &.poster-arrow--first {
                     animation-delay: 0;
                 }
-                &.poster-arrow_second {
+                &.poster-arrow--second {
                     animation-delay: 0.5s;
                 }
-                &.poster-arrow_third {
+                &.poster-arrow--third {
                     animation-delay: 1s;
                 }
             }
