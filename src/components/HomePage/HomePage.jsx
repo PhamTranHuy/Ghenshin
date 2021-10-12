@@ -1,6 +1,9 @@
 import React from 'react'
 import './HomePage.scss'
-import play_icon from './assets/poster/play.png' 
+import ps4_logo from './assets/poster/ps4.png' 
+import app_store_logo from './assets/poster/app-store.png' 
+import google_play_logo from './assets/poster/google-play.png' 
+import windows_logo from './assets/poster/windows.png' 
 
 function HomePage() {
     return (
@@ -16,7 +19,12 @@ function HomePage() {
                         <button className="play-button"></button>
                     </div>
                     <div className="desc">Released on Multiple Platforms - Download Now!</div>
-                    <div>download banner</div>
+                    <div className="download-banner">
+                        <a href="#" className="download-button"><img src={ps4_logo}/></a>
+                        <a href="#" className="download-button"><img src={app_store_logo}/></a>
+                        <a href="#" className="download-button"><img src={google_play_logo}/></a>
+                        <a href="#" className="download-button"><img src={windows_logo}/></a>
+                    </div>
                     <div>poster arrow</div>
                 </div>
             </div>
