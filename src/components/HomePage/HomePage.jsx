@@ -15,7 +15,7 @@ function HomePage() {
                     <div className="play-button-wrapper">
                         <button className="play-button"></button>
                     </div>
-                    <div>text</div>
+                    <div className="desc">Released on Multiple Platforms - Download Now!</div>
                     <div>download banner</div>
                     <div>poster arrow</div>
                 </div>
