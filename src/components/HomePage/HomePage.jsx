@@ -5,6 +5,7 @@ import app_store_logo from './assets/poster/app-store.png'
 import google_play_logo from './assets/poster/google-play.png' 
 import windows_logo from './assets/poster/windows.png' 
 import poster_arrow_icon from './assets/poster/down-arrow.png'
+import poster_age_logo from './assets/poster/poster-age.png'
 
 function HomePage() {
     return (
@@ -31,6 +32,9 @@ function HomePage() {
                         <img className="poster-arrow poster-arrow_second" src={poster_arrow_icon} alt="" />
                         <img className="poster-arrow poster-arrow_third" src={poster_arrow_icon} alt="" />
                     </div>
+                </div>
+                <div className="poster-age">
+                    <img src={poster_age_logo} alt="" />
                 </div>
             </div>
         </div>
