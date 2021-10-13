@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Poster.scss'
+
 import ps4_logo from '../assets/poster/ps4.png' 
 import app_store_logo from '../assets/poster/app-store.png' 
 import google_play_logo from '../assets/poster/google-play.png' 
 import windows_logo from '../assets/poster/windows.png' 
 import poster_arrow_icon from '../assets/poster/down-arrow.png'
 import poster_age_logo from '../assets/poster/poster-age.png'
+import close_button from '../assets/poster/close-icon.png'
+
+import Popup from '../../../ShareComponent/Popup/Popup'
 
 function Poster() {
+    const [triggerPopup, setTriggerPopup] = useState(false);
+
     return (
         <div className="home_poster">
             <div className="background-wrapper">
@@ -17,7 +23,7 @@ function Poster() {
             </div>
             <div className="poster-sign">
                 <div className="play-button-wrapper">
-                    <button className="play-button"></button>
+                    <button className="play-button" onClick={() => {setTriggerPopup(true)}}></button>
                 </div>
                 <div className="desc">Released on Multiple Platforms - Download Now!</div>
                 <div className="download-banner">
@@ -35,6 +41,17 @@ function Poster() {
             <div className="poster-age">
                 <img src={poster_age_logo} alt="" />
             </div>
+            <Popup trigger={triggerPopup} handleMaskClicked={() => {setTriggerPopup(false)}}>
+                <div className="pop-up_video-wrapper">
+                    <iframe className="video" src="https://www.youtube.com/embed/5DuZblVxG3I" 
+                    scrolling="no" border="0" frameBorder="no" framespacing="0" 
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen="allowfullscreen"></iframe>
+                    <div className="close-button" handleMaskClicked={() => {setTriggerPopup(false)}}>
+                        <img src={close_button} />
+                    </div>
+                </div>
+            </Popup>
         </div>
     )
 }
