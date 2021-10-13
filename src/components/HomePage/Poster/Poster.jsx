@@ -47,9 +47,9 @@ function Poster() {
                     scrolling="no" border="0" frameBorder="no" framespacing="0" 
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
                     allowFullScreen="allowfullscreen"></iframe>
-                    <div className="close-button" handleMaskClicked={() => {setTriggerPopup(false)}}>
+                    <button className="close-button" handleMaskClicked={() => {setTriggerPopup(false)}}>
                         <img src={close_button} />
-                    </div>
+                    </button>
                 </div>
             </Popup>
         </div>
