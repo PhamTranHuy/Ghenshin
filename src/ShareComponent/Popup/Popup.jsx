@@ -23,7 +23,7 @@ function Popup({children, trigger, handleMaskClicked}) {
 Popup.propTypes = {
     children: PropTypes.object,
     trigger: PropTypes.bool.isRequired,
-    handleMaskClicked: PropTypes.object
+    handleMaskClicked: PropTypes.func
 }
 
 export default Popup

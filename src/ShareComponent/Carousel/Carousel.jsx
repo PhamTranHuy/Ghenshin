@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import styles from './Carousel.module.scss'
 
 function Carousel({children, width}) {
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [translate, setTranslate] = useState(0);
     
     const handleSwitchButtonClicked = (index) => {
-        setActiveIndex(index);
+        setCurrentIndex(index);
         setTranslate(-(width * index));
     }
     return (
@@ -23,7 +23,7 @@ function Carousel({children, width}) {
                     {children.map((item, i) => (
                         <div key={i} 
                             className={
-                                `${styles['button']} ${activeIndex === i ? styles['is-active'] : ''}`
+                                `${styles['button']} ${currentIndex === i ? styles['is-active'] : ''}`
                             } 
                             onClick={() => { handleSwitchButtonClicked(i) }}/>
                     ))}
