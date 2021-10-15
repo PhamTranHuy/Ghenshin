@@ -1,0 +1,8 @@
+.container {
+    .carousel-outer {
+        overflow: hidden;
+        .carousel-inner {
+            display: flex;
+        }
+    }
+}
