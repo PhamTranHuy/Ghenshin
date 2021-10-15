@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import './Popup.scss'
+import styles from './Popup.module.scss'
 
 function Popup({children, trigger, handleMaskClicked}) {
     const onMaskClicked = () => {
@@ -9,9 +9,9 @@ function Popup({children, trigger, handleMaskClicked}) {
 
     return (
         trigger && (
-            <div className="pop-up">
-                <div className="pop-up_mask" onClick={onMaskClicked}>
-                    <div className="popup_inner">
+            <div className={styles['pop-up']}>
+                <div className={styles['pop-up_mask']} onClick={onMaskClicked}>
+                    <div className={styles['pop-up_inner']}>
                         {children}
                     </div>
                 </div>
