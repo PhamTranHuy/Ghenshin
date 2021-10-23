@@ -7,6 +7,7 @@ function Carousel({children, width}) {
     const [translate, setTranslate] = useState(0);
     const [dragAble, setDragAble] = useState(false);
     const [itemsTranslate, setItemsTranslate] = useState([]);
+    const [animation, setAnimation] = useState(true);
     const carouselInner = useRef();
     
     useEffect(() => {
@@ -23,6 +24,7 @@ function Carousel({children, width}) {
         e.preventDefault();
         document.addEventListener('mouseup', handleMouseUp);
         setDragAble(true);
+        setAnimation(false);
     }
     const handleMouseMove = (e) => {
         e.preventDefault();
@@ -35,6 +37,7 @@ function Carousel({children, width}) {
     const handleMouseUp = (e) => {
         e.preventDefault();
         setDragAble(false);
+        setAnimation(true);
         document.removeEventListener('mouseup', handleMouseUp);
         // If you’re using React hooks in a component with an event listener, your event listener callback cannot access the latest state
         // So i used ref to catch latest translate from carousel inner
@@ -57,10 +60,20 @@ function Carousel({children, width}) {
         })();
         setTranslate(nearlyItemTranslate);
     }
+
+    const setTransStyle = (translate) => {
+        const transform = {
+            transform: `translateX(${-translate}px)`
+        };
+        const transition = {
+            transition: `0.3s ease-out`
+        }
+        return animation ? {...transform, ...transition} : transform; 
+    }
     return (
         <div className={styles['container']} style={{width: `${width}px` }}>
             <div className={styles['carousel-outer']}>
-                <div className={styles['carousel-inner']} ref={carouselInner} style={{transform: `translateX(${-translate}px)`}}>
+                <div className={styles['carousel-inner']} ref={carouselInner} style={setTransStyle(translate)}>
                     {children.map((item, i) => (
                         <div key={i} className={styles['item']} onMouseDown={handleMouseDown} onMouseMove={handleMouseMove}>{item}</div>
                     ))}
