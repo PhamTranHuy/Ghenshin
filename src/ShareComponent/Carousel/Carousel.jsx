@@ -39,7 +39,6 @@ function Carousel({children, width}) {
         // If you’re using React hooks in a component with an event listener, your event listener callback cannot access the latest state
         // So i used ref to catch latest translate from carousel inner
         const translate = carouselInner.current.style.transform.match(/[0-9]/g).join('');
-        console.log(translate);
         autoTranslateToNearlyItem(translate, itemsTranslate);
     }
     const autoTranslateToNearlyItem = (translate, itemsTranslate) => {
@@ -53,9 +52,9 @@ function Carousel({children, width}) {
                 break;
             }
         }
-        const nearlyItemTranslate = ((leftItemTranslate, rightItemTranslate) => {
-            return translate - leftItemTranslate >= rightItemTranslate - translate ? rightItemTranslate : leftItemTranslate;
-        })(leftItemTranslate, rightItemTranslate);
+        const nearlyItemTranslate = (() => {
+            return (translate - leftItemTranslate >= rightItemTranslate - translate) ? rightItemTranslate : leftItemTranslate;
+        })();
         setTranslate(nearlyItemTranslate);
     }
     return (
