@@ -7,16 +7,16 @@ import news_img_3 from '../assets/news/news-img-3.jpg'
 import news_img_4 from '../assets/news/news-img-4.jpg'
 const CAROUSEL_ITEMS = [
     {
-        url: '#',
+        url: '',
         img: news_img_1
     },  {
-        url: '#',
+        url: '',
         img: news_img_2
     },  {
-        url: '#',
+        url: '',
         img: news_img_3
     },  {
-        url: '#',
+        url: '',
         img: news_img_4
     }
 ]
@@ -27,7 +27,7 @@ function NewsSection() {
                 <div className="carousel-wrapper">
                     <Carousel>
                         {CAROUSEL_ITEMS.map((item, i) => (
-                            <a key={i} href={item.url}>
+                            <a key={i}>
                                 <img src={item.img}/>
                             </a>
                         ))}
