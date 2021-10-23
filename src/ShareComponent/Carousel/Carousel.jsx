@@ -55,10 +55,20 @@ function Carousel({children, width}) {
                 break;
             }
         }
+
         const nearlyItemTranslate = (() => {
             return (translate - leftItemTranslate >= rightItemTranslate - translate) ? rightItemTranslate : leftItemTranslate;
         })();
+        const setIndexMatchTranslateItem = (translate, itemsTranslate) => {
+            for (let index in itemsTranslate) {
+                if (translate === itemsTranslate[index]) {
+                    setCurrentIndex(Number(index));
+                } 
+            }
+        }
+        
         setTranslate(nearlyItemTranslate);
+        setIndexMatchTranslateItem(nearlyItemTranslate, itemsTranslate);
     }
 
     const setTransStyle = (translate) => {
