@@ -12,22 +12,20 @@ function Carousel({children, width}) {
     const carouselInner = useRef();
     
     useEffect(() => {
+        // set two fake item into the start and the end of carousel to make it infinitely 
         const carouselItems = [children[children.length-1], ...children, children[0]];
         setItems(carouselItems);
         const itemsTranslate = carouselItems.map((item, index) => (index * width));
         setItemsTranslate(itemsTranslate);
-        // setTranslate(width * currentIndex);
     }, [children, width])
-
-    useEffect(() => {
-        setTranslate(width * currentIndex);
-    }, [currentIndex])
 
     const handleSwitchButtonClicked = (index) => {
         setAnimation(true);
         setCurrentIndex(index);
         setTranslate(width * index);
     }
+
+    // touching and drag carousel
     const handleMouseDown = (e) => {
         e.preventDefault();
         document.addEventListener('mouseup', handleMouseUp);
@@ -64,31 +62,34 @@ function Carousel({children, width}) {
             }
         }
 
-        const nearlyItemTranslate = (() => {
-            return (translate - leftItemTranslate >= rightItemTranslate - translate) ? rightItemTranslate : leftItemTranslate;
-        })();
+        const nearlyItemTranslate = (translate - leftItemTranslate >= rightItemTranslate - translate) ? rightItemTranslate : leftItemTranslate;
+
         const setIndexMatchTranslateItem = (translate, itemsTranslate) => {
+            const transToRealItem = (index) => {
+                setTimeout(() => {
+                    setAnimation(false);
+                    setTranslate(index * width);
+                }, 300)
+            }
+
+            let currentIndex;
             for (let index in itemsTranslate) {
                 if (translate === itemsTranslate[index]) {
-                    setCurrentIndex(Number(index));
-                    setTimeout(() => {
-                        transToRealItem(Number(index));
-                    }, 300);
-                } 
+                    currentIndex = Number(index);
+                    if (currentIndex === 0) {
+                        currentIndex = items.length - 2;
+                        transToRealItem(currentIndex);
+                    } else if (currentIndex === (items.length - 1)) {
+                        currentIndex = 1
+                        transToRealItem(currentIndex);
+                    }
+                    setCurrentIndex(currentIndex);
+                }
             }
         }
         
         setTranslate(nearlyItemTranslate);
         setIndexMatchTranslateItem(nearlyItemTranslate, itemsTranslate);
-    }
-    const transToRealItem = (index) => {
-        if (index === 0) {
-            setAnimation(false);
-            setCurrentIndex(items.length - 2);
-        } else if (index === (items.length - 1)) {
-            setAnimation(false);
-            setCurrentIndex(1);
-        }
     }
 
     const setTransStyle = (translate) => {
@@ -113,7 +114,7 @@ function Carousel({children, width}) {
                     {children.map((item, i) => (
                         <div key={i} 
                             className={
-                                `${styles['button']} ${currentIndex === (i + 1) ? styles['is-active'] : ''}`
+                                `${styles['button']} ${currentIndex == (i + 1) ? styles['is-active'] : ''}`
                             } 
                             onClick={() => { handleSwitchButtonClicked(i + 1) }}/>
                     ))}
