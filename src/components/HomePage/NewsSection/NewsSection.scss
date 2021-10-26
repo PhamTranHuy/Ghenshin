@@ -1,5 +1,32 @@
 .home_news-section {
-    .news-wrapper {
+    padding: 200px 0;
+    background: url(../assets/news/background.jpg) no-repeat center/cover;
+    font-size: 50px;
+    .news-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 70px;
+        .title {
+            font-size: 1em;
+            font-weight: 400;
+            color: #fff;
+        }
+        .frame {
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            margin: 0 40px;
+            height: 14px;
+            width: 385px;
+            img {
+                vertical-align: middle;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+    .news-container {
         display: flex;
         justify-content: center;
         align-items: center;
