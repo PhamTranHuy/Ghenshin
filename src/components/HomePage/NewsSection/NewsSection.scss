@@ -6,9 +6,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 70px;
+        margin-bottom: 40px;
         .title {
-            font-size: 1em;
+            font-size: 1.2em;
             font-weight: 400;
             color: #fff;
         }
@@ -16,8 +16,8 @@
             display: flex;
             justify-content: center;
             align-self: center;
-            margin: 0 40px;
-            height: 14px;
+            margin: 0 30px;
+            height: 18px;
             width: 385px;
             img {
                 vertical-align: middle;
@@ -30,5 +30,16 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        height: 400px;
+        .news-wrapper {
+            width: 640px;
+            height: 100%;
+            padding: 40px 20px;
+
+            font-size: 0.5em;
+
+            background: rgba(38,18,12,0.62);
+        }
     }
 }

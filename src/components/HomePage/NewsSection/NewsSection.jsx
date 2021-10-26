@@ -39,7 +39,12 @@ function NewsSection() {
                         ))}
                     </Carousel>
                 </div>
-                <div className="news-wrapper">news</div>
+                <div className="news-wrapper">
+                    <div>Lasted</div>
+                    <hr />
+                    <div className="news"></div>
+                    <div>More</div>
+                </div>
             </div>
         </div>
     )
