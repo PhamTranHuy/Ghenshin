@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import useAudio from '../../CustomHook/Audio/Audio'
+import useAudio from '../../CustomHook/Audio'
 import Navigator from './Navigator/Navigator'
 import './Header.scss'
 import UnMusic from './assets/icon/un-music.png'
