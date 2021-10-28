@@ -11,7 +11,6 @@ function useFormatDay() {
         return SHORT_MONTH[month];
     }
     const formatDate = (date) => {
-        console.log(date);
         const [day, month, year] = [formatDay(date.getDate()), formatMonth(date.getMonth()), date.getFullYear()];
         return `${month} ${day} ${year}`;
     }
