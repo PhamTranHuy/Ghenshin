@@ -7,8 +7,8 @@ import Music from './assets/icon/music.png'
 import Logo from './assets/icon/logo.png'
 import User from './assets/icon/user.png'
 
-const WAVE_SOUND = 'https://genshin.mihoyo.com/_nuxt/medias/video-bgm.d8637316.mp3';
-const MUSIC = 'https://genshin.mihoyo.com/_nuxt/medias/video-play.06ec9738.mp3';
+const WAVE_SOUND = 'https://genshin.mihoyo.com/_nuxt/medias/video-play.06ec9738.mp3';
+const MUSIC = 'https://genshin.mihoyo.com/_nuxt/medias/video-bgm.d8637316.mp3';
 
 function Header() {
     const [playMusic, setPlayMusic] = useState(false);
@@ -32,7 +32,7 @@ function Header() {
     }, [playMusic])
 
     return (
-        <header className="header">
+        <header className="home_header">
             <div className="music-box">
                 <img src={playMusic ? Music : UnMusic} alt="music" onClick={handleMusicClicked}/>
             </div>

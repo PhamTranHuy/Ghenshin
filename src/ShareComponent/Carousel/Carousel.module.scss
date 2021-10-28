@@ -1,0 +1,38 @@
+.container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    .carousel-outer {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        .carousel-inner {
+            display: flex;
+            align-items: center;
+            //transition: 0.3s ease-out;
+        }
+    }
+    .controls {
+        position: absolute;
+        bottom: 10px;
+        right: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .button {
+            width: 18px;
+            height: 18px;
+            margin: 0 4px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            background: transparent;
+            opacity: 0.5;
+            cursor: pointer;
+            &.is-active {
+                background: #fff;
+                opacity: 1;
+            }
+        }
+    }
+}
