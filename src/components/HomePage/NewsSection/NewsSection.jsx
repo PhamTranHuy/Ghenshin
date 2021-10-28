@@ -1,4 +1,5 @@
 import React from 'react'
+import useFormatDay from '../../../CustomHook/FormatDay'
 import Carousel from '../../../ShareComponent/Carousel/Carousel'
 import './NewsSection.scss'
 import news_img_1 from '../assets/news/news-img-1.jpg'
@@ -24,6 +25,7 @@ const CAROUSEL_ITEMS = [
     }
 ]
 function NewsSection() {
+    const formatDate = useFormatDay();
     return (
         <div className="home_news-section">
             <div className="news-title">
@@ -49,7 +51,7 @@ function NewsSection() {
                         {NEWS.map((item) => (
                             <a key={item.id} href={item.url} className="new-wrapper">
                                 <p className="title">{item.title}</p>
-                                <p className="date">{item.date.toString()}</p>
+                                <p className="date">{formatDate(item.date)}</p>
                             </a>
                         ))}
                     </div>

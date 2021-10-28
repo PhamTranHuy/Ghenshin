@@ -66,6 +66,7 @@
                 .new-wrapper {
                     display: flex;
                     align-items: center;
+                    justify-content: space-between;
                     padding: 5px 8px;
 
                     border-bottom: 2px solid rgba(255,255,255,0.1);
@@ -84,12 +85,11 @@
                         color: #fff;
                     }
                     .date {
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        display: -webkit-box;
-                        -webkit-line-clamp: 1; /* number of lines to show */
-                        -webkit-box-orient: vertical;
-                        color: rgba(255,255,255,0.35);
+                        min-width: 100px;
+                        margin-left: 10px;
+                        color: rgba(255, 255, 255, 0.35);
+                        font-size: 0.9em;
+                        text-align: end;
                     }
                 }
             }
