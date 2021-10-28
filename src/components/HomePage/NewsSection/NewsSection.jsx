@@ -6,6 +6,8 @@ import news_img_2 from '../assets/news/news-img-2.jpg'
 import news_img_3 from '../assets/news/news-img-3.jpg'
 import news_img_4 from '../assets/news/news-img-4.jpg'
 import frame from '../assets/news/frame.png'
+import NEWS from './data'
+
 const CAROUSEL_ITEMS = [
     {
         url: '',
@@ -40,10 +42,18 @@ function NewsSection() {
                     </Carousel>
                 </div>
                 <div className="news-wrapper">
-                    <div>Lasted</div>
-                    <hr />
-                    <div className="news"></div>
-                    <div>More</div>
+                    <ul className="header">
+                        <li className="title">Lasted</li>
+                    </ul>
+                    <div className="news">
+                        {NEWS.map((item) => (
+                            <a key={item.id} href={item.url} className="new-wrapper">
+                                <p className="title">{item.title}</p>
+                                <p className="date">{item.date.toString()}</p>
+                            </a>
+                        ))}
+                    </div>
+                    <a href='' className="more-button">More</a>
                 </div>
             </div>
         </div>

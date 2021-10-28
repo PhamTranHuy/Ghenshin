@@ -32,7 +32,7 @@ function Header() {
     }, [playMusic])
 
     return (
-        <header className="header">
+        <header className="home_header">
             <div className="music-box">
                 <img src={playMusic ? Music : UnMusic} alt="music" onClick={handleMusicClicked}/>
             </div>
