@@ -7,23 +7,24 @@ import Poster from './Poster/Poster'
 import Mondstadt from './assets/city/Mondstadt.jpg'
 import Liyue from './assets/city/Liyue.jpg'
 import Inazuma from './assets/city/Inazuma.jpg'
-import chacter_1 from './assets/city/character-1.png'
-import chacter_2 from './assets/city/character-2.png'
-import chacter_3 from './assets/city/character-3.png'
+import character_1 from './assets/city/character-1.png'
+import character_2 from './assets/city/character-2.png'
+import character_3 from './assets/city/character-3.png'
+import coming_soon from './assets/city/coming-soon.jpg'
 
 const CITIES = [
     {
         name: 'Mondstadt',
         background: Mondstadt,
-        character: chacter_1
+        character: character_1
     }, {
         name: 'Liyue',
         background: Liyue,
-        character: chacter_2
+        character: character_2
     }, {
         name: 'Inazuma',
         background: Inazuma,
-        character: chacter_3
+        character: character_3
     }
 ];
 
@@ -32,7 +33,10 @@ function HomePage() {
         <div className="home">
            <Poster />
            <NewsSection />
-           {CITIES.map((city, i) => (<City key={i} name={city.name} background={city.background} character={city.character} />))}
+           {CITIES.map((city, i) => (
+                <City key={i} name={city.name} background={city.background} character={city.character} />
+            ))}
+             <City disable={true} name={'Coming Soon'} background={coming_soon} />
         </div>
     )
 }
