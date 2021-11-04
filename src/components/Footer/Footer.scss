@@ -17,6 +17,9 @@
             display: block;
             margin: 0 12px;
             color: #999;
+            &:hover {
+                color: #fff;
+            }
         }
     }
     .languages {
@@ -24,6 +27,7 @@
         justify-content: flex-end;
         align-items: center;
         flex: 1;
+        cursor: pointer;
         & > * {
             margin: 0 12px;
         }
