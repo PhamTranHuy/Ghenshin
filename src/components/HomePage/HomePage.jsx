@@ -31,12 +31,12 @@ const CITIES = [
 function HomePage() {
     return (
         <div className="home">
-           <Poster />
-           <NewsSection />
-           {CITIES.map((city, i) => (
+            <Poster />
+            <NewsSection />
+            {CITIES.map((city, i) => (
                 <City key={i} name={city.name} background={city.background} character={city.character} />
             ))}
-             <City disable={true} name={'Coming Soon'} background={coming_soon} />
+            <City disable={true} name={'Coming Soon'} background={coming_soon} />
         </div>
     )
 }
