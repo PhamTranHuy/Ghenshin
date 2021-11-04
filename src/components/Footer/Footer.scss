@@ -1,0 +1,36 @@
+.footer {
+    background-color: #111;
+    color: #999;
+    font-size: 24px;
+    .footer-top {
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        width: 1280px;
+        border-bottom: 1px solid #333;
+    }
+    .social-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .social-button {
+            display: block;
+            margin: 0 12px;
+            color: #999;
+        }
+    }
+    .languages {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex: 1;
+        & > * {
+            margin: 0 12px;
+        }
+        .arrow {
+            border: 7px solid transparent;
+            border-top: 7px solid #333;
+            transform: translate(0, 5px);
+        }
+    }
+}
