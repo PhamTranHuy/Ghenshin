@@ -1,7 +1,7 @@
 .footer {
     background-color: #111;
     color: #999;
-    font-size: 24px;
+    font-size: 22px;
     .footer-top {
         display: flex;
         align-items: center;
@@ -13,6 +13,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        font-size: 1.3em;
         .social-button {
             display: block;
             margin: 0 12px;
