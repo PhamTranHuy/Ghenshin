@@ -3,6 +3,7 @@ import City from './City/City'
 import './HomePage.scss'
 import NewsSection from './NewsSection/NewsSection'
 import Poster from './Poster/Poster'
+import FixedMenu from '../../ShareComponent/FixedMenu/FixedMenu'
 
 import Mondstadt from './assets/city/Mondstadt.jpg'
 import Liyue from './assets/city/Liyue.jpg'
@@ -11,7 +12,6 @@ import character_1 from './assets/city/character-1.png'
 import character_2 from './assets/city/character-2.png'
 import character_3 from './assets/city/character-3.png'
 import coming_soon from './assets/city/coming-soon.jpg'
-import FixedMenu from '../../ShareComponent/FixedMenu/FixedMenu'
 
 const CITIES = [
     {
@@ -31,31 +31,31 @@ const CITIES = [
 const SOCIALS = [
     {
         name: 'Facebook',
-        icon: <i class="fab fa-facebook-f"></i>,
+        icon: <i className="fab fa-facebook-f"></i>,
         url: ''
     }, {
         name: 'Twitter',
-        icon: <i class="fab fa-twitter"></i>,
+        icon: <i className="fab fa-twitter"></i>,
         url: ''
     }, {
         name: 'YouTube',
-        icon: <i class="fab fa-youtube"></i>,
+        icon: <i className="fab fa-youtube"></i>,
         url: ''
     }, {
         name: 'Instagram',
-        icon: <i class="fab fa-instagram"></i>,
+        icon: <i className="fab fa-instagram"></i>,
         url: ''
     }, {
         name: 'Discord',
-        icon: <i class="fab fa-discord"></i>,
+        icon: <i className="fab fa-discord"></i>,
         url: ''
     }, {
         name: 'Reddit',
-        icon: <i class="fab fa-reddit-alien"></i>,
+        icon: <i className="fab fa-reddit-alien"></i>,
         url: ''
     }, {
         name: 'HoYoLAB',
-        icon: <i class="fas fa-dragon"></i>,
+        icon: <i className="fas fa-dragon"></i>,
         url: ''
     }
 ]
