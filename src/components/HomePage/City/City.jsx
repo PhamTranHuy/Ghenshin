@@ -15,8 +15,8 @@ function City({name, background, character, disable}) {
 
 City.propTypes = {
     name: PropTypes.string,
-    background: PropTypes.symbol,
-    character: PropTypes.symbol,
+    background: PropTypes.string,
+    character: PropTypes.string,
     disable: PropTypes.bool
 }
 

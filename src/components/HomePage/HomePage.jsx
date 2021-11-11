@@ -70,8 +70,8 @@ function HomePage() {
             ))}
             <City disable={true} name={'Coming Soon'} background={coming_soon} />
             <FixedMenu>
-                {SOCIALS.map((social) => (
-                    <a href={social.url} className="social-container">
+                {SOCIALS.map((social, index) => (
+                    <a key={index} href={social.url} className="social-container">
                         <div>{social.icon}</div>
                         <p>{social.name}</p>
                     </a>
