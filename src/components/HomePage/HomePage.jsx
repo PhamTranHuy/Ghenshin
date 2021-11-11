@@ -3,6 +3,7 @@ import City from './City/City'
 import './HomePage.scss'
 import NewsSection from './NewsSection/NewsSection'
 import Poster from './Poster/Poster'
+import FixedMenu from '../../ShareComponent/FixedMenu/FixedMenu'
 
 import Mondstadt from './assets/city/Mondstadt.jpg'
 import Liyue from './assets/city/Liyue.jpg'
@@ -27,16 +28,55 @@ const CITIES = [
         character: character_3
     }
 ];
+const SOCIALS = [
+    {
+        name: 'Facebook',
+        icon: <i className="fab fa-facebook-f"></i>,
+        url: ''
+    }, {
+        name: 'Twitter',
+        icon: <i className="fab fa-twitter"></i>,
+        url: ''
+    }, {
+        name: 'YouTube',
+        icon: <i className="fab fa-youtube"></i>,
+        url: ''
+    }, {
+        name: 'Instagram',
+        icon: <i className="fab fa-instagram"></i>,
+        url: ''
+    }, {
+        name: 'Discord',
+        icon: <i className="fab fa-discord"></i>,
+        url: ''
+    }, {
+        name: 'Reddit',
+        icon: <i className="fab fa-reddit-alien"></i>,
+        url: ''
+    }, {
+        name: 'HoYoLAB',
+        icon: <i className="fas fa-dragon"></i>,
+        url: ''
+    }
+]
 
 function HomePage() {
     return (
         <div className="home">
-           <Poster />
-           <NewsSection />
-           {CITIES.map((city, i) => (
+            <Poster />
+            <NewsSection />
+            {CITIES.map((city, i) => (
                 <City key={i} name={city.name} background={city.background} character={city.character} />
             ))}
-             <City disable={true} name={'Coming Soon'} background={coming_soon} />
+            <City disable={true} name={'Coming Soon'} background={coming_soon} />
+            <FixedMenu>
+                {SOCIALS.map((social, index) => (
+                    <a key={index} href={social.url} className="social-container">
+                        <div>{social.icon}</div>
+                        <p>{social.name}</p>
+                    </a>
+                ))}
+            </FixedMenu>
         </div>
     )
 }
