@@ -12,6 +12,7 @@ const MUSIC = 'https://genshin.mihoyo.com/_nuxt/medias/video-bgm.d8637316.mp3';
 
 function Header() {
     const [playMusic, setPlayMusic] = useState(false);
+    const [activeHamburger, setActiveHamburger] = useState(false);
     const [setPlayingWaveSound] = useAudio(WAVE_SOUND);
     const [setPlayingMusic] = useAudio(MUSIC);
 
@@ -26,6 +27,9 @@ function Header() {
             setPlayingMusic(false);
             setPlayingWaveSound(false);
         }
+    }
+    const handleHamburgerClicked = () => {
+        setActiveHamburger((activeHamburger) => !activeHamburger);
     }
     useEffect(() => {
         toggleMusic();
@@ -48,6 +52,13 @@ function Header() {
             <a href="" className="download">
                 <div>Download</div>
             </a>
+            <button className= {
+                            `${'hamburger'} 
+                            ${activeHamburger ? 'is-active' : ''}`
+                    } 
+                    onClick={handleHamburgerClicked}>
+                <div class="bar"></div>
+            </button>
         </header>
     )
 }

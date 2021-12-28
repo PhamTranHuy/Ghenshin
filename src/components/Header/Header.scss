@@ -33,6 +33,9 @@
         align-items: center;
         padding: 0 20px;
         cursor: pointer;
+        @media screen and (max-width: 1200px) {
+            display: none;
+        }
         .icon {
             margin-left: 18px;
             width: 28px;
@@ -60,9 +63,59 @@
 
         color: #554528;
         background-color: rgb(255, 207, 13);
+
+        @media screen and (max-width: 1200px) {
+            width: 120px;
+            height: 60%;
+            border-radius: 4px;
+
+            font-size: 1em;
+            letter-spacing: 2px;
+        }
     }
     img {
         width: 100%;
         height: 100%;
+    }
+    .hamburger {
+        display: none;
+        position: relative;
+        width: 40px;
+        height: 40px;
+        margin: 0 15px;
+        cursor: pointer;
+        appearance: none;
+        background: transparent;
+        align-self: center;
+
+        @media screen and (max-width: 1200px) {
+            display: block;
+        }
+    }
+    .hamburger .bar, .hamburger::before, .hamburger::after {
+        content: '';
+        display: block;
+        width: 70%;
+        height: 4px;
+        border-radius: 8px;
+        margin: 5px 0;
+
+        background: #fff;
+        box-shadow: 0px 0px 1px 0px #c5c5c5;
+
+        opacity: 1;
+        transition: 0.4s;
+    }
+    .hamburger:hover .bar, .hamburger:hover::before, .hamburger:hover::after {
+        box-shadow: 0px 0px 4px 0px #c5c5c5;
+    }
+    .hamburger.is-active .bar {
+        opacity: 0;
+    }
+    .hamburger.is-active::before {
+        transform:  rotate(45deg) translate(9px, 4.5px);
+    }
+    .hamburger.is-active::after {
+        transform: rotate(-45deg) translate(8px, -4px);
     }
 }
