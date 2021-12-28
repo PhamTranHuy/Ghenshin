@@ -10,8 +10,14 @@
             text-shadow: 0 0 10px #69e0ff, 0 0 20px #69e0ff, 0 0 40px #69e0ff;
             color: #fff;
         }
+        &.more-item {
+            display: block;
+            @media screen and (max-width: 1400px) {
+                display: none;
+            }
+        }
     }
-    .nav-button--more {
+    .nav-button--explore {
         display: flex;
         align-items: center;
         &::after {
@@ -45,6 +51,12 @@
                     background: #3f3e40;
                 }
             }
+        }
+    }
+    #more-menu {
+        display: none;
+        @media screen and (max-width: 1400px) {
+            display: block;
         }
     }
 }
