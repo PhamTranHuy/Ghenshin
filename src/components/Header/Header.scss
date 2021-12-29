@@ -19,14 +19,30 @@
         height: 30px;
         margin-left: 70px;
         cursor: pointer;
+        @media screen and (max-width: 1200px) {
+            order: 3;
+            margin-right: 15px
+        }
     }
     .logo {
         height: 100%;
         margin: 0 -55px 0 -70px;
         pointer-events: none;
+        @media screen and (max-width: 1200px) {
+            width: 250px;
+            height: auto;
+            margin: 0 0 0 -30px;
+            order: 1;
+            img {
+                vertical-align: middle;
+            }
+        }
     }
     .space {
         flex: 1;
+        @media screen and (max-width: 1200px) {
+            order: 2;
+        }
     }
     .login {
         display: flex;
@@ -71,6 +87,8 @@
 
             font-size: 1em;
             letter-spacing: 2px;
+
+            order: 4;
         }
     }
     img {
@@ -90,6 +108,7 @@
 
         @media screen and (max-width: 1200px) {
             display: block;
+            order: 5;
         }
     }
     .hamburger .bar, .hamburger::before, .hamburger::after {
