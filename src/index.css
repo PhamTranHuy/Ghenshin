@@ -21,3 +21,7 @@ code {
   box-sizing: border-box;
   text-decoration: none;
 }
+
+ul, li {
+  list-style: none;
+}

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import useAudio from '../../CustomHook/Audio'
 import Navigator from './Navigator/Navigator'
+import Popup from '../../ShareComponent/Popup/Popup'
+import HamburgerMenu from './HamburgerMenu/HamburgerMenu'
 import './Header.scss'
 import UnMusic from './assets/icon/un-music.png'
 import Music from './assets/icon/music.png'
@@ -57,8 +59,11 @@ function Header() {
                             ${activeHamburger ? 'is-active' : ''}`
                     } 
                     onClick={handleHamburgerClicked}>
-                <div class="bar"></div>
+                <div className="bar"></div>
             </button>
+            <Popup trigger={activeHamburger} handleMaskClicked={handleHamburgerClicked}>
+                    <HamburgerMenu />
+            </Popup>
         </header>
     )
 }

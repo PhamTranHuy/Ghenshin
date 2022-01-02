@@ -12,5 +12,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 1;
+    }
+    .pop-up-inner {
+        position: relative;
+        z-index: 2;
     }
 }

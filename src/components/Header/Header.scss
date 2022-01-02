@@ -100,16 +100,18 @@
         position: relative;
         width: 40px;
         height: 40px;
+        z-index: 1000;
         margin: 0 15px;
         cursor: pointer;
         appearance: none;
         background: transparent;
         align-self: center;
-
+    
         @media screen and (max-width: 1200px) {
             display: block;
             order: 5;
         }
+    
     }
     .hamburger .bar, .hamburger::before, .hamburger::after {
         content: '';
@@ -118,10 +120,10 @@
         height: 4px;
         border-radius: 8px;
         margin: 5px 0;
-
+    
         background: #fff;
         box-shadow: 0px 0px 1px 0px #c5c5c5;
-
+    
         opacity: 1;
         transition: 0.4s;
     }
@@ -136,5 +138,5 @@
     }
     .hamburger.is-active::after {
         transform: rotate(-45deg) translate(8px, -4px);
-    }
+    }    
 }

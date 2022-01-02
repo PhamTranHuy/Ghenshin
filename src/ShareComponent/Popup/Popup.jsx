@@ -6,10 +6,9 @@ function Popup({children, trigger, handleMaskClicked}) {
     return (
         trigger && (
             <div className={styles['pop-up']}>
-                <div className={styles['pop-up_mask']} onClick={handleMaskClicked}>
-                    <div className={styles['pop-up_inner']}>
-                        {children}
-                    </div>
+                <div className={styles['pop-up_mask']} onClick={handleMaskClicked} />
+                <div className={styles['pop-up_inner']}>
+                    {children}
                 </div>
             </div>
         )
