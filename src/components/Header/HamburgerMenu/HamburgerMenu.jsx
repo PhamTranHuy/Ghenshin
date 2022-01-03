@@ -6,8 +6,7 @@ function HamburgerMenu() {
     const [explore, setExplore] = useState(false);
 
     const handleExploreClicked = (e) => {
-        e.preventDefault();
-        console.log(e)
+        e.stopPropagation();
         setExplore((explore) => !explore);
     }
 
@@ -17,7 +16,7 @@ function HamburgerMenu() {
         })
     }, [])
     return (
-        <div className="hamburger-menu">
+        <div className="hamburger-menu" onClick={(e) => {e.stopPropagation()}}>
             <div className="hamburger-header"></div>
             <nav className="hamburger-nav">
                 <a className="nav-button" href="">HOME</a>
