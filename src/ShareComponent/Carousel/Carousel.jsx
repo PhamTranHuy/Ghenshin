@@ -114,7 +114,8 @@ function Carousel({children, width}) {
                     {children.map((item, i) => (
                         <div key={i} 
                             className={
-                                `${styles['button']} ${currentIndex == (i + 1) ? styles['is-active'] : ''}`
+                                `${styles['button']} 
+                                ${currentIndex == (i + 1) ? styles['is-active'] : ''}`
                             } 
                             onClick={() => { handleSwitchButtonClicked(i + 1) }}/>
                     ))}

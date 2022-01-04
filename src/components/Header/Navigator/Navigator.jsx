@@ -35,7 +35,7 @@ function Navigator() {
                 <div className="nav-button">NEWS</div>
                 <div className="nav-button">CHARACTERS</div>
                 <div id="explore" className="sub-list-wrapper">
-                    <div className="nav-button nav-button--more">EXPLORE</div>
+                    <div className="nav-button nav-button--explore">EXPLORE</div>
                     <ul className="sub-list explore">
                         <li className="sub-items">ABOUT GAME</li>
                         <li className="sub-items">TEYVAT</li>
@@ -43,13 +43,20 @@ function Navigator() {
                         <li className="sub-items">MANGA</li>
                     </ul>
                 </div>
-                <div className="nav-button">HoYoLAB</div>
-                <div className="nav-button">TOP-UP</div>
-                <div className="nav-button">REDEEM CODE</div>
+                <div id="more-menu" className="sub-list-wrapper">
+                    <div className="nav-button nav-button--explore">MORE</div>
+                    <ul className="sub-list explore">
+                        <li className="sub-items">HoYoLAB</li>
+                        <li className="sub-items">TOP-UP</li>
+                        <li className="sub-items">REDEEM CODE</li>
+                    </ul>
+                </div>
+                <div className="nav-button more-item">HoYoLAB</div>
+                <div className="nav-button more-item">TOP-UP</div>
+                <div className="nav-button more-item">REDEEM CODE</div>
             </nav>
             <div className="header_nav-pointer"></div>
         </div>
-       
     )
 }
 

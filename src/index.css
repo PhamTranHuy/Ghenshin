@@ -21,3 +21,17 @@ code {
   box-sizing: border-box;
   text-decoration: none;
 }
+
+html {
+  font-size: 14px;
+}
+
+ul, li {
+  list-style: none;
+}
+
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 12px;
+  }
+}

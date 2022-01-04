@@ -15,24 +15,45 @@
 
     font-size: 16px;
     .music-box {
-        width: 30px;
-        height: 30px;
-        margin-left: 70px;
+        width: 2rem;
+        height: 2rem;
+        margin-left: 6rem;
         cursor: pointer;
+        @media screen and (max-width: 1200px) {
+            order: 3;
+            margin-right: 0.8rem;
+            margin-left: 0;
+        }
     }
     .logo {
         height: 100%;
+        min-width: 180px;
         margin: 0 -55px 0 -70px;
         pointer-events: none;
+        @media screen and (max-width: 1200px) {
+            width: 250px;
+            height: auto;
+            margin: 0 0 0 -30px;
+            order: 1;
+            img {
+                vertical-align: middle;
+            }
+        }
     }
     .space {
         flex: 1;
+        @media screen and (max-width: 1200px) {
+            order: 2;
+        }
     }
     .login {
         display: flex;
         align-items: center;
         padding: 0 20px;
         cursor: pointer;
+        @media screen and (max-width: 1200px) {
+            display: none;
+        }
         .icon {
             margin-left: 18px;
             width: 28px;
@@ -50,7 +71,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 200px;
+        width: 14rem;
         height: 100%;
 
         text-align: center;
@@ -60,9 +81,76 @@
 
         color: #554528;
         background-color: rgb(255, 207, 13);
+
+        @media screen and (max-width: 1200px) {
+            width: 8rem;
+            height: 3rem;
+            border-radius: 4px;
+
+            font-size: 1rem;
+            letter-spacing: 2px;
+
+            order: 4;
+        }
     }
     img {
         width: 100%;
         height: 100%;
     }
+    .hamburger {
+        display: none;
+        position: relative;
+        width: 2.5rem;
+        height: 2.5rem;
+        z-index: 1000;
+        margin: 0 20px;
+        cursor: pointer;
+        appearance: none;
+        background: transparent;
+        align-self: center;
+    
+        @media screen and (max-width: 1200px) {
+            display: block;
+            margin: 0 0.8rem;
+            order: 5;
+        }
+    
+    }
+    .hamburger .bar, .hamburger::before, .hamburger::after {
+        content: '';
+        display: block;
+        width: 70%;
+        height: 4px;
+        border-radius: 8px;
+        margin: 5px 0;
+    
+        background: #fff;
+        box-shadow: 0px 0px 1px 0px #c5c5c5;
+    
+        opacity: 1;
+        transition: 0.4s;
+
+        @media screen and (max-width: 500px) {
+            height: 3px;
+            width: 80%;
+        }
+    }
+    .hamburger:hover .bar, .hamburger:hover::before, .hamburger:hover::after {
+        box-shadow: 0px 0px 4px 0px #c5c5c5;
+    }
+    .hamburger.is-active .bar {
+        opacity: 0;
+    }
+    .hamburger.is-active::before {
+        transform:  rotate(45deg) translate(9px, 4.5px);
+        @media screen and (max-width: 500px) {
+            transform: rotate(45deg) translate(9.5px, 3px);
+        }
+    }
+    .hamburger.is-active::after {
+        transform: rotate(-45deg) translate(8px, -4px);
+        @media screen and (max-width: 500px) {
+            transform:  rotate(-45deg) translate(8px, -2.5px);
+        }
+    }    
 }
