@@ -10,10 +10,19 @@ import poster_age_logo from '../assets/poster/poster-age.png'
 import close_button from '../assets/poster/close-icon.png'
 
 import Popup from '../../../ShareComponent/Popup/Popup'
+import useWindowSize from '../../../CustomHook/WindowSize'
+import { useEffect } from 'react/cjs/react.development'
 
 function Poster() {
     const [triggerPopup, setTriggerPopup] = useState(false);
-
+    const windowSize = useWindowSize();
+    const handleVideoPosterSize = () => {
+        if (windowSize.width <= 850) {
+            return {
+                width: windowSize.width + 'px'
+            }
+        }
+    }
     return (
         <div className="home_poster">
             <div className="background-wrapper">
@@ -42,7 +51,7 @@ function Poster() {
                 <img src={poster_age_logo} alt="" />
             </div>
             <Popup trigger={triggerPopup} handleMaskClicked={() => {setTriggerPopup(false)}}>
-                <div className="pop-up_video-wrapper">
+                <div className="pop-up_video-wrapper" style={handleVideoPosterSize()}>
                     <iframe className="video" src="https://www.youtube.com/embed/5DuZblVxG3I" 
                     scrolling="no" border="0" frameBorder="no" framespacing="0" 
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
