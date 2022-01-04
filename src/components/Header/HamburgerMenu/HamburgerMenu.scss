@@ -8,7 +8,7 @@
 
     background: #fff;
 
-    font-size: 26px;
+    font-size: 1.5rem;
 
     transform: translateX(100%);
     transition: 0.4s;
@@ -17,12 +17,9 @@
         height: 65px;
         background: #393b40;
     }
-    .hamburger-nav {
-        padding-left: 50px;
-    }
     .nav-button {
         display: block;
-        padding: 10px 0;
+        padding: 10px 0 10px 3rem;
         color: #000;
     }
     #explore {
@@ -30,10 +27,10 @@
         &::after {
             content: '';
             position: absolute;
-            right: 40px;
-            top: 32px;
-            border: 10px solid transparent;
-            border-top: 10px solid #333;
+            right: 3.5rem;
+            top: 2rem;
+            border: 0.6rem solid transparent;
+            border-top: 0.6rem solid #333;
             opacity: 0.3;
             transition: 0.4s;
         }
@@ -43,11 +40,11 @@
     }
     .explore-sub-menu {
         height: 0;
-        padding-left: 50px;
+        padding-left: 3rem;
         overflow: hidden;
         transition: 0.4s;
         &.is-active {
-            height: 292px;
+            height: 19rem;
         }
         li {
             padding: 10px 0;

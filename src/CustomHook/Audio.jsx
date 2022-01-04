@@ -20,7 +20,7 @@ const useAudio = url => {
         };
       }, []);
     
-      return [setPlaying];
+      return setPlaying;
 }
 
 export default useAudio

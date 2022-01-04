@@ -8,6 +8,7 @@ import UnMusic from './assets/icon/un-music.png'
 import Music from './assets/icon/music.png'
 import Logo from './assets/icon/logo.png'
 import User from './assets/icon/user.png'
+import useWindowSize from '../../CustomHook/WindowSize'
 
 const WAVE_SOUND = 'https://genshin.mihoyo.com/_nuxt/medias/video-play.06ec9738.mp3';
 const MUSIC = 'https://genshin.mihoyo.com/_nuxt/medias/video-bgm.d8637316.mp3';
@@ -15,8 +16,9 @@ const MUSIC = 'https://genshin.mihoyo.com/_nuxt/medias/video-bgm.d8637316.mp3';
 function Header() {
     const [playMusic, setPlayMusic] = useState(false);
     const [activeHamburger, setActiveHamburger] = useState(false);
-    const [setPlayingWaveSound] = useAudio(WAVE_SOUND);
-    const [setPlayingMusic] = useAudio(MUSIC);
+    const setPlayingWaveSound = useAudio(WAVE_SOUND);
+    const setPlayingMusic = useAudio(MUSIC);
+    const windowSize = useWindowSize();
 
     const handleMusicClicked = () => {
         setPlayMusic((playMusic) => !playMusic);
@@ -36,6 +38,12 @@ function Header() {
     useEffect(() => {
         toggleMusic();
     }, [playMusic])
+
+    useEffect(() => {
+        if (windowSize.width >= 1200) {
+            setActiveHamburger(false);
+        }
+    }, [windowSize])
 
     return (
         <header className="home_header">
