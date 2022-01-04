@@ -36,10 +36,13 @@ function Poster() {
                 </div>
                 <div className="desc">Released on Multiple Platforms - Download Now!</div>
                 <div className="download-banner">
-                    <a href="#" className="download-button"><img src={ps4_logo}/></a>
-                    <a href="#" className="download-button"><img src={app_store_logo}/></a>
-                    <a href="#" className="download-button"><img src={google_play_logo}/></a>
-                    <a href="#" className="download-button"><img src={windows_logo}/></a>
+                    <a href="#" className="download-img"><img src={ps4_logo}/></a>
+                    <a href="#" className="download-img"><img src={app_store_logo}/></a>
+                    <a href="#" className="download-img"><img src={google_play_logo}/></a>
+                    <a href="#" className="download-img"><img src={windows_logo}/></a>
+                    <a href="" className="download-button">
+                        <div>Download Now</div>
+                    </a>
                 </div>
                 <div className="poster-arrow-wrapper">
                     <img className="poster-arrow poster-arrow--first" src={poster_arrow_icon} alt="" />
