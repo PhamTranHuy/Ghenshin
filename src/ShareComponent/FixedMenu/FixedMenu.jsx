@@ -1,24 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import './FixedMenu.scss'
+import useWindowScroll from '../../CustomHook/WindowScroll';
 
 function FixedMenu({children}) {
     const [open, setOpen] = useState(true);
     const [hidden, setHidden] = useState(true);
+    const windowScroll = useWindowScroll();
 
     useEffect(() => {
-        const scrollHandle = () => {
-            if (window.scrollY <= 400 && !hidden) {
-                setHidden(true)
-            } else if (window.scrollY > 400 && hidden) {
-                setHidden(false)
-            }
+        if (windowScroll.scrollY <= 400 && !hidden) {
+            setHidden(true)
+        } else if (windowScroll.scrollY > 400 && hidden) {
+            setHidden(false)
         }
-        document.addEventListener('scroll', scrollHandle)
-        return () => {
-            document.removeEventListener('scroll', scrollHandle)
-        }
-    }, [hidden])
+    }, [windowScroll])
 
     const handleClicked = () => {
         setOpen((open) => !open)
