@@ -49,12 +49,12 @@ function Header() {
     }, [windowSize])
 
     useEffect(() => {
-        if (windowSize.width < 1200 && windowScroll.scrollY > 0) {
-            setHideHeaderMobile(false);
-        } else {
+        if (windowSize.width < 1200 && windowScroll.scrollY === 0) {
             setHideHeaderMobile(true);
+        } else {
+            setHideHeaderMobile(false);
         }
-    }, [windowScroll])
+    }, [windowScroll, windowSize])
 
     return (
         <header className={`home_header ${hideHeaderMobile ? 'none-active' : ''}`}>            
