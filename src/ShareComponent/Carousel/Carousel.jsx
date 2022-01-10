@@ -17,6 +17,7 @@ function Carousel({children, width}) {
         setItems(carouselItems);
         const itemsTranslate = carouselItems.map((item, index) => (index * width));
         setItemsTranslate(itemsTranslate);
+        setTranslate(width * currentIndex);
     }, [children, width])
 
     const handleSwitchButtonClicked = (index) => {
@@ -129,9 +130,9 @@ Carousel.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
         ]).isRequired,
-    width: PropTypes.string
+    width: PropTypes.number
 }
 Carousel.defaultProps = {
-    width: '640'
+    width: 640
 };
 export default Carousel
