@@ -53,6 +53,9 @@
             font-size: 1.66rem;
 
             background: rgba(38,18,12,0.62);
+            @media screen and (max-width: 1200px) {
+                background: none;
+            }
             .header {
                 color: #ffd49f;
                 border-bottom: 3px solid rgba(255,255,255,0.1);
@@ -100,6 +103,11 @@
                         color: rgba(255, 255, 255, 0.35);
                         font-size: 0.9em;
                         text-align: end;
+                        @media screen and (max-width: 1200px) {
+                            min-width: 65px;
+                            margin-left: 0;
+                            font-size: 0.75em;
+                        }
                     }
                 }
             }
@@ -116,6 +124,29 @@
                     background: url(../assets/news/plus-icon-hover.png) no-repeat left center;
                     color: rgba(255,212,159,0.75);
                 }
+                @media screen and (max-width: 1200px) {
+                    display: block;
+                    align-self: initial;
+                    margin-top: 20px;
+                    padding: 0;
+                    border: 1px solid #ffd49f;
+                    border-radius: 4px;
+
+                    text-align: center;
+                    font-size: 2rem;
+                    
+                    background: rgba(255, 212, 159, 0.1);
+                    color: #ffd49f;
+                    &:hover {
+                        background: none;
+                        color: rgba(255,212,159,0.75);
+                    }
+                }
+            }
+        }
+        .carousel-wrapper {
+            @media screen and (max-width: 1200px) {
+                border: 2px solid #fff;
             }
         }
     }
