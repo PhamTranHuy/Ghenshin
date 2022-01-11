@@ -10,10 +10,19 @@ import poster_age_logo from '../assets/poster/poster-age.png'
 import close_button from '../assets/poster/close-icon.png'
 
 import Popup from '../../../ShareComponent/Popup/Popup'
+import useWindowSize from '../../../CustomHook/WindowSize'
+import { useEffect } from 'react/cjs/react.development'
 
 function Poster() {
     const [triggerPopup, setTriggerPopup] = useState(false);
-
+    const windowSize = useWindowSize();
+    const handleVideoPosterSize = () => {
+        if (windowSize.width <= 850) {
+            return {
+                width: windowSize.width + 'px'
+            }
+        }
+    }
     return (
         <div className="home_poster">
             <div className="background-wrapper">
@@ -27,10 +36,13 @@ function Poster() {
                 </div>
                 <div className="desc">Released on Multiple Platforms - Download Now!</div>
                 <div className="download-banner">
-                    <a href="#" className="download-button"><img src={ps4_logo}/></a>
-                    <a href="#" className="download-button"><img src={app_store_logo}/></a>
-                    <a href="#" className="download-button"><img src={google_play_logo}/></a>
-                    <a href="#" className="download-button"><img src={windows_logo}/></a>
+                    <a href="#" className="download-img"><img src={ps4_logo}/></a>
+                    <a href="#" className="download-img"><img src={app_store_logo}/></a>
+                    <a href="#" className="download-img"><img src={google_play_logo}/></a>
+                    <a href="#" className="download-img"><img src={windows_logo}/></a>
+                    <a href="" className="download-button">
+                        <div>Download Now</div>
+                    </a>
                 </div>
                 <div className="poster-arrow-wrapper">
                     <img className="poster-arrow poster-arrow--first" src={poster_arrow_icon} alt="" />
@@ -42,7 +54,7 @@ function Poster() {
                 <img src={poster_age_logo} alt="" />
             </div>
             <Popup trigger={triggerPopup} handleMaskClicked={() => {setTriggerPopup(false)}}>
-                <div className="pop-up_video-wrapper">
+                <div className="pop-up_video-wrapper" style={handleVideoPosterSize()}>
                     <iframe className="video" src="https://www.youtube.com/embed/5DuZblVxG3I" 
                     scrolling="no" border="0" frameBorder="no" framespacing="0" 
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 

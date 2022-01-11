@@ -14,6 +14,14 @@
     box-shadow: 0 3px 7px 0 #00000047;
 
     font-size: 16px;
+    &.none-active > div:not(:last-child) {
+        display: none !important;
+    }
+    &.none-active {
+        background: transparent;
+        box-shadow: none;
+        justify-content: flex-end;
+    }
     .music-box {
         width: 2rem;
         height: 2rem;
@@ -125,7 +133,7 @@
         margin: 5px 0;
     
         background: #fff;
-        box-shadow: 0px 0px 1px 0px #c5c5c5;
+        box-shadow: 0px 0px 4px 0px #696969;
     
         opacity: 1;
         transition: 0.4s;
