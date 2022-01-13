@@ -35,6 +35,8 @@ function NewsSection() {
         if (windowSize.width <= 1200) {
             const newsWrapperWidth = document.querySelector('.news-wrapper').offsetWidth;
             setCarouselWidth(newsWrapperWidth);
+        } else {
+            setCarouselWidth(640);
         }
     }, [windowSize])
     return (
