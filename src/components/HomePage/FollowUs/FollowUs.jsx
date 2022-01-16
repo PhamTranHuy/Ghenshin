@@ -14,8 +14,8 @@ function FollowUs() {
                 </div>
                 <ul className="list-container">
                     {HOME_DATA.SOCIALS.map((social, index) => (
-                        <li className="list-item">
-                            <a key={index} href={social.url} className="social-wrapper">
+                        <li className="list-item" key={index}>
+                            <a href={social.url} className="social-wrapper">
                                 <div>{social.icon}</div>
                                 <p>{social.name}</p>
                             </a>
