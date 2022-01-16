@@ -11,7 +11,6 @@ import close_button from '../assets/poster/close-icon.png'
 
 import Popup from '../../../ShareComponent/Popup/Popup'
 import useWindowSize from '../../../CustomHook/WindowSize'
-import { useEffect } from 'react/cjs/react.development'
 
 function Poster() {
     const [triggerPopup, setTriggerPopup] = useState(false);
