@@ -17,7 +17,7 @@ function Carousel({children, width}) {
         setItems(carouselItems);
         const itemsTranslate = carouselItems.map((item, index) => (index * width));
         setItemsTranslate(itemsTranslate);
-        setTranslate(width * currentIndex);
+        setTranslate(width);
     }, [children, width])
 
     const handleSwitchButtonClicked = (index) => {
@@ -116,7 +116,7 @@ function Carousel({children, width}) {
                         <div key={i} 
                             className={
                                 `${styles['button']} 
-                                ${currentIndex == (i + 1) ? styles['is-active'] : ''}`
+                                ${currentIndex === (i + 1) ? styles['is-active'] : ''}`
                             } 
                             onClick={() => { handleSwitchButtonClicked(i + 1) }}/>
                     ))}

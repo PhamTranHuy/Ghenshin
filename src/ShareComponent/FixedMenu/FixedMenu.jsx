@@ -14,7 +14,7 @@ function FixedMenu({children}) {
         } else if (windowScroll.scrollY > 400 && hidden) {
             setHidden(false)
         }
-    }, [windowScroll])
+    }, [windowScroll, hidden])
 
     const handleClicked = () => {
         setOpen((open) => !open)
