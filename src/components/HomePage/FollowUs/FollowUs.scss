@@ -1,76 +1,78 @@
-.follow-us-container {
-    display: none;
-    padding: 3rem 4rem;
-    background: url(../assets/follow-us/follow-us-background.jpg) no-repeat top center/cover;
-
-    @media screen and (max-width: 1200px) {
-        display: block;
-    }
-    .header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 2rem;
-        .frame {
-            display: flex;
-            justify-content: center;
-            align-self: center;
-            margin: 0 1.5rem;
-            width: 25rem;
-            @media screen and (max-width: 500px) {
-                margin: 0.5rem;
-            }
-            img {
-                vertical-align: middle;
-                height: 100%;
-                width: 100%;
-            }
-        }
-    }
-    .list-container {
-        .list-item {
-            border-top: 0.02rem solid rgba(255,255,255,0.1);
-            padding: 1rem 0;
+.follow-us {
+    .follow-us-container {
+        display: none;
+        padding: 3rem 4rem;
+        background: url(../assets/follow-us/follow-us-background.jpg) no-repeat top center/cover;
     
-            background: url(../assets/follow-us/right-yellow-arrow.png) no-repeat calc(100% - 2rem) center/0.75rem 1.2rem;
+        @media screen and (max-width: 1200px) {
+            display: block;
         }
-        .social-wrapper {
-            justify-content: initial;
-            background: transparent;
-            color: #ffd49f;
-            div {
-                width: 1.7rem;
-                height: 4rem;
-                margin-right: 1.5rem;
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            .frame {
+                display: flex;
+                justify-content: center;
+                align-self: center;
+                margin: 0 1.5rem;
+                width: 25rem;
                 @media screen and (max-width: 500px) {
-                    transform: scale(0.7);
+                    margin: 0.5rem;
+                }
+                img {
+                    vertical-align: middle;
+                    height: 100%;
+                    width: 100%;
                 }
             }
-            p {
-                font-size: 1.5rem;
+        }
+        .list-container {
+            .list-item {
+                border-top: 0.02rem solid rgba(255,255,255,0.1);
+                padding: 1rem 0;
+        
+                background: url(../assets/follow-us/right-yellow-arrow.png) no-repeat calc(100% - 2rem) center/0.75rem 1.2rem;
+            }
+            .social-wrapper {
+                justify-content: initial;
+                background: transparent;
+                color: #ffd49f;
+                div {
+                    width: 1.7rem;
+                    height: 4rem;
+                    margin-right: 1.5rem;
+                    @media screen and (max-width: 500px) {
+                        transform: scale(0.7);
+                    }
+                }
+                p {
+                    font-size: 1.5rem;
+                }
             }
         }
     }
-}
-.social-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    text-decoration: none;
-    font-size: 26px;
-
-    color: #333;
-    &:hover {
-        background: #333;
-        color: #ffd49f;
-    }
-    div {
-        width: 30px;
-        height: 44px;
-        text-align: center;
-    }
-    p {
-        font-size: 0.8em;
+    .social-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        text-decoration: none;
+        font-size: 26px;
+    
+        color: #333;
+        &:hover {
+            background: #333;
+            color: #ffd49f;
+        }
+        div {
+            width: 30px;
+            height: 44px;
+            text-align: center;
+        }
+        p {
+            font-size: 0.8em;
+        }
     }
 }

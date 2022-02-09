@@ -6,7 +6,7 @@ import FixedMenu from '../../../ShareComponent/FixedMenu/FixedMenu'
 
 function FollowUs() {
     return (
-        <div>
+        <div className="follow-us">
             <div className="follow-us-container">
                 <div className="header">
                     <div className="frame"><img src={frame} /></div>
