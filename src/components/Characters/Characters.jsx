@@ -4,7 +4,7 @@ import Header from "../Header/Header"
 const Characters = () => {
     return (
         <div>
-             <Header />
+            <Header />
             <h1>Character</h1>
             <Footer />
         </div>

@@ -1,40 +1,73 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { useEffect, useState, useRef } from 'react'
+import { NavLink } from 'react-router-dom';
 import './Navigator.scss'
 
+const POINTER_TRANSITION_DURATION = 200;
 function Navigator() {
-    const setPointerBarPosition = (target) => {
+    const [navPointerPosition, setNavPointerPosition] = useState({
+        left: null,
+        width: null
+    })
+    const [navButtonHover, setNavButtonHover] = useState(false);
+    const navWrapper = useRef(null);
+    
+    const getPointerBarPosition = (target) => {
         const getLeftPosition = () => {
-            return target.getBoundingClientRect().left;
+            return (target.getBoundingClientRect().left - navWrapper.current.getBoundingClientRect().left);
         }
-
-        const pointerBar = document.querySelector('.header_nav-pointer');
         const pointerWidth = target.offsetWidth;
         const pointerOffsetX = getLeftPosition();
-
-        pointerBar.style.left = `${pointerOffsetX}px`;
-        pointerBar.style.width = `${pointerWidth}px`;
+        return {
+            left: pointerOffsetX,
+            width: pointerWidth,
+        }
     }
     useEffect(() => {
+        // prevent pointer's animation during switch route
+        setTimeout(() => {
+            document.querySelector('.header_nav-pointer').style.transition = 'all 0.2s ease-out';
+        }, POINTER_TRANSITION_DURATION)
+        return () => {
+            document.querySelector('.header_nav-pointer').style.transition = 'none';
+        }
+    }, [])
+    useEffect(() => {
+        // handle mouseover, mouseout event to set position to nav pointer
         const navButtons = document.querySelectorAll('.nav-button');
-        
+        const mouseoverHandle = (e) => {
+            setNavButtonHover(true);
+            document.querySelector('.header_nav-pointer').style.transition = `all ${POINTER_TRANSITION_DURATION}ms ease-out`;
+            setNavPointerPosition(getPointerBarPosition(e.target)) 
+        }
+        const mouseoutHandle = (e) => {
+            setNavButtonHover(false)
+        }
         navButtons.forEach((button) => { 
-            button.addEventListener('mouseover', (e) => { setPointerBarPosition(e.target) })
+            button.addEventListener('mouseover', mouseoverHandle)
+            button.addEventListener('mouseout', mouseoutHandle)
         })
 
         return () => { 
             navButtons.forEach((button) => { 
-                button.removeEventListener('mouseover', (e) => { setPointerBarPosition(e.target) })
+                button.removeEventListener('mouseover', mouseoverHandle)
+                button.addEventListener('mouseout', mouseoutHandle)
             })
         }
     }, [])
 
+    useEffect(() => {
+        // pointer comeback active nav position when mouse out from nav button
+        if (!navButtonHover) {
+            const activeNavButton = document.querySelector('.nav-button.active');
+            setNavPointerPosition(getPointerBarPosition(activeNavButton));
+        }
+    }, [navButtonHover])
     return (
-        <div className="header_nav-wrapper">
+        <div className="header_nav-wrapper" ref={navWrapper}>
             <nav className="header_nav">
-                <Link to="/" className="nav-button">HOME</Link>
-                <Link to="/news" className="nav-button">NEWS</Link>
-                <Link to="/characters" className="nav-button">CHARACTERS</Link>
+                <NavLink to="/home" className="nav-button">HOME</NavLink>
+                <NavLink to="/news" className="nav-button">NEWS</NavLink>
+                <NavLink to="/characters" className="nav-button">CHARACTERS</NavLink>
                 <div id="explore" className="sub-list-wrapper">
                     <div className="nav-button nav-button--explore">EXPLORE</div>
                     <ul className="sub-list explore">
@@ -56,7 +89,10 @@ function Navigator() {
                 <div className="nav-button more-item">TOP-UP</div>
                 <div className="nav-button more-item">REDEEM CODE</div>
             </nav>
-            <div className="header_nav-pointer"></div>
+            <div className="header_nav-pointer" style={{
+                left: navPointerPosition.left + 'px',
+                width: navPointerPosition.width + 'px'
+            }}></div>
         </div>
     )
 }
