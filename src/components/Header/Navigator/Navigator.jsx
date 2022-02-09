@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import './Navigator.scss'
 
 function Navigator() {
@@ -31,9 +32,9 @@ function Navigator() {
     return (
         <div className="header_nav-wrapper">
             <nav className="header_nav">
-                <div className="nav-button">HOME</div>
-                <div className="nav-button">NEWS</div>
-                <div className="nav-button">CHARACTERS</div>
+                <Link to="/" className="nav-button">HOME</Link>
+                <Link to="/news" className="nav-button">NEWS</Link>
+                <Link to="/characters" className="nav-button">CHARACTERS</Link>
                 <div id="explore" className="sub-list-wrapper">
                     <div className="nav-button nav-button--explore">EXPLORE</div>
                     <ul className="sub-list explore">
