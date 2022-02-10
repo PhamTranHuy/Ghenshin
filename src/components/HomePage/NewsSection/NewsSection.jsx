@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import useFormatDay from '../../../CustomHook/FormatDay'
 import Carousel from '../../../ShareComponent/Carousel/Carousel'
 import './NewsSection.scss'
@@ -8,7 +8,6 @@ import news_img_3 from '../assets/news/news-img-3.jpg'
 import news_img_4 from '../assets/news/news-img-4.jpg'
 import frame from '../assets/news/frame.png'
 import NEWS from './data'
-import { useEffect } from 'react/cjs/react.development'
 import useWindowSize from '../../../CustomHook/WindowSize'
 
 const CAROUSEL_ITEMS = [
@@ -35,6 +34,8 @@ function NewsSection() {
         if (windowSize.width <= 1200) {
             const newsWrapperWidth = document.querySelector('.news-wrapper').offsetWidth;
             setCarouselWidth(newsWrapperWidth);
+        } else {
+            setCarouselWidth(640);
         }
     }, [windowSize])
     return (

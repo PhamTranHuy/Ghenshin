@@ -1,6 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
 const SHORT_MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jan', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];	
 
 function useFormatDay() {
@@ -16,10 +13,6 @@ function useFormatDay() {
     }
     return formatDate;
 }
-
-// useFormatDay.propTypes = {
-//     date: PropTypes.object
-// }
 
 export default useFormatDay
 

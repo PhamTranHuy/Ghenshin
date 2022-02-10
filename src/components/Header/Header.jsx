@@ -21,7 +21,7 @@ function Header() {
     const setPlayingWaveSound = useAudio(WAVE_SOUND);
     const setPlayingMusic = useAudio(MUSIC);
     const windowSize = useWindowSize();
-    const windowScroll = useWindowScroll()
+    const windowScroll = useWindowScroll();
 
     const handleMusicClicked = () => {
         setPlayMusic((playMusic) => !playMusic);
@@ -57,7 +57,7 @@ function Header() {
     }, [windowScroll, windowSize])
 
     return (
-        <header className={`home_header ${hideHeaderMobile ? 'none-active' : ''}`}>            
+        <header className={`home_header ${hideHeaderMobile ? 'none-active' : ''}`}>
             <div className="music-box">
                 <img src={playMusic ? Music : UnMusic} alt="music" onClick={handleMusicClicked}/>
             </div>
