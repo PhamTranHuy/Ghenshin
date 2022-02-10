@@ -13,15 +13,18 @@ function Navigator() {
     
     const getPointerBarPosition = (target) => {
         const getLeftPosition = () => {
-            return (target.getBoundingClientRect().left - navWrapper.current.getBoundingClientRect().left);
+            return (target.getBoundingClientRect().left - navWrapper.current.getBoundingClientRect().left + navButtonPaddingLeft);
         }
-        const pointerWidth = target.offsetWidth;
+        const navButtonPaddingLeft = parseInt(window.getComputedStyle(target, null).getPropertyValue('padding-left'));
+        const navButtonPaddingRight = parseInt(window.getComputedStyle(target, null).getPropertyValue('padding-right'));
+        const pointerWidth = target.offsetWidth - navButtonPaddingLeft - navButtonPaddingRight;
         const pointerOffsetX = getLeftPosition();
         return {
             left: pointerOffsetX,
             width: pointerWidth,
         }
     }
+
     useEffect(() => {
         // prevent pointer's animation during switch route
         setTimeout(() => {
@@ -31,13 +34,15 @@ function Navigator() {
             document.querySelector('.header_nav-pointer').style.transition = 'none';
         }
     }, [])
+
     useEffect(() => {
         // handle mouseover, mouseout event to set position to nav pointer
         const navButtons = document.querySelectorAll('.nav-button');
         const mouseoverHandle = (e) => {
+            e.stopPropagation();
             setNavButtonHover(true);
             document.querySelector('.header_nav-pointer').style.transition = `all ${POINTER_TRANSITION_DURATION}ms ease-out`;
-            setNavPointerPosition(getPointerBarPosition(e.target)) 
+            setNavPointerPosition(getPointerBarPosition(e.currentTarget)) 
         }
         const mouseoutHandle = (e) => {
             setNavButtonHover(false)
@@ -62,14 +67,15 @@ function Navigator() {
             setNavPointerPosition(getPointerBarPosition(activeNavButton));
         }
     }, [navButtonHover])
+
     return (
         <div className="header_nav-wrapper" ref={navWrapper}>
             <nav className="header_nav">
                 <NavLink to="/" className="nav-button">HOME</NavLink>
                 <NavLink to="/news" className="nav-button">NEWS</NavLink>
                 <NavLink to="/characters" className="nav-button">CHARACTERS</NavLink>
-                <div id="explore" className="sub-list-wrapper">
-                    <div className="nav-button nav-button--explore">EXPLORE</div>
+                <div id="explore" className="sub-list-wrapper nav-button">
+                    <div className="nav-button--explore">EXPLORE</div>
                     <ul className="sub-list explore">
                         <li className="sub-items">ABOUT GAME</li>
                         <li className="sub-items">TEYVAT</li>
@@ -77,8 +83,8 @@ function Navigator() {
                         <li className="sub-items">MANGA</li>
                     </ul>
                 </div>
-                <div id="more-menu" className="sub-list-wrapper">
-                    <div className="nav-button nav-button--explore">MORE</div>
+                <div id="more-menu" className="sub-list-wrapper nav-button">
+                    <div className="nav-button--explore">MORE</div>
                     <ul className="sub-list explore">
                         <li className="sub-items">HoYoLAB</li>
                         <li className="sub-items">TOP-UP</li>

@@ -9,7 +9,9 @@
     align-items: center;
     justify-content: center;
     .nav-button {
-        margin: 15px;
+        padding: 0 15px;
+        height: 65px;
+        line-height: 65px;
         color: #d0d0d0;
         cursor: pointer;
         transition: 0.25s;
@@ -36,6 +38,7 @@
         }
     }
     .sub-list-wrapper {
+        position: relative;
         &:hover .sub-list {
             opacity: 0.9;
             pointer-events: all;
@@ -43,6 +46,8 @@
         }
         .sub-list {
             position: absolute;
+            top: 65px;
+            left: -20px;
             width: 210px;
             background: #2d2c2e;
             color: #fff;
@@ -51,9 +56,10 @@
             pointer-events: none;
             .sub-items {
                 display: block;
-                padding: 10px 25px;
-                cursor: pointer;
                 padding: 17px 15px;
+                line-height: normal;
+                cursor: pointer;
+                text-shadow: none;
                 &:hover {
                     background: #3f3e40;
                 }
