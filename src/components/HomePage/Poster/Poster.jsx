@@ -8,13 +8,17 @@ import windows_logo from '../assets/poster/windows.png'
 import poster_arrow_icon from '../assets/poster/down-arrow.png'
 import poster_age_logo from '../assets/poster/poster-age.png'
 import close_button from '../assets/poster/close-icon.png'
+import Logo from '../assets/poster/mobile-logo.png'
 
 import Popup from '../../../ShareComponent/Popup/Popup'
 import useWindowSize from '../../../CustomHook/WindowSize'
+import useWindowScroll from '../../../CustomHook/WindowScroll'
+
 
 function Poster() {
     const [triggerPopup, setTriggerPopup] = useState(false);
     const windowSize = useWindowSize();
+    const windowScroll = useWindowScroll();
     const handleVideoPosterSize = () => {
         if (windowSize.width <= 850) {
             return {
@@ -24,6 +28,9 @@ function Poster() {
     }
     return (
         <div className="home_poster">
+            <div className="mobile-logo-wrapper" style={{display: windowScroll.scrollY > 0 ? 'none' : ''}}>
+                <img src={Logo} alt="logo" />
+            </div>
             <div className="background-wrapper">
                 <video autoPlay={true} muted={true} loop>
                     <source src="https://genshin.mihoyo.com/_nuxt/videos/3e78e80.mp4" type="audio/mp4"/>

@@ -2,6 +2,23 @@
     position: relative;
     height: 100vh;
     overflow: hidden;
+    .mobile-logo-wrapper {
+        display: none;
+        position: absolute;
+        top: 15%;
+        left: 0;
+        right: 0;
+        height: 20%;
+        justify-content: center;
+        align-content: center;
+        @media screen and (max-width: 1200px) {
+            display: flex;
+        }
+        img {
+            height: 100%;
+            width: auto;
+        }
+    }
     .background-wrapper {
         flex-direction: column-reverse;
         display: flex;
