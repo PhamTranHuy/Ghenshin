@@ -6,9 +6,12 @@ import Poster from './Poster/Poster'
 import coming_soon from './assets/city/coming-soon.jpg'
 import HOME_DATA from './data'
 import FollowUs from './FollowUs/FollowUs'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 function HomePage() {
     return (
         <div className="home">
+            <Header />
             <Poster />
             <NewsSection />
             {HOME_DATA.CITIES.map((city, i) => (
@@ -16,6 +19,7 @@ function HomePage() {
             ))}
             <City disable={true} name={'Coming Soon'} background={coming_soon} />
             <FollowUs />
+            <Footer />
         </div>
     )
 }
