@@ -1,16 +1,20 @@
+import clsx from "clsx";
+import useFormatDay from "../../../../CustomHook/FormatDay"
 import "../NewsBlock/NewsBlock.scss"
 
 function NewsBlock({newsInfo}) {
+    const formatDate = useFormatDay();
     return (
         <div className="news-block">
             <div className="img-wrapper">
                 <img src={newsInfo.img} alt="" />
             </div>
-            <h3 className="title">{newsInfo.title}</h3>
+            <h1 className="title">{newsInfo.title}</h1>
             <p className="desc">{newsInfo.desc}</p>
+            <div className="spaces"></div>
             <div className="meta">
-                <p className="date"></p>
-                <p className="category">{newsInfo.category}</p>
+                <p className="date">{formatDate(newsInfo.date)}</p>
+                <p className={clsx("category", newsInfo.category)}>{newsInfo.category}</p>
             </div>
         </div>
     )
