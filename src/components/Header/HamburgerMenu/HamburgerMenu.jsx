@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { NavLink } from "react-router-dom"
 import "./HamburgerMenu.scss"
 
 function HamburgerMenu() {
@@ -18,9 +19,9 @@ function HamburgerMenu() {
         <div className="hamburger-menu" onClick={(e) => {e.stopPropagation()}}>
             <div className="hamburger-header"></div>
             <nav className="hamburger-nav">
-                <a className="nav-button" href="">HOME</a>
-                <a className="nav-button" href="">NEW</a>
-                <a className="nav-button" href="">CHARACTER</a>
+                <NavLink to="/" className="nav-button">HOME</NavLink>
+                <NavLink to="/news" className="nav-button">NEWS</NavLink>
+                <NavLink to="/characters" className="nav-button">CHARACTERS</NavLink>
                 <div id="explore" className={`${explore ? 'is-active' : ''} nav-button`} onClick={handleExploreClicked}>
                     <p>EXPLORE</p>
                     <ul className={`${explore ? 'is-active' : ''} explore-sub-menu`}>

@@ -23,6 +23,9 @@
         display: block;
         padding: 10px 0 10px 3rem;
         color: #000;
+        &.active {
+            border-left: 4px solid rgb(105, 224, 255);
+        }
     }
     #explore {
         position: relative;
