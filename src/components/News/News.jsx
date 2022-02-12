@@ -1,11 +1,12 @@
 import Footer from "../Footer/Footer"
 import Header from "../Header/Header"
+import Recommend from "./Recommend/Recommend"
 
 function News() {
     return (
         <div>
             <Header />
-            <h1>News</h1>
+            <Recommend />
             <Footer />
         </div>
     )

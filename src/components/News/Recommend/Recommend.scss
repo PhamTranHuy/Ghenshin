@@ -1,0 +1,22 @@
+.recommend {
+    max-width: 1280px;
+    margin: 0 auto;
+    .wrapper {
+        height: 700px;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            height: 700px;
+            width: 100%;
+            background: url(../assets/recomment/5d86b58.jpg);
+        }
+        .news-block-container {
+            display: flex;
+            align-self: center;
+            justify-content: space-between;
+        }
+    }
+}
