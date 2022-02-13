@@ -8,8 +8,8 @@ function Recommend() {
             <div className="wrapper">
                 <div className="news-block-container">
                     {NEWS_INFO.filter((item, index) => index <= 2)
-                        .map((item) => 
-                        <NewsBlock newsInfo={item}/>
+                        .map((item, index) => 
+                        <NewsBlock newsInfo={item} key={index} />
                     )}
                 </div>
             </div>
