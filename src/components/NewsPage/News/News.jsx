@@ -31,9 +31,11 @@ function News({ newsInfo }) {
     return (
         <div className="news">
             <ul className="category-wrapper">
-                {CATEGORY.map((item, index) => (
-                    <CategoryItem key={index} title={item} onClick={handleCategoryClicked} />
-                ))}
+                {CATEGORY.map((item, index) => {
+                    return <CategoryItem key={index} title={item} 
+                        onClick={handleCategoryClicked} 
+                        active={item === category ? true : false} />
+                })}
             </ul>
             <div className="news-items-wrapper">
                 {categoryNewsInfo.map((item, index) => (
