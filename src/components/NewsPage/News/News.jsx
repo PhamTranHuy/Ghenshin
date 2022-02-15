@@ -41,6 +41,7 @@ function News({ newsInfo }) {
                 {categoryNewsInfo.map((item, index) => (
                     <NewsItem news={item} category={category} key={index} />
                 ))}
+                <div className="more-button">More</div>
             </div>
         </div>
     )

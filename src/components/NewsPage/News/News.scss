@@ -7,4 +7,18 @@
         align-items: center;
         margin: 30px 0;
     }
+    .more-button {
+        margin-top: 2rem;
+        border-radius: 4px;
+
+        background-color: #393b40;
+        color: #fff;
+
+        text-align: center;
+        font-size: 1.4rem;
+        opacity: 0.8;
+        &:hover {
+            opacity: 0.6;
+        }
+    }
 }
