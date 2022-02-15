@@ -47,4 +47,20 @@ const NEWS_INFO = [
     }, 
 ];
 
-export default NEWS_INFO;
+const GET_NEWS_INFO_API = (category = 'latest') => {
+    let result = [];
+    if (category === 'latest') {
+        result = NEWS_INFO;
+    } else {
+        result = NEWS_INFO.filter((item) => {
+            return item.category === category;
+        })
+    }
+    return new Promise(resolve => {
+        setTimeout (() => {
+            resolve(result);
+        }, 200)
+    })
+}
+
+export default GET_NEWS_INFO_API;

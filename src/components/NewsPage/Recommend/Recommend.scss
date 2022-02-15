@@ -4,6 +4,7 @@
     .wrapper {
         height: 700px;
         padding-top: 150px;
+        cursor: pointer;
         &::after {
             content: '';
             position: absolute;
