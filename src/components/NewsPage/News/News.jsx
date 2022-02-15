@@ -39,7 +39,7 @@ function News({ newsInfo }) {
             </ul>
             <div className="news-items-wrapper">
                 {categoryNewsInfo.map((item, index) => (
-                    <NewsItem news={item} key={index} />
+                    <NewsItem news={item} category={category} key={index} />
                 ))}
             </div>
         </div>

@@ -1,18 +1,20 @@
 import "./NewsItem.scss";
 import useFormatDate from "../../../../CustomHook/FormatDay"
-function NewsItem({ news }) {
+import clsx from "clsx";
+function NewsItem({ news, category }) {
     const formatDate = useFormatDate()
     return (
-        <div className="news-block-wrapper">
+        <div className="news-item-wrapper">
             <div className="img-wrapper">
                 <img src={news.img} alt="" />
             </div>
             <div className="content-wrapper">
                 <h1 className="title">{news.title}</h1>
                 <p className="desc">{news.desc}</p>
+                <div className="space"></div>
                 <div className="meta">
-                    <p className="date"></p>
-                    <p className="category">{news.category}</p>
+                    <p className="date">{formatDate(news.date)}</p>
+                    {category === 'latest' && (<p className={clsx("category", news.category)}>{news.category}</p>)}
                 </div>
             </div>
         </div>
