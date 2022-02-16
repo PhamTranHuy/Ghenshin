@@ -14,7 +14,7 @@ function News({ newsInfo }) {
     const newsPage = useRef(1);
     const initialRender = useRef(true);
 
-    const fetchNewsInfo = async (category, page, itemsNumber = 5) => {
+    const fetchNewsInfo = async (category, page = 1, itemsNumber = 5) => {
         console.log('News: call API get newsInfo');
         const newsInfo = await GET_NEWS_INFO_API(category, page, itemsNumber);
         return newsInfo;
@@ -23,7 +23,6 @@ function News({ newsInfo }) {
     const handleCategoryClicked = (e) => {
         newsPage.current = 1;
         setCategory(e.target.innerHTML);
-        setHideMoreButton(false);
     }
     const handleMoreButtonClicked = async () => {
         newsPage.current = newsPage.current + 1;
@@ -43,9 +42,11 @@ function News({ newsInfo }) {
             initialRender.current = false;
         } else {
             (async () => {
-                const newsItems = await fetchNewsInfo(category, newsPage.current);
+                const newsItems = await fetchNewsInfo(category);
                 if (newsItems.length < ITEMS_NUMBER) {
                     setHideMoreButton(true);
+                } else {
+                    setHideMoreButton(false);
                 }
                 setNews(newsItems);
             })()
