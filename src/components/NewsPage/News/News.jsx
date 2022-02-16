@@ -5,29 +5,53 @@ import NewsItem from "./NewsItem/NewsItem";
 import GET_NEWS_INFO_API from "../data";
 
 const CATEGORY = ["latest", "info", "updates", "events"];
+const ITEMS_NUMBER = 5;
 
 function News({ newsInfo }) {
     const [category, setCategory] = useState('latest');
-    const [categoryNewsInfo, setCategoryNewsInfo] = useState(newsInfo);
+    const [news, setNews] = useState(newsInfo);
+    const [hideMoreButton, setHideMoreButton] = useState(false);
+    const newsPage = useRef(1);
     const initialRender = useRef(true);
-    const handleCategoryClicked = (e) => {
-        setCategory(e.target.innerHTML);
+
+    const fetchNewsInfo = async (category, page, itemsNumber = 5) => {
+        console.log('News: call API get newsInfo');
+        const newsInfo = await GET_NEWS_INFO_API(category, page, itemsNumber);
+        return newsInfo;
+        
     }
+    const handleCategoryClicked = (e) => {
+        newsPage.current = 1;
+        setCategory(e.target.innerHTML);
+        setHideMoreButton(false);
+    }
+    const handleMoreButtonClicked = async () => {
+        newsPage.current = newsPage.current + 1;
+        const newsItems = await fetchNewsInfo(category, newsPage.current, ITEMS_NUMBER);
+        setNews((news) => [...news, ...newsItems]);
+        if (newsItems.length < ITEMS_NUMBER) {
+            setHideMoreButton(true);
+        }
+    }
+
     useEffect(() => {
-        setCategoryNewsInfo(newsInfo);
+        setNews(newsInfo);
     }, [newsInfo])
+
     useEffect(() => {
         if (initialRender.current) {
             initialRender.current = false;
         } else {
-            const fetchNewsInfo = async () => {
-                console.log('News: call API get newsInfo');
-                const newsInfo = await GET_NEWS_INFO_API(category);
-                setCategoryNewsInfo(newsInfo);
-            }
-            fetchNewsInfo();
+            (async () => {
+                const newsItems = await fetchNewsInfo(category, newsPage.current);
+                if (newsItems.length < ITEMS_NUMBER) {
+                    setHideMoreButton(true);
+                }
+                setNews(newsItems);
+            })()
         }
     }, [category])
+
     return (
         <div className="news">
             <ul className="category-wrapper">
@@ -38,10 +62,10 @@ function News({ newsInfo }) {
                 })}
             </ul>
             <div className="news-items-wrapper">
-                {categoryNewsInfo.map((item, index) => (
+                {news.map((item, index) => (
                     <NewsItem news={item} category={category} key={index} />
                 ))}
-                <div className="more-button">More</div>
+                {!hideMoreButton && <div className="more-button" onClick={handleMoreButtonClicked}>More</div>}
             </div>
         </div>
     )
