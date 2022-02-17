@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import CategoryItem from "./CategoryItem/CategoryItem";
 import NewsItem from "./NewsItem/NewsItem";
 import GET_NEWS_INFO_API from "../data";
+import useNonInitialEffect from "../../../CustomHook/NonInitialEffect";
 
 const CATEGORY = ["latest", "info", "updates", "events"];
 const ITEMS_NUMBER = 5;
@@ -12,7 +13,6 @@ function News({ newsInfo }) {
     const [news, setNews] = useState(newsInfo);
     const [hideMoreButton, setHideMoreButton] = useState(false);
     const newsPage = useRef(1);
-    const initialRender = useRef(true);
 
     const fetchNewsInfo = async (category, page = 1, itemsNumber = 5) => {
         console.log('News: call API get newsInfo');
@@ -37,20 +37,16 @@ function News({ newsInfo }) {
         setNews(newsInfo);
     }, [newsInfo])
 
-    useEffect(() => {
-        if (initialRender.current) {
-            initialRender.current = false;
-        } else {
-            (async () => {
-                const newsItems = await fetchNewsInfo(category);
-                if (newsItems.length < ITEMS_NUMBER) {
-                    setHideMoreButton(true);
-                } else {
-                    setHideMoreButton(false);
-                }
-                setNews(newsItems);
-            })()
-        }
+    useNonInitialEffect(() => {
+        (async () => {
+            const newsItems = await fetchNewsInfo(category);
+            if (newsItems.length < ITEMS_NUMBER) {
+                setHideMoreButton(true);
+            } else {
+                setHideMoreButton(false);
+            }
+            setNews(newsItems);
+        })()
     }, [category])
 
     return (
