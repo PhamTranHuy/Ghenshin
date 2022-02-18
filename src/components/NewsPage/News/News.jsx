@@ -50,7 +50,7 @@ function News({ newsInfo }) {
     }, [category])
 
     return (
-        <div className="news">
+        <div className="news-page_news">
             <ul className="category-wrapper">
                 {CATEGORY.map((item, index) => {
                     return <CategoryItem key={index} title={item} 
