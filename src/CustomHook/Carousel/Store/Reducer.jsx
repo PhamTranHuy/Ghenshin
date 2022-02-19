@@ -1,0 +1,16 @@
+const carouselReducer = (initialState, action) => {
+    switch (action.type) {
+        case NEXT:
+                //...
+        case PREV:
+            //...
+        case DRAG:
+            //...
+        case DROP:
+            //...
+        case JUMP:
+            //...
+        default:
+            return {...initialState}
+    }
+}
