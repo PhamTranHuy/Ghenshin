@@ -3,7 +3,7 @@ import { NEXT, PREV, DRAG, DROP, JUMP } from "./Constants";
 export const next = payload => {
     return {
         type: NEXT,
-        payload
+        payload: payload
     }
 }
 

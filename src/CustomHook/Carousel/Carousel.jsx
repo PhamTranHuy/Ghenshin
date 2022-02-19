@@ -1,11 +1,11 @@
 import { useEffect, useReducer } from 'react'
 import { initialState, carouselReducer } from "./Store/Reducer";
 
-function useCarousel({ items, width, infinite, smoothTransDuration, autoTransTime}) {
+function useCarousel(width) {
     const [state, dispatch] = useReducer(carouselReducer, initialState);
-
+    console.log(`carouselHook: ${width}`)
     return {
-        ...state,
+        translate: state.desired,
         dispatch
     };
 }
