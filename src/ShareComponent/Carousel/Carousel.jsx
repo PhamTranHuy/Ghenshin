@@ -5,32 +5,30 @@ import useCarousel from '../../CustomHook/Carousel/Carousel';
 
 function Carousel({children, width}) {
     const carouselInner = useRef();
+    const [items, setItems] = useState([]);
     const {
-        translate, 
-        currentIndex,
-        items,
-        handleMouseDown, 
-        handleMouseMove, 
-        setTransStyle,
-        handleSwitchButtonClicked
-    } = useCarousel({children, width, carouselInner});
+        dispatch
+    } = useCarousel({children, width});
+
+    useEffect(() => {
+        const newItems = [...children];
+        setItems(newItems);
+    }, [children, width])
+
     return (
         <div className={styles['container']} style={{width: `${width}px` }}>
             <div className={styles['carousel-outer']}>
-                <div className={styles['carousel-inner']} ref={carouselInner} style={setTransStyle(translate)}>
+                <div className={styles['carousel-inner']} ref={carouselInner} style={{}}>
                     {items.map((item, i) => (
-                        <div key={i} className={styles['item']} onMouseDown={handleMouseDown} onMouseMove={handleMouseMove}>{item}</div>
+                        <div key={i} className={styles['item']} onMouseDown={() => {}} onMouseMove={() => {}}>{item}</div>
                     ))}
                 </div>
             </div>
             <div className={styles['controls']}>
                     {children.map((item, i) => (
                         <div key={i} 
-                            className={
-                                `${styles['button']} 
-                                ${currentIndex === (i + 1) ? styles['is-active'] : ''}`
-                            } 
-                            onClick={() => { handleSwitchButtonClicked(i + 1) }}/>
+                            className={styles['button']}
+                            onClick={() => {}}/>
                     ))}
             </div>
         </div>
