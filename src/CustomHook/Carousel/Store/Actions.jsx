@@ -1,5 +1,11 @@
-import { NEXT, PREV, DRAG, DROP, JUMP, INIT_TRANSLATE_SIZE } from "./Constants";
+import { NEXT, PREV, DRAG, DROP, JUMP, INIT_TRANSLATE_SIZE, INIT_ITEMS } from "./Constants";
 
+export const initItems = payload => {
+    return {
+        type: INIT_ITEMS,
+        payload: payload
+    }
+}
 export const initTranslateWidth = payload => {
     return {
         type: INIT_TRANSLATE_SIZE,

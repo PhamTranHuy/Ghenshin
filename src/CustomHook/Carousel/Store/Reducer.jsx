@@ -1,4 +1,4 @@
-import { NEXT, PREV, DRAG, DROP, JUMP, INIT_TRANSLATE_SIZE } from "./Constants";
+import { NEXT, PREV, DRAG, DROP, JUMP, INIT_TRANSLATE_SIZE, INIT_ITEMS } from "./Constants";
 
 export const initialState = {
     translateWidth: 0,
@@ -9,6 +9,12 @@ export const initialState = {
 export const carouselReducer = (state, action) => {
     let newState = {};
     switch (action.type) {
+        case INIT_ITEMS: 
+            (() => {
+                newState = {...state, items: action.payload}
+                console.log(newState)
+            })()
+            break;
         case INIT_TRANSLATE_SIZE: 
             (() => {
                 const desired = state.activeIndex * action.payload;
@@ -29,8 +35,8 @@ export const carouselReducer = (state, action) => {
         case DROP:
             //...
         case JUMP:
-            const desired = action.payload * state.width;
             const activeIndex = action.payload;
+            const desired = activeIndex * state.width;
             console.log(`JUMP: ${desired}`)
             newState = {
                 ...state,
