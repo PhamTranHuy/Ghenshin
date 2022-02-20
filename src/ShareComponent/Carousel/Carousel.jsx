@@ -4,30 +4,33 @@ import styles from './Carousel.module.scss'
 import clsx from 'clsx';
 import useCarousel from '../../CustomHook/Carousel/Carousel';
 import { jump, initTranslateWidth} from '../../CustomHook/Carousel/Store/Actions';
-import useNonInitialEffect from '../../CustomHook/NonInitialEffect';
 
-function Carousel({children, width  = 640, translateWidth = width}) {
+function Carousel({children, width  = 640, translateSize = width, transitionDuration = 600}) {
     const [items, setItems] = useState([]);
     const {
         translate,
         activeIndex,
+        animationActive,
         dispatch
-    } = useCarousel(translateWidth);
+    } = useCarousel(translateSize);
 
     useEffect(() => {
         const newItems = [...children];
         setItems(newItems);
     }, [children])
 
-    useNonInitialEffect(() => {
-        dispatch(initTranslateWidth(translateWidth));
-        console.log(`dispatch item width: ${translateWidth}`)
-    }, [translateWidth, width])
+    useEffect(() => {
+        dispatch(initTranslateWidth(translateSize));
+        console.log(`dispatch item width: ${translateSize}`)
+    }, [translateSize, width])
 
     return (
         <div className={styles['container']} style={{width: `${width}px` }}>
             <div className={styles['carousel-outer']}>
-                <div className={styles['carousel-inner']} style={{transform: `translateX(-${translate}px)`}}>
+                <div className={styles['carousel-inner']} style={{
+                    transform: `translateX(-${translate}px)`,
+                    transitionDuration: animationActive ? `${transitionDuration}ms` : '0ms'
+                    }}>
                     {items.map((item, i) => (
                         <div key={i} 
                             className='item'

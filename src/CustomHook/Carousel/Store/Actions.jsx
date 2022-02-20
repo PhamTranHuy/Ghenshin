@@ -1,8 +1,8 @@
-import { NEXT, PREV, DRAG, DROP, JUMP, INIT_TRANSLATE_WIDTH } from "./Constants";
+import { NEXT, PREV, DRAG, DROP, JUMP, INIT_TRANSLATE_SIZE } from "./Constants";
 
 export const initTranslateWidth = payload => {
     return {
-        type: INIT_TRANSLATE_WIDTH,
+        type: INIT_TRANSLATE_SIZE,
         payload: payload
     }
 }

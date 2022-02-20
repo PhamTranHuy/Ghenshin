@@ -6,6 +6,7 @@ function useCarousel() {
     return {
         translate: state.desired,
         activeIndex: state.activeIndex,
+        animationActive: state.animationActive,
         dispatch
     };
 }
