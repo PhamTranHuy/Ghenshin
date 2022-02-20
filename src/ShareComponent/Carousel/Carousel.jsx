@@ -1,34 +1,45 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styles from './Carousel.module.scss'
+import clsx from 'clsx';
 import useCarousel from '../../CustomHook/Carousel/Carousel';
-import { jump } from '../../CustomHook/Carousel/Store/Actions';
+import { jump, initTranslateWidth} from '../../CustomHook/Carousel/Store/Actions';
+import useNonInitialEffect from '../../CustomHook/NonInitialEffect';
 
-function Carousel({children, width}) {
+function Carousel({children, width  = 640, translateWidth = width}) {
     const [items, setItems] = useState([]);
     const {
         translate,
+        activeIndex,
         dispatch
-    } = useCarousel(width);
+    } = useCarousel(translateWidth);
 
     useEffect(() => {
         const newItems = [...children];
         setItems(newItems);
     }, [children])
 
+    useNonInitialEffect(() => {
+        dispatch(initTranslateWidth(translateWidth));
+        console.log(`dispatch item width: ${translateWidth}`)
+    }, [translateWidth, width])
+
     return (
         <div className={styles['container']} style={{width: `${width}px` }}>
             <div className={styles['carousel-outer']}>
                 <div className={styles['carousel-inner']} style={{transform: `translateX(-${translate}px)`}}>
                     {items.map((item, i) => (
-                        <div key={i} className={styles['item']} onMouseDown={() => {}} onMouseMove={() => {}}>{item}</div>
+                        <div key={i} 
+                            className='item'
+                            onMouseDown={() => {}} 
+                            onMouseMove={() => {}}>{item}</div>
                     ))}
                 </div>
             </div>
             <div className={styles['controls']}>
                     {items.map((item, i) => (
                         <div key={i} 
-                            className={styles['button']}
+                            className={clsx(styles['button'], activeIndex === i && styles["is-active"])}
                             onClick={() => {dispatch(jump(i))}}/>
                     ))}
             </div>
@@ -43,7 +54,4 @@ Carousel.propTypes = {
         ]).isRequired,
     width: PropTypes.number
 }
-Carousel.defaultProps = {
-    width: 640
-};
 export default Carousel
