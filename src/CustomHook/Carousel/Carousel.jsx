@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from 'react'
 import { initialState, carouselReducer } from "./Store/Reducer";
-import { initItems, initTranslateWidth } from "./Store/Actions";
+import { initItems, initTranslateSize } from "./Store/Actions";
 
 function useCarousel({children, translateSize}) {
     const [state, dispatch] = useReducer(carouselReducer, initialState);
@@ -12,7 +12,7 @@ function useCarousel({children, translateSize}) {
     }, [children])
 
     useEffect(() => {
-        dispatch(initTranslateWidth(translateSize));
+        dispatch(initTranslateSize(translateSize));
         console.log(`dispatch item width: ${translateSize}`)
     }, [translateSize])
 

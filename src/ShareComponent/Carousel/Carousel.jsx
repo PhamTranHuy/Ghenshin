@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styles from './Carousel.module.scss'
 import clsx from 'clsx';
 import useCarousel from '../../CustomHook/Carousel/Carousel';
-import { jump } from '../../CustomHook/Carousel/Store/Actions';
+import { jump, drag } from '../../CustomHook/Carousel/Store/Actions';
+import { useCallback } from 'react';
 
 function Carousel({children, width  = 640, translateSize = width, transitionDuration = 600, infinity = true}) {
-    const [dragAble, setDragAble] = useState(false);
     const {
         items,
         translate,
@@ -15,6 +14,21 @@ function Carousel({children, width  = 640, translateSize = width, transitionDura
         dispatch
     } = useCarousel({children, translateSize});
 
+    const handleMouseMove = useCallback((e) => {
+        dispatch(drag(e))
+    }, []);
+    const handleMouseDown = (e) => {
+        console.log('add mouse move');
+        e.preventDefault();
+        document.addEventListener("mousemove", handleMouseMove);
+        document.addEventListener("mouseup", handleMouseUp);
+    }
+    const handleMouseUp = (e) => {
+        console.log('remove mouse move')
+        e.preventDefault();
+        document.removeEventListener("mousemove", handleMouseMove);
+        document.removeEventListener("mouseup", handleMouseUp);
+    }
     return (
         <div className={styles['container']} style={{width: `${width}px` }}>
             <div className={styles['carousel-outer']}>
@@ -25,9 +39,7 @@ function Carousel({children, width  = 640, translateSize = width, transitionDura
                     {items?.map((item, i) => (
                         <div key={i} 
                             className='item'
-                            onMouseDown={() => {setDragAble(true)}} 
-                            onMouseMove={() => {}}
-                            onMouseUp={() => {setDragAble(false)}}
+                            onMouseDown={handleMouseDown}
                         >{item}</div>
                     ))}
                 </div>

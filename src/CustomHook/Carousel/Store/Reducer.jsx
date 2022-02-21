@@ -1,7 +1,7 @@
 import { NEXT, PREV, DRAG, DROP, JUMP, INIT_TRANSLATE_SIZE, INIT_ITEMS } from "./Constants";
 
 export const initialState = {
-    translateWidth: 0,
+    translateSize: 0,
     desired: 0,
     activeIndex: 0,
     animationActive: true
@@ -31,7 +31,15 @@ export const carouselReducer = (state, action) => {
         case PREV:
             //...
         case DRAG:
-            //...
+            (() => {
+                const desired = state.desired - action.payload.movementX;
+                newState = {
+                    ...state,
+                    desired,
+                    animationActive: false
+                }
+            })()
+            break;
         case DROP:
             //...
         case JUMP:

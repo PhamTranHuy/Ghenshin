@@ -6,7 +6,7 @@ export const initItems = payload => {
         payload: payload
     }
 }
-export const initTranslateWidth = payload => {
+export const initTranslateSize = payload => {
     return {
         type: INIT_TRANSLATE_SIZE,
         payload: payload
