@@ -7,7 +7,7 @@ export const initialState = {
     activeIndex: 0,
     animationActive: false,
     transitionDuration: 0,
-    itemsTranslateCoordinates: []
+    itemsTranslateCoord: []
 }
 
 export const carouselReducer = (state, action) => {
@@ -15,10 +15,13 @@ export const carouselReducer = (state, action) => {
     switch (action.type) {
         case INIT_STATE:
             (() => {
-                console.log("init-state")
+                const itemsTranslateCoord = action.payload.items.map((item, index) => {
+                    return action.payload.translateSize * index;
+                })
                 newState = {
                     ...state, 
-                    ...action.payload
+                    ...action.payload,
+                    itemsTranslateCoord
                 }
             })()
             break;
@@ -37,9 +40,14 @@ export const carouselReducer = (state, action) => {
             break;
         case DROP:
             (() => {
+                const closedCoord = state.itemsTranslateCoord.reduce((a, b) => {
+                    return Math.abs(b - state.translate) < Math.abs(a - state.translate) ? b : a;
+                })
+                const activeIndex = state.itemsTranslateCoord.indexOf(closedCoord);
                 newState = {
                     ...state,
-                    desired: 0
+                    activeIndex,
+                    desired: closedCoord
                 }
             })()
             break;
