@@ -1,9 +1,12 @@
-import { useEffect, useReducer, useCallback } from 'react'
+import { useEffect, useCallback } from 'react'
 import { initialState, carouselReducer } from "./Store/Reducer";
-import { initItems, initTranslateSize, drag } from "./Store/Actions";
+import { initState, drag, drop } from "./Store/Actions";
+import useReducerWithMiddleware from '../ReducerWithMiddleware';
+import { slideAfterware } from './Store/Middleware';
 
-function useCarousel({children, translateSize}) {
-    const [state, dispatch] = useReducer(carouselReducer, initialState);
+function useCarousel({children, translateSize, transitionDuration}) {
+    const [state, dispatch] = useReducerWithMiddleware(carouselReducer, initialState, [], [slideAfterware]);
+
     const handleMouseMove = useCallback((e) => {
         dispatch(drag(e))
     }, []);
@@ -14,25 +17,21 @@ function useCarousel({children, translateSize}) {
         document.addEventListener("mouseup", handleMouseUp);
     }
     const handleMouseUp = (e) => {
-        console.log('remove mouse move')
+        console.log('remove mouse move');
         e.preventDefault();
         document.removeEventListener("mousemove", handleMouseMove);
         document.removeEventListener("mouseup", handleMouseUp);
+        dispatch(drop());
     }
-    useEffect(() => {
-        console.log(children);
-        const items = [...children];
-        dispatch(initItems(items));
-    }, [children])
 
     useEffect(() => {
-        dispatch(initTranslateSize(translateSize));
-        console.log(`dispatch item width: ${translateSize}`)
-    }, [translateSize])
+        const items = [...children];
+        dispatch(initState({items, translateSize, transitionDuration}));
+    }, [children, translateSize, transitionDuration])
 
     return {
         items: state.items,
-        translate: state.desired,
+        translate: state.translate,
         activeIndex: state.activeIndex,
         animationActive: state.animationActive,
         dragToSlide: handleMouseDown,

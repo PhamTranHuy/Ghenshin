@@ -12,7 +12,7 @@ function Carousel({children, width  = 640, translateSize = width, transitionDura
         animationActive,
         dragToSlide,
         dispatch
-    } = useCarousel({children, translateSize});
+    } = useCarousel({children, translateSize, transitionDuration});
 
     return (
         <div className={styles['container']} style={{width: `${width}px` }}>

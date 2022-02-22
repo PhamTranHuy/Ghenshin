@@ -1,14 +1,8 @@
-import { NEXT, PREV, DRAG, DROP, JUMP, INIT_TRANSLATE_SIZE, INIT_ITEMS } from "./Constants";
+import { NEXT, PREV, DRAG, DROP, JUMP, INIT_STATE, START_SLIDE, FINISH_SLIDE } from "./Constants";
 
-export const initItems = payload => {
+export const initState = payload => {
     return {
-        type: INIT_ITEMS,
-        payload: payload
-    }
-}
-export const initTranslateSize = payload => {
-    return {
-        type: INIT_TRANSLATE_SIZE,
+        type: INIT_STATE,
         payload: payload
     }
 }
@@ -44,6 +38,20 @@ export const drop = payload => {
 export const jump = payload => {
     return {
         type: JUMP,
+        payload
+    }
+}
+
+export const startSlide = payload => {
+    return {
+        type: START_SLIDE,
+        payload
+    }
+}
+
+export const finishSlide = payload => {
+    return {
+        type: FINISH_SLIDE,
         payload
     }
 }

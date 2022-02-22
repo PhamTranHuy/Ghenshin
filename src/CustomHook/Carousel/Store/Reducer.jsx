@@ -1,28 +1,24 @@
-import { NEXT, PREV, DRAG, DROP, JUMP, INIT_TRANSLATE_SIZE, INIT_ITEMS } from "./Constants";
+import { NEXT, PREV, DRAG, DROP, JUMP, INIT_STATE, START_SLIDE, FINISH_SLIDE } from "./Constants";
 
 export const initialState = {
     translateSize: 0,
-    desired: 0,
+    translate: 0,
+    desired: null,
     activeIndex: 0,
-    animationActive: true
+    animationActive: false,
+    transitionDuration: 0,
+    itemsTranslateCoordinates: []
 }
+
 export const carouselReducer = (state, action) => {
     let newState = {};
     switch (action.type) {
-        case INIT_ITEMS: 
+        case INIT_STATE:
             (() => {
-                newState = {...state, items: action.payload}
-                console.log(newState)
-            })()
-            break;
-        case INIT_TRANSLATE_SIZE: 
-            (() => {
-                const desired = state.activeIndex * action.payload;
-                console.log(`INITIAL_WIDTH: desired:${desired}, width: ${action.payload}`);
+                console.log("init-state")
                 newState = {
-                    ...state,
-                    width: action.payload,
-                    desired
+                    ...state, 
+                    ...action.payload
                 }
             })()
             break;
@@ -32,25 +28,52 @@ export const carouselReducer = (state, action) => {
             //...
         case DRAG:
             (() => {
-                const desired = state.desired - action.payload.movementX;
+                const translate = state.translate - action.payload.movementX;
                 newState = {
                     ...state,
-                    desired,
+                    translate,
                     animationActive: false
                 }
             })()
             break;
         case DROP:
-            //...
+            (() => {
+                newState = {
+                    ...state,
+                    desired: 0
+                }
+            })()
+            break;
         case JUMP:
-            const activeIndex = action.payload;
-            const desired = activeIndex * state.width;
-            console.log(`JUMP: ${desired}`)
-            newState = {
-                ...state,
-                desired,
-                activeIndex
-            }
+            (() => {
+                const activeIndex = action.payload;
+                const desired = activeIndex * state.translateSize;
+                newState = {
+                    ...state,
+                    desired,
+                    activeIndex
+                }
+            })()
+            break;
+        case START_SLIDE:
+            (() => {
+                console.log("start slide")
+                newState = {
+                    ...state,
+                    animationActive: true,
+                    translate: state.desired
+                }
+            })();
+            break;
+        case FINISH_SLIDE:
+            (() => {
+                newState = {
+                    ...state,
+                    animationActive: false,
+                    desired: null
+                }
+                console.log(`finish slide: ${state.transitionDuration}`);
+            })()
             break;
         default:
             return {...state}
