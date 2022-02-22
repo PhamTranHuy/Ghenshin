@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import useCarousel from '../../CustomHook/Carousel/Carousel';
 import { jump } from '../../CustomHook/Carousel/Store/Actions';
 
-function Carousel({children, width  = 640, translateSize = width, transitionDuration = 600, infinity = true}) {
+function Carousel({children, width  = 640, translateSize = width, transitionDuration = 300, infinity = true}) {
     const {
         items,
         translate,

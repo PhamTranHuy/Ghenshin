@@ -34,6 +34,7 @@ export const carouselReducer = (state, action) => {
                 const translate = state.translate - action.payload.movementX;
                 newState = {
                     ...state,
+                    animationActive: false,
                     translate
                 }
             })()
