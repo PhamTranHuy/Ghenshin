@@ -31,8 +31,7 @@ export const carouselReducer = (state, action) => {
                 const translate = state.translate - action.payload.movementX;
                 newState = {
                     ...state,
-                    translate,
-                    animationActive: false
+                    translate
                 }
             })()
             break;
@@ -57,7 +56,6 @@ export const carouselReducer = (state, action) => {
             break;
         case START_SLIDE:
             (() => {
-                console.log("start slide")
                 newState = {
                     ...state,
                     animationActive: true,
@@ -72,7 +70,6 @@ export const carouselReducer = (state, action) => {
                     animationActive: false,
                     desired: null
                 }
-                console.log(`finish slide: ${state.transitionDuration}`);
             })()
             break;
         default:
