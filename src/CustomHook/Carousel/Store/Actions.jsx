@@ -7,20 +7,6 @@ export const initState = payload => {
     }
 }
 
-export const next = payload => {
-    return {
-        type: NEXT,
-        payload: payload
-    }
-}
-
-export const prev = payload => {
-    return {
-        type: PREV,
-        payload
-    }
-}
-
 export const drag = payload => {
     return {
         type: DRAG,
