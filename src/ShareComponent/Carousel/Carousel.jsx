@@ -4,15 +4,16 @@ import clsx from 'clsx';
 import useCarousel from '../../CustomHook/Carousel/Carousel';
 import { jump } from '../../CustomHook/Carousel/Store/Actions';
 
-function Carousel({children, width  = 640, translateSize = width, transitionDuration = 300, infinity = true}) {
+function Carousel({children, width  = 640, translateSize = width, transitionDuration = 300, infinite = true}) {
     const {
         items,
+        slide,
         translate,
         activeIndex,
         animationActive,
         dragToSlide,
         dispatch
-    } = useCarousel({children, translateSize, transitionDuration});
+    } = useCarousel({children, translateSize, transitionDuration, infinite});
 
     return (
         <div className={styles['container']} style={{width: `${width}px` }}>
@@ -21,7 +22,7 @@ function Carousel({children, width  = 640, translateSize = width, transitionDura
                     transform: `translateX(-${translate}px)`,
                     transitionDuration: animationActive ? `${transitionDuration}ms` : '0ms'
                     }}>
-                    {items?.map((item, i) => (
+                    {slide?.map((item, i) => (
                         <div key={i} 
                             className='item'
                             onMouseDown={dragToSlide}

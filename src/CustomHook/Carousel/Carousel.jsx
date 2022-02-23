@@ -4,7 +4,7 @@ import { initState, drag, drop } from "./Store/Actions";
 import useReducerWithMiddleware from '../ReducerWithMiddleware';
 import { slideAfterware } from './Store/Middleware';
 
-function useCarousel({children, translateSize, transitionDuration}) {
+function useCarousel({children, translateSize, transitionDuration, infinite}) {
     const [state, dispatch] = useReducerWithMiddleware(carouselReducer, initialState, [], [slideAfterware]);
 
     const handleMouseMove = useCallback((e) => {
@@ -25,12 +25,12 @@ function useCarousel({children, translateSize, transitionDuration}) {
     }
 
     useEffect(() => {
-        const items = [...children];
-        dispatch(initState({items, translateSize, transitionDuration}));
-    }, [children, translateSize, transitionDuration])
+        dispatch(initState({children, translateSize, transitionDuration, infinite}));
+    }, [children, translateSize, transitionDuration, infinite])
 
     return {
         items: state.items,
+        slide: state.slide,
         translate: state.translate,
         activeIndex: state.activeIndex,
         animationActive: state.animationActive,
