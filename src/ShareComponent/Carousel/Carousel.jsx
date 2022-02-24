@@ -1,10 +1,10 @@
+import { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styles from './Carousel.module.scss'
 import clsx from 'clsx';
 import useCarousel from '../../CustomHook/Carousel/Carousel';
-import { jump } from '../../CustomHook/Carousel/Store/Actions';
 
-function Carousel({children, width  = 640, translateSize = width, transitionDuration = 300, infinite = true}) {
+function Carousel({children, width  = 640, translateSize = width, transitionDuration = 300, infinite = true, autoSlideTime = 0}) {
     const {
         items,
         slide,
@@ -14,7 +14,16 @@ function Carousel({children, width  = 640, translateSize = width, transitionDura
         dragToSlide,
         jumpTo
     } = useCarousel({children, translateSize, transitionDuration, infinite});
-
+    useEffect(() => {
+        if (autoSlideTime) {
+            const timer = setTimeout(() => {
+                jumpTo(activeIndex + 1);
+            }, autoSlideTime)
+            return () => {
+                clearTimeout(timer);
+            }
+        }
+    }, [autoSlideTime, activeIndex])
     return (
         <div className={styles['container']} style={{width: `${width}px` }}>
             <div className={styles['carousel-outer']}>
