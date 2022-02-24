@@ -24,10 +24,10 @@ export const carouselReducer = (state, action) => {
                 // set initial translate coord and slide frame
                 if (infinite) {
                     slide = [items[items.length-1], ...items, items[0]];
-                    translate = translateSize
+                    translate = (translateSize * state.activeIndex) + translateSize;
                 } else {
                     slide = [...items];
-                    translate = 0;
+                    translate = state.activeIndex * translateSize;
                 }
 
                 // set slide coord obj with key = transition coord and value = index
