@@ -85,14 +85,24 @@ export const carouselReducer = (state, action) => {
         case JUMP:
             (() => {
                 let desired;
-                const activeIndex = action.payload;
+                let activeIndex = action.payload;
+                let slideIndex = activeIndex;
+                if (slideIndex === -1) {
+                    activeIndex = state.items.length - 1;
+                } else if ( slideIndex === state.items.length) {
+                    activeIndex = 0;
+                }
                 const transCoords = Object.keys(state.slideCoordTemp);
-                for (let i = 0; i < transCoords.length; i++) {
-                    const transCoordIndex = state.slideCoordTemp[transCoords[i]];
-                    if (transCoordIndex === activeIndex) {
-                        desired = transCoords[i];
-                        break;
+                if (state.infinite) {
+                    for (let i = 0; i < transCoords.length; i++) {
+                        const transCoordIndex = state.slideCoordTemp[transCoords[i]];
+                        if (transCoordIndex === slideIndex) {
+                            desired = transCoords[i];
+                            break;
+                        }
                     }
+                } else {
+                    desired = transCoords[activeIndex];
                 }
                 newState = {
                     ...state,
@@ -113,12 +123,15 @@ export const carouselReducer = (state, action) => {
         case FINISH_SLIDE:
             (() => {
                 let translate = state.translate;
-                const slideIndex = state.slideCoordTemp[state.translate];
-                const transCoords = Object.keys(state.slideCoordTemp);
-                if (slideIndex === -1) {
-                    translate = transCoords[transCoords.length - 2];
-                } else if ( slideIndex === state.items.length) {
-                    translate = transCoords[1];
+                console.log(`before finish slide: ${state.activeIndex}`)
+                if (state.infinite) {
+                    const slideIndex = state.slideCoordTemp[state.translate];
+                    const transCoords = Object.keys(state.slideCoordTemp);
+                    if (slideIndex === -1) {
+                        translate = transCoords[transCoords.length - 2];
+                    } else if ( slideIndex === state.items.length) {
+                        translate = transCoords[1];
+                    }
                 }
                 newState = {
                     ...state,

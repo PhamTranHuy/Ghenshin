@@ -1,6 +1,6 @@
 import { useEffect, useCallback } from 'react'
 import { initialState, carouselReducer } from "./Store/Reducer";
-import { initState, drag, drop } from "./Store/Actions";
+import { initState, drag, drop, jump } from "./Store/Actions";
 import useReducerWithMiddleware from '../ReducerWithMiddleware';
 import { slideAfterware } from './Store/Middleware';
 
@@ -24,6 +24,15 @@ function useCarousel({children, translateSize, transitionDuration, infinite}) {
         dispatch(drop());
     }
 
+    const next = () => {
+        dispatch(jump(state.activeIndex + 1));
+    }
+    const prev = () => {
+        dispatch(jump(state.activeIndex - 1));
+    }
+    const jumpTo = (index) => {
+        dispatch(jump(index));
+    }
     useEffect(() => {
         dispatch(initState({children, translateSize, transitionDuration, infinite}));
     }, [children, translateSize, transitionDuration, infinite])
@@ -35,7 +44,9 @@ function useCarousel({children, translateSize, transitionDuration, infinite}) {
         activeIndex: state.activeIndex,
         animationActive: state.animationActive,
         dragToSlide: handleMouseDown,
-        dispatch
+        next,
+        prev,
+        jumpTo
     };
 }
 export default useCarousel

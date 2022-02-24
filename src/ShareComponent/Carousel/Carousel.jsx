@@ -12,7 +12,7 @@ function Carousel({children, width  = 640, translateSize = width, transitionDura
         activeIndex,
         animationActive,
         dragToSlide,
-        dispatch
+        jumpTo
     } = useCarousel({children, translateSize, transitionDuration, infinite});
 
     return (
@@ -31,11 +31,11 @@ function Carousel({children, width  = 640, translateSize = width, transitionDura
                 </div>
             </div>
             <div className={styles['controls']}>
-                    {items?.map((item, i) => (
-                        <div key={i} 
-                            className={clsx(styles['button'], activeIndex === i && styles["is-active"])}
-                            onClick={() => {dispatch(jump(i))}}/>
-                    ))}
+                {items?.map((item, i) => (
+                    <div key={i} 
+                        className={clsx(styles['button'], activeIndex === i && styles["is-active"])}
+                        onClick={() => {jumpTo(i)}}/>
+                ))}
             </div>
         </div>
     )
