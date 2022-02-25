@@ -1,11 +1,13 @@
-import { useEffect, useCallback } from 'react'
+import { useEffect, useCallback, useState } from 'react'
 import { initialState, carouselReducer } from "./Store/Reducer";
 import { initState, drag, drop, jump } from "./Store/Actions";
 import useReducerWithMiddleware from '../ReducerWithMiddleware';
 import { slideAfterware } from './Store/Middleware';
+import { TRANS_DURATION } from './Store/Constants';
 
-function useCarousel({children, translateSize, transitionDuration, infinite}) {
+function useCarousel({children, translateSize, infinite}) {
     const [state, dispatch] = useReducerWithMiddleware(carouselReducer, initialState, [], [slideAfterware]);
+    const [style, setStyle] = useState({});
 
     const handleMouseMove = useCallback((e) => {
         dispatch(drag(e))
@@ -34,15 +36,20 @@ function useCarousel({children, translateSize, transitionDuration, infinite}) {
         dispatch(jump(index));
     }
     useEffect(() => {
-        dispatch(initState({children, translateSize, transitionDuration, infinite}));
-    }, [children, translateSize, transitionDuration, infinite])
+        dispatch(initState({children, translateSize, infinite}));
+    }, [children, translateSize, infinite])
+
+    useEffect(() => {
+        setStyle({
+            transform: `translateX(-${state.translate}px)`,
+            transitionDuration: state.animationActive ? `${TRANS_DURATION}ms` : '0ms'
+            })
+    }, [state.translate, state.animationActive])
 
     return {
-        items: state.items,
         slide: state.slide,
-        translate: state.translate,
         activeIndex: state.activeIndex,
-        animationActive: state.animationActive,
+        style,
         dragToSlide: handleMouseDown,
         next,
         prev,
