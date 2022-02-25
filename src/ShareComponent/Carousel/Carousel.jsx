@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import PropTypes from 'prop-types'
-import styles from './Carousel.module.scss'
 import clsx from 'clsx';
 import useCarousel from '../../CustomHook/Carousel/Carousel';
+import './Carousel.scss'
 
 function Carousel({children, width = 640, translateSize = width, infinite = true, autoSlideTime = 0}) {
     const {
@@ -23,9 +23,9 @@ function Carousel({children, width = 640, translateSize = width, infinite = true
         }
     }, [autoSlideTime, activeIndex])
     return (
-        <div className={styles['container']} style={{width: `${width}px` }}>
-            <div className={styles['carousel-outer']}>
-                <div className={styles['carousel-inner']} style={style}>
+        <div className={'carousel-container'} style={{width: `${width}px` }}>
+            <div className={'carousel-outer'}>
+                <div className={'carousel-inner'} style={style}>
                     {slide?.map((item, i) => (
                         <div key={i} 
                             className='item'
@@ -34,10 +34,10 @@ function Carousel({children, width = 640, translateSize = width, infinite = true
                     ))}
                 </div>
             </div>
-            <div className={styles['controls']}>
+            <div className={'carousel-swiper-pagination-wrapper'}>
                 {children?.map((item, i) => (
                     <div key={i} 
-                        className={clsx(styles['button'], activeIndex === i && styles["is-active"])}
+                        className={clsx('swiper-pagination-bullet', activeIndex === i && "is-active")}
                         onClick={() => {jumpTo(i)}}/>
                 ))}
             </div>
