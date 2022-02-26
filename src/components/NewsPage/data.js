@@ -4,6 +4,7 @@ import news_3_img from  './assets/recommend/news-3.jpg'
 import news_4_img from  './assets/recommend/news-4.jpg'
 import news_5_img from  './assets/recommend/news-5.jpg'
 
+const placeholderImgUrl = 'https://via.placeholder.com/265x140';
 const NEWS_INFO = [
     {
         id: 1,
@@ -50,7 +51,7 @@ const NEWS_INFO = [
         title: `eget dolor morbi non arcu risus quis varius quam quisque 1`,
         desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Proin nibh nisl condimentum id venenatis a condimentum vitae sapien. Enim nulla aliquet porttitor lacus luctus accumsan.`,
-        img: "//placehold.it/265x140",
+        img: placeholderImgUrl,
         date: new Date(2021, 8, 1),
         category: 'info'
     }, {
@@ -58,7 +59,7 @@ const NEWS_INFO = [
         title: `eget dolor morbi non arcu risus quis varius quam quisque 2`,
         desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Proin nibh nisl condimentum id venenatis a condimentum vitae sapien. Enim nulla aliquet porttitor lacus luctus accumsan.`,
-        img: "//placehold.it/265x140",
+        img: placeholderImgUrl,
         date: new Date(2021, 8, 1),
         category: 'info'
     }, {
@@ -66,7 +67,7 @@ const NEWS_INFO = [
         title: `eget dolor morbi non arcu risus quis varius quam quisque 3`,
         desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Proin nibh nisl condimentum id venenatis a condimentum vitae sapien. Enim nulla aliquet porttitor lacus luctus accumsan.`,
-        img: "//placehold.it/265x140",
+        img: placeholderImgUrl,
         date: new Date(2021, 8, 1),
         category: 'updates'
     }, {
@@ -74,7 +75,7 @@ const NEWS_INFO = [
         title: `eget dolor morbi non arcu risus quis varius quam quisque 4`,
         desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Proin nibh nisl condimentum id venenatis a condimentum vitae sapien. Enim nulla aliquet porttitor lacus luctus accumsan.`,
-        img: "//placehold.it/265x140",
+        img: placeholderImgUrl,
         date: new Date(2021, 8, 1),
         category: 'updates'
     }, {
@@ -82,7 +83,7 @@ const NEWS_INFO = [
         title: `eget dolor morbi non arcu risus quis varius quam quisque 5`,
         desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Proin nibh nisl condimentum id venenatis a condimentum vitae sapien. Enim nulla aliquet porttitor lacus luctus accumsan.`,
-        img: "//placehold.it/265x140",
+        img: placeholderImgUrl,
         date: new Date(2021, 8, 1),
         category: 'updates'
     }, {
@@ -90,7 +91,7 @@ const NEWS_INFO = [
         title: `eget dolor morbi non arcu risus quis varius quam quisque 6`,
         desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Proin nibh nisl condimentum id venenatis a condimentum vitae sapien. Enim nulla aliquet porttitor lacus luctus accumsan.`,
-        img: "//placehold.it/265x140",
+        img: placeholderImgUrl,
         date: new Date(2021, 8, 1),
         category: 'updates'
     }, {
@@ -98,7 +99,7 @@ const NEWS_INFO = [
         title: `eget dolor morbi non arcu risus quis varius quam quisque 7`,
         desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Proin nibh nisl condimentum id venenatis a condimentum vitae sapien. Enim nulla aliquet porttitor lacus luctus accumsan.`,
-        img: "//placehold.it/265x140",
+        img: placeholderImgUrl,
         date: new Date(2021, 8, 1),
         category: 'updates'
     }, {
@@ -106,7 +107,7 @@ const NEWS_INFO = [
         title: `eget dolor morbi non arcu risus quis varius quam quisque 8`,
         desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Proin nibh nisl condimentum id venenatis a condimentum vitae sapien. Enim nulla aliquet porttitor lacus luctus accumsan.`,
-        img: "//placehold.it/265x140",
+        img: placeholderImgUrl,
         date: new Date(2021, 8, 1),
         category: 'updates'
     }, 
