@@ -20,5 +20,16 @@
             align-self: center;
             justify-content: space-between;
         }
+        .news-block-carousel {
+            display: flex;
+            justify-content: center;
+            .item-wrapper {
+                & > * {
+                    width: 420px;
+                    height: 30rem;
+                    margin: 0 auto;
+                }
+            }
+        }
     }
 }
