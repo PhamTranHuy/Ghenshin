@@ -35,4 +35,22 @@
             }
         }
     }
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        width: 1rem;
+        height: 1.8rem;
+        background-size: cover;
+        background-position: center;
+        cursor: pointer;
+    }
+    .carousel-btn.next {
+        right: 1.5rem;
+        background-image: url(./assets/next.png);
+    }
+    .carousel-btn.prev {
+        left: 1.5rem;
+        transform: rotateY(180deg);
+        background-image: url(./assets/next.png);
+    }
 }

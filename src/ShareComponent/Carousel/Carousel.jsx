@@ -4,12 +4,14 @@ import clsx from 'clsx';
 import useCarousel from '../../CustomHook/Carousel/Carousel';
 import './Carousel.scss'
 
-function Carousel({children, width = 640, translateSize = width, infinite = true, autoSlideTime = 0}) {
+function Carousel({children, width = 640, translateSize = width, infinite = true, autoSlideTime = 0, paginationButton = true, slideButton = true}) {
     const {
         slide,
         activeIndex,
         dragToSlide,
         jumpTo,
+        next,
+        prev,
         style
     } = useCarousel({children, translateSize, infinite});
     useEffect(() => {
@@ -34,13 +36,22 @@ function Carousel({children, width = 640, translateSize = width, infinite = true
                     ))}
                 </div>
             </div>
-            <div className={'carousel-swiper-pagination-wrapper'}>
-                {children?.map((item, i) => (
-                    <div key={i} 
-                        className={clsx('swiper-pagination-bullet', activeIndex === i && "is-active")}
-                        onClick={() => {jumpTo(i)}}/>
-                ))}
-            </div>
+            {paginationButton && (
+                <div className={'carousel-swiper-pagination-wrapper'}>
+                    {children?.map((item, i) => (
+                        <div key={i} 
+                            className={clsx('swiper-pagination-bullet', activeIndex === i && "is-active")}
+                            onClick={() => {jumpTo(i)}}/>
+                    ))}
+                </div>
+            )}
+            {slideButton && (
+                <>
+                    <div className="carousel-btn next" onClick={next}></div>
+                    <div className="carousel-btn prev" onClick={prev}></div>
+                </>
+            )}
+            
         </div>
     )
 }
