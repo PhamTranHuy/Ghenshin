@@ -30,6 +30,15 @@
                     margin: 0 auto;
                 }
             }
+            .carousel-swiper-pagination-wrapper {
+                bottom: -4.5rem;
+                .swiper-pagination-bullet {
+                    height: 1rem;
+                    width: 1rem;
+                    margin: 0.8rem;
+                    background: #fff;
+                }
+            }
         }
     }
 }
