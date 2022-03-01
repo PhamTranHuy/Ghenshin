@@ -7,7 +7,7 @@
         cursor: pointer;
         @media screen and (max-width: 500px) {
             height: 400px;
-            padding-top: 7rem;
+            padding-top: 8.5rem;
         }
         &::after {
             content: '';
@@ -45,7 +45,7 @@
             .carousel-swiper-pagination-wrapper {
                 bottom: -4.5rem;
                 @media screen and (max-width: 500px) {
-                    bottom: -4rem;
+                    bottom: -3.5rem;
                 }
                 .swiper-pagination-bullet {
                     height: 1rem;
