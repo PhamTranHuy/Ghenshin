@@ -1,0 +1,33 @@
+.news-page_news {
+    .category-item {
+        font-size: 1.2rem;
+        padding: 10px 60px;
+        margin: 10px;
+        border-radius: 5px;
+
+        background-color: #cfd0d1;
+        color: #393b40;
+
+        text-align: center;
+        line-height: 1;
+        text-transform: capitalize;
+        transition: 0.2s ease;
+        cursor: pointer;
+        @media screen and (max-width: 1200px) {
+            width: 160px;
+            padding: 10px 0;
+            font-size: 1.4rem;
+        }
+        @media screen and (max-width: 500px) {
+            width: 140px;
+        }
+        &:hover {
+            background-color: #393b40;
+            color: #f4d8a8;
+        }
+        &.active {
+            background-color: #393b40;
+            color: #f4d8a8;
+        }
+    }
+}

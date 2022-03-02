@@ -47,7 +47,7 @@ function NewsSection() {
             </div>
             <div className="news-container">
                 <div className="carousel-wrapper">
-                    <Carousel width={carouselWidth}>
+                    <Carousel width={carouselWidth} autoSlideTime={5000} slideButton={false}>
                         {CAROUSEL_ITEMS.map((item, i) => (
                             <a style={{display: 'flex'}} key={i}>
                                 <img src={item.img} style={{width: `${carouselWidth}px`}} />

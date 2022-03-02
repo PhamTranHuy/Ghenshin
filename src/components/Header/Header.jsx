@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import useAudio from '../../CustomHook/Audio'
 import Navigator from './Navigator/Navigator'
 import Popup from '../../ShareComponent/Popup/Popup'
@@ -22,7 +23,7 @@ function Header() {
     const setPlayingMusic = useAudio(MUSIC);
     const windowSize = useWindowSize();
     const windowScroll = useWindowScroll();
-
+    const location = useLocation();
     const handleMusicClicked = () => {
         setPlayMusic((playMusic) => !playMusic);
     }
@@ -49,6 +50,9 @@ function Header() {
     }, [windowSize])
 
     useEffect(() => {
+        if (location.pathname !== '/') {
+            return;
+        }
         if (windowSize.width < 1200 && windowScroll.scrollY === 0) {
             setHideHeaderMobile(true);
         } else {
