@@ -11,9 +11,19 @@
     }
     .img-wrapper {
         margin-right: 1rem;
+        width: 265px;
+        height: 140px;
+        @media screen and (max-width: 768px) {
+            width: 185.5px;
+            height: 100px;
+        }
+        @media screen and (max-width: 500px) {
+            width: 111px;
+            height: 60px;
+        }
         img {
-            width: 265px;
-            height: 140px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
     }
@@ -25,6 +35,9 @@
         .title {
             font-weight: 400;
             font-size: 1.8rem;
+            @media screen and (max-width: 500px) {
+                font-size: 1.4rem;
+            }
         }
         .desc {
             display: -webkit-box;
@@ -37,6 +50,9 @@
 
             font-size: 1.3rem;
             color: #7d7d7d;
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
         }
         .space {
             flex: 1;
