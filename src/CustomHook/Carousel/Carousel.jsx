@@ -13,13 +13,11 @@ function useCarousel({children, translateSize, infinite}) {
         dispatch(drag(e))
     }, []);
     const handleMouseDown = (e) => {
-        console.log('add mouse move');
         e.preventDefault();
         document.addEventListener("mousemove", handleMouseMove);
         document.addEventListener("mouseup", handleMouseUp);
     }
     const handleMouseUp = (e) => {
-        console.log('remove mouse move');
         e.preventDefault();
         document.removeEventListener("mousemove", handleMouseMove);
         document.removeEventListener("mouseup", handleMouseUp);

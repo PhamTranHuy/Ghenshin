@@ -123,7 +123,6 @@ export const carouselReducer = (state, action) => {
         case FINISH_SLIDE:
             (() => {
                 let translate = state.translate;
-                console.log(`before finish slide: ${state.activeIndex}`)
                 if (state.infinite) {
                     const slideIndex = state.slideCoordTemp[state.translate];
                     const transCoords = Object.keys(state.slideCoordTemp);
