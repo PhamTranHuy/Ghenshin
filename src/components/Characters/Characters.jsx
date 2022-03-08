@@ -1,11 +1,15 @@
 import Footer from "../Footer/Footer"
 import Header from "../Header/Header"
+import "./Characters.scss"
 
 const Characters = () => {
     return (
-        <div>
+        <div className="character-page">
             <Header />
-            <h1>Character</h1>
+            <div className="background-wrapper">
+                <div className="background bg-1"></div>
+                <div className="background bg-2"></div>
+            </div>
             <Footer />
         </div>
     )
