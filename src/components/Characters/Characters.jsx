@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom"
 import Footer from "../Footer/Footer"
 import Header from "../Header/Header"
 import "./Characters.scss"
@@ -8,9 +9,8 @@ const Characters = () => {
         <div className="character-page">
             <Header />
             <Navigator />
-            <div className="background-wrapper">
-                <div className="background bg-1"></div>
-                <div className="background bg-2"></div>
+            <div className="character-content">
+                <Outlet />
             </div>
             <Footer />
         </div>
