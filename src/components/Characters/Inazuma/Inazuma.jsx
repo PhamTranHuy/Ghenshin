@@ -1,10 +1,9 @@
 import React from 'react'
+import CharacterView from '../CharacterView/CharacterView'
 
 function Inazuma() {
     return (
-        <div>
-            
-        </div>
+        <CharacterView />
     )
 }
 
