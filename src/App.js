@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import NewsPage from "./components/NewsPage/NewsPage";
 import Characters from "./components/Characters/Characters";
@@ -18,7 +18,6 @@ function App() {
                     <Route path="/characters" element={<Characters />}>
                         <Route
                             path="mondstadt"
-                            index
                             element={<Mondstadt />}
                         />
                         <Route
@@ -28,6 +27,10 @@ function App() {
                         <Route
                             path="inazuma"
                             element={<Inazuma />}
+                        />
+                        <Route
+                            path=""
+                            element={<Navigate to="mondstadt" />}
                         />
                     </Route>
                     <Route path='*' element={<NotFound />} />
