@@ -50,7 +50,7 @@ function Header() {
     }, [windowSize])
 
     useEffect(() => {
-        if (location.pathname !== '/') {
+        if (location.pathname !== '/home') {
             return;
         }
         if (windowSize.width < 1200 && windowScroll.scrollY === 0) {

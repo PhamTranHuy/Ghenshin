@@ -71,7 +71,7 @@ function Navigator() {
     return (
         <div className="header_nav-wrapper" ref={navWrapper}>
             <nav className="header_nav">
-                <NavLink to="/" className="nav-button">HOME</NavLink>
+                <NavLink to="/home" className="nav-button">HOME</NavLink>
                 <NavLink to="/news" className="nav-button">NEWS</NavLink>
                 <NavLink to="/characters" className="nav-button">CHARACTERS</NavLink>
                 <div id="explore" className="sub-list-wrapper nav-button">

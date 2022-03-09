@@ -13,9 +13,10 @@ function App() {
         <div className="App">
             <RestoreWindowScroll>
                 <Routes>
-                    <Route path="/" index element={<HomePage />} />
-                    <Route path="/news" element={<NewsPage />} />
-                    <Route path="/characters" element={<Characters />}>
+                    <Route path="/" element={<Navigate to="home" replace={true} />} />
+                    <Route path="home" element={<HomePage />} />
+                    <Route path="news" element={<NewsPage />} />
+                    <Route path="characters" element={<Characters />}>
                         <Route
                             path="mondstadt"
                             element={<Mondstadt />}
