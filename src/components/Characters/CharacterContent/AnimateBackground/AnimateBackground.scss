@@ -39,14 +39,11 @@
         background-position: center;
     }
     .bg-1 {
-        background-image: url(../../assets/background-1.jpg);
         opacity: 1;
         animation: breath 30s infinite linear;
     }
     .bg-2 {
-        background-image: url(../../assets/background-2.jpg);
         opacity: 0;
         animation: bg-change 15s infinite linear, breath 80s infinite linear;
-        //animation: name duration timing-function delay iteration-count direction fill-mode;
     }
 }

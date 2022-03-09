@@ -1,10 +1,10 @@
 import "./CharacterContent.scss"
 import AnimateBackground from "./AnimateBackground/AnimateBackground"
 
-function CharacterView() {
+function CharacterView({ background }) {
     return (
         <div className="character-content-wrapper">
-            <AnimateBackground />
+            <AnimateBackground background={background}/>
         </div>
     )
 }
