@@ -1,0 +1,37 @@
+.character-navigator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 400px;
+    padding-top: 12.5rem;
+    z-index: 1;
+    .navigator-wrapper::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 2px;
+        margin-left: 36.5px;
+        background-color: rgba(255,255,255,0.14);
+    }
+    .navigate-button {
+        a {
+            display: block;
+            padding: 7px 60px;
+            background: 18px center no-repeat;
+            background-image: url(../assets/navigator/none-active-icon.png);
+            text-shadow: 0 2px 6px #00000059;
+            &.active {
+                padding: 7px 75px;
+                background: 0px center no-repeat;
+                background-image: url(../assets/navigator/active-icon.png);
+                text-shadow: none;
+            }
+            p {
+                color: #fff;
+                font-size: 1.4rem;
+            }
+        }
+    }
+}
