@@ -1,5 +1,5 @@
-import "./CharacterView.scss"
-import AnimateBackground from '../AnimateBackground/AnimateBackground'
+import "./CharacterContent.scss"
+import AnimateBackground from "./AnimateBackground/AnimateBackground"
 
 function CharacterView() {
     return (

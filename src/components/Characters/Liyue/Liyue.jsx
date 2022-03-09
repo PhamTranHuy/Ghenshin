@@ -1,9 +1,9 @@
 import React from 'react'
-import CharacterView from '../CharacterView/CharacterView'
+import CharacterContent from '../CharacterContent/CharacterContent'
 
 function Liyue() {
     return (
-        <CharacterView />
+        <CharacterContent />
     )
 }
 
