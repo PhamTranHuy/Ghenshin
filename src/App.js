@@ -12,7 +12,13 @@ function App() {
                 <Routes>
                     <Route path="/" index element={<HomePage />} />
                     <Route path="/news" element={<NewsPage />} />
-                    <Route path="/characters" element={<Characters />} />
+                    <Route path="/characters" element={<Characters />}>
+                        <Route
+                            path="mondstadt"
+                            index
+                            element={<Characters />}
+                        />
+                    </Route>
                     <Route path='*' element={<NotFound />} />
                 </Routes>
             </RestoreWindowScroll>
