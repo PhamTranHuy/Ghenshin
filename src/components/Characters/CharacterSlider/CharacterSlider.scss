@@ -2,20 +2,55 @@
     position: absolute;
     bottom: 0;
     width: 100%;
+    padding: 20px 0;
     display: flex;
     justify-content: center;
+    background: #cccccc33;
     z-index: 999;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 20%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url(../assets/slider/dark-banner.png);
+        background-size: contain;
+        z-index: -1;
+    }
     .carousel-container {
         .carousel-btn {
+            background-image: url(../assets/slider/arrow.png);
+            height: 4.5rem;
+            width: 3rem;
+            top: 3.5rem;
             &.next {
-                right: -4rem;
+                right: -5rem;
+                transform: rotateY(180deg);
             }
             &.prev {
-                left: -4rem;
+                left: -5rem;
+                transform: none;
             }
         }
     }
     .avatar {
-        margin-left: 30px;
+        margin: 0 15px;
+        background-color: #1a1a1a7a;
+        border: 2px solid #ffffff17;
+        border-radius: 4px;
+        &:hover {
+            border-color: #fff;
+            background-color: #1a1a1a;
+        }
+        .img-wrapper {
+            height: 106px;
+        }
+        .name {
+            background-color: #242221;
+            color: #fff;
+            text-align: center;
+            font-size: 1.3rem;
+        }
     }
 }
