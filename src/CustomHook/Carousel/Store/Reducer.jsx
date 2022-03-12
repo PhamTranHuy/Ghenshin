@@ -37,8 +37,19 @@ export const carouselReducer = (state, action) => {
                 // set slide coord obj with key = transition coord and value = index
                 let slideCoordTemp = {}
                 slide.forEach((item, index) => {
-                    const slideIndex = infinite ? index - 1 : index;
-                    slideCoordTemp[slideIndex] = translateSize * index;
+                    if (infinite) {
+                        const slideIndex = index - 1;
+                        slideCoordTemp[slideIndex] = translateSize * index;
+                    } else {
+                        const slideIndex = index;
+                        if (index < slidesPerView) {
+                            slideCoordTemp[slideIndex] = 0;
+                        } else if (index >= slide.length - slidesPerView) {
+                            slideCoordTemp[slideIndex] = translateSize * (slide.length - slidesPerView * 2);
+                        } else {
+                            slideCoordTemp[slideIndex] = translateSize * (index - slidesPerView + 1);
+                        }
+                    }
                 });
                 newState = {
                     ...state, 
@@ -98,7 +109,11 @@ export const carouselReducer = (state, action) => {
                 } else if ( slideIndex === state.items.length) {
                     activeIndex = 0;
                 }
-                desired = state.slideCoordTemp[slideIndex];
+                if (state.infinite) {
+                    desired = state.slideCoordTemp[slideIndex];
+                } else {
+                    desired = state.slideCoordTemp[activeIndex];
+                }
                 newState = {
                     ...state,
                     desired,
