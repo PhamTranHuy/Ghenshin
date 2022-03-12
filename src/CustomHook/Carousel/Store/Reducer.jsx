@@ -59,7 +59,8 @@ export const carouselReducer = (state, action) => {
                     translateSize,
                     transitionDuration,
                     slideCoordTemp,
-                    infinite
+                    infinite,
+                    slidesPerView
                 }
             })()
             break;

@@ -1,12 +1,13 @@
 import "./CharacterSlider.scss"
 import Carousel from "../../../ShareComponent/Carousel/Carousel"
-import { CHARACTER_IMG_LIST } from "../assets/data"
+import { useState} from "react"
 
-function CharacterSlider() {
+function CharacterSlider({characterAvatars = []}) {
+    const [translateSize, setTranslateSize] = useState(140);
     return (
         <div className="character-slider-wrapper">
-            <Carousel width={830} translateSize={180} infinite={false} paginationButton={false} slidesPerView={3}>
-                {CHARACTER_IMG_LIST.map(item => (
+            <Carousel width={830} translateSize={translateSize} infinite={false} paginationButton={false} slidesPerView={3}>
+                {characterAvatars.map((item) => (
                     <div key={item.id} className="avatar">
                         <div className="img-wrapper">
                             <img src={item.img} alt="" />

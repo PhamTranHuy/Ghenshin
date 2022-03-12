@@ -2,11 +2,11 @@ import "./CharacterContent.scss"
 import AnimateBackground from "./AnimateBackground/AnimateBackground"
 import CharacterSlider from "../CharacterSlider/CharacterSlider"
 
-function CharacterView({ background }) {
+function CharacterView({ background, characterAvatars}) {
     return (
         <div className="character-content-wrapper">
             <AnimateBackground background={background}/>
-            <CharacterSlider />
+            <CharacterSlider characterAvatars={characterAvatars} />
         </div>
     )
 }

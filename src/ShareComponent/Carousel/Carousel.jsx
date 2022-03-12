@@ -60,7 +60,6 @@ function Carousel({
                     <div className="carousel-btn prev" onClick={prev}></div>
                 </>
             )}
-            
         </div>
     )
 }
