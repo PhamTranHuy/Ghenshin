@@ -5,7 +5,7 @@ import { CHARACTER_IMG_LIST } from "../assets/data"
 function CharacterSlider() {
     return (
         <div className="character-slider-wrapper">
-            <Carousel width={830} translateSize={180} infinite={false} paginationButton={false}>
+            <Carousel width={830} translateSize={180} infinite={false} paginationButton={false} slidesPerView={3}>
                 {CHARACTER_IMG_LIST.map(item => (
                     <div key={item.id} className="avatar">
                         <div className="img-wrapper">
