@@ -26,16 +26,6 @@ function Navigator() {
     }
 
     useEffect(() => {
-        // prevent pointer's animation during switch route
-        setTimeout(() => {
-            document.querySelector('.header_nav-pointer').style.transition = 'all 0.2s ease-out';
-        }, POINTER_TRANSITION_DURATION)
-        return () => {
-            document.querySelector('.header_nav-pointer').style.transition = 'none';
-        }
-    }, [])
-
-    useEffect(() => {
         // handle mouseover, mouseout event to set position to nav pointer
         const navButtons = document.querySelectorAll('.nav-button');
         const mouseoverHandle = (e) => {
