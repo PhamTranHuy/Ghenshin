@@ -12,7 +12,8 @@ function Carousel({
     autoSlideTime = 0, 
     paginationButton = true, 
     slideButton = true,
-    slidesPerView = 1
+    slidesPerView = 1,
+    dragAble = true
 }) {
     const {
         slide,
@@ -40,7 +41,7 @@ function Carousel({
                     {slide?.map((item, i) => (
                         <div key={i} 
                             className={clsx('item', activeIndex === i && "is-active")}
-                            onMouseDown={dragToSlide}
+                            onMouseDown={dragAble ? dragToSlide : () => {}}
                             onClick={() => {jumpTo(i)}}
                         >{item}</div>
                     ))}

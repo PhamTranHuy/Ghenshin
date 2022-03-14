@@ -6,7 +6,7 @@ function CharacterSlider({characterAvatars = []}) {
     const [translateSize, setTranslateSize] = useState(140);
     return (
         <div className="character-slider-wrapper">
-            <Carousel width={830} translateSize={translateSize} infinite={false} paginationButton={false} slidesPerView={3}>
+            <Carousel width={830} translateSize={translateSize} infinite={false} paginationButton={false} slidesPerView={3} dragAble={false}>
                 {characterAvatars.map((item) => (
                     <div key={item.id} className="avatar">
                         <div className="img-wrapper">
