@@ -18,8 +18,12 @@ export const carouselReducer = (state, action) => {
     switch (action.type) {
         case INIT_STATE:
             (() => {
-                const { children: items, translateSize, transitionDuration, infinite } = action.payload;
+                let { children: items, translateSize, transitionDuration, infinite, slidesPerView } = action.payload;
                 let slide, translate;
+
+                if(slidesPerView > 1) {
+                    infinite = false;
+                }
 
                 // set initial translate coord and slide frame
                 if (infinite) {
@@ -33,9 +37,20 @@ export const carouselReducer = (state, action) => {
                 // set slide coord obj with key = transition coord and value = index
                 let slideCoordTemp = {}
                 slide.forEach((item, index) => {
-                    slideCoordTemp[translateSize * index] = infinite ? index - 1 : index;
+                    if (infinite) {
+                        const slideIndex = index - 1;
+                        slideCoordTemp[slideIndex] = translateSize * index;
+                    } else {
+                        const slideIndex = index;
+                        if (index < slidesPerView) {
+                            slideCoordTemp[slideIndex] = 0;
+                        } else if (index >= slide.length - slidesPerView) {
+                            slideCoordTemp[slideIndex] = translateSize * (slide.length - slidesPerView * 2);
+                        } else {
+                            slideCoordTemp[slideIndex] = translateSize * (index - slidesPerView + 1);
+                        }
+                    }
                 });
-
                 newState = {
                     ...state, 
                     items,
@@ -44,14 +59,15 @@ export const carouselReducer = (state, action) => {
                     translateSize,
                     transitionDuration,
                     slideCoordTemp,
-                    infinite
+                    infinite,
+                    slidesPerView
                 }
             })()
             break;
         case DRAG:
             (() => {
                 let translate = state.translate - action.payload.movementX;
-                const transCoords = Object.keys(state.slideCoordTemp);
+                const transCoords = Object.values(state.slideCoordTemp).sort((a, b) => a - b);
                 const lastTrans = transCoords[transCoords.length - 1];
                 if (translate > lastTrans) {
                     translate = lastTrans;
@@ -65,10 +81,12 @@ export const carouselReducer = (state, action) => {
             break;
         case DROP:
             (() => {
-                const closedCoord = Object.keys(state.slideCoordTemp).reduce((a, b) => {
+                const transCoords = Object.values(state.slideCoordTemp).sort((a, b) => a - b);
+                const slidesIndexArr = Object.keys(state.slideCoordTemp).sort((a, b) => a - b);
+                const closedCoord = transCoords.reduce((a, b) => {
                     return Math.abs(b - state.translate) < Math.abs(a - state.translate) ? b : a;
                 })
-                let slideIndex = state.slideCoordTemp[closedCoord];
+                let slideIndex = Number(slidesIndexArr[transCoords.indexOf(closedCoord)]);
                 let activeIndex = slideIndex;
                 if (slideIndex === -1) {
                     activeIndex = state.items.length - 1;
@@ -92,17 +110,10 @@ export const carouselReducer = (state, action) => {
                 } else if ( slideIndex === state.items.length) {
                     activeIndex = 0;
                 }
-                const transCoords = Object.keys(state.slideCoordTemp);
                 if (state.infinite) {
-                    for (let i = 0; i < transCoords.length; i++) {
-                        const transCoordIndex = state.slideCoordTemp[transCoords[i]];
-                        if (transCoordIndex === slideIndex) {
-                            desired = transCoords[i];
-                            break;
-                        }
-                    }
+                    desired = state.slideCoordTemp[slideIndex];
                 } else {
-                    desired = transCoords[activeIndex];
+                    desired = state.slideCoordTemp[activeIndex];
                 }
                 newState = {
                     ...state,
@@ -124,8 +135,9 @@ export const carouselReducer = (state, action) => {
             (() => {
                 let translate = state.translate;
                 if (state.infinite) {
-                    const slideIndex = state.slideCoordTemp[state.translate];
-                    const transCoords = Object.keys(state.slideCoordTemp);
+                    const transCoords = Object.values(state.slideCoordTemp).sort((a, b) => a - b);
+                    const slidesIndexArr = Object.keys(state.slideCoordTemp).sort((a, b) => a - b);
+                    const slideIndex = Number(slidesIndexArr[transCoords.indexOf(translate)]);
                     if (slideIndex === -1) {
                         translate = transCoords[transCoords.length - 2];
                     } else if ( slideIndex === state.items.length) {

@@ -5,7 +5,7 @@ import useReducerWithMiddleware from '../ReducerWithMiddleware';
 import { slideAfterware } from './Store/Middleware';
 import { TRANS_DURATION } from './Store/Constants';
 
-function useCarousel({children, translateSize, infinite}) {
+function useCarousel({children, translateSize, infinite, slidesPerView}) {
     const [state, dispatch] = useReducerWithMiddleware(carouselReducer, initialState, [], [slideAfterware]);
     const [style, setStyle] = useState({});
 
@@ -34,8 +34,8 @@ function useCarousel({children, translateSize, infinite}) {
         dispatch(jump(index));
     }
     useEffect(() => {
-        dispatch(initState({children, translateSize, infinite}));
-    }, [children, translateSize, infinite])
+        dispatch(initState({children, translateSize, infinite, slidesPerView}));
+    }, [children, translateSize, infinite, slidesPerView])
 
     useEffect(() => {
         setStyle({
