@@ -1,4 +1,5 @@
 const MONDSTADT_AVATAR_URL = "./character-avatar/mondstadt"
+const LIYUE_AVATAR_URL = "./character-avatar/liyue"
 
 export const CHARACTER_IMG_LIST = [
     {
@@ -6,59 +7,95 @@ export const CHARACTER_IMG_LIST = [
         name: "Jean",
         city: "mondstadt",
         img: require(`${MONDSTADT_AVATAR_URL}/jean.png`).default
-    },
-    {
+    }, {
         id: 1,
         name: "Amber",
         city: "mondstadt",
         img: require(`${MONDSTADT_AVATAR_URL}/amber.png`).default
-    },
-    {
+    }, {
         id: 2,
         name: "Lisa",
         city: "mondstadt",
         img: require(`${MONDSTADT_AVATAR_URL}/lisa.png`).default
-    },
-    {
+    }, {
         id: 3,
         name: "Kaeya",
         city: "mondstadt",
         img: require(`${MONDSTADT_AVATAR_URL}/kaeya.png`).default
-    },
-    {
+    }, {
         id: 4,
         name: "Barbara",
         city: "mondstadt",
         img: require(`${MONDSTADT_AVATAR_URL}/barbara.png`).default
-    },
-    {
+    }, {
         id: 5,
         name: "Diluc",
         city: "mondstadt",
         img: require(`${MONDSTADT_AVATAR_URL}/diluc.png`).default
-    },
-    {
+    }, {
         id: 6,
         name: "Razor",
         city: "mondstadt",
         img: require(`${MONDSTADT_AVATAR_URL}/razor.png`).default
-    },
-    {
+    }, {
         id: 7,
         name: "Venti",
         city: "mondstadt",
         img: require(`${MONDSTADT_AVATAR_URL}/venti.png`).default
-    },
-    {
+    }, {
         id: 8,
         name: "Klee",
         city: "mondstadt",
         img: require(`${MONDSTADT_AVATAR_URL}/klee.png`).default
-    },
-    {
+    }, {
         id: 9,
         name: "Benefit",
         city: "mondstadt",
         img: require(`${MONDSTADT_AVATAR_URL}/benefit.png`).default
-    },
+    }, {
+        id: 10,
+        name: "Xiao",
+        city: "liyue",
+        img: require(`${LIYUE_AVATAR_URL}/xiao.png`).default
+    }, {
+        id: 11,
+        name: "Beidou",
+        city: "liyue",
+        img: require(`${LIYUE_AVATAR_URL}/beidou.png`).default
+    }, {
+        id: 12,
+        name: "Ningguang",
+        city: "liyue",
+        img: require(`${LIYUE_AVATAR_URL}/ningguang.png`).default
+    }, {
+        id: 13,
+        name: "Xiangling",
+        city: "liyue",
+        img: require(`${LIYUE_AVATAR_URL}/xiangling.png`).default
+    }, {
+        id: 14,
+        name: "Xingqiu",
+        city: "liyue",
+        img: require(`${LIYUE_AVATAR_URL}/xingqiu.png`).default
+    }, {
+        id: 15,
+        name: "Chongyun",
+        city: "liyue",
+        img: require(`${LIYUE_AVATAR_URL}/chongyun.png`).default
+    }, {
+        id: 16,
+        name: "Qiqi",
+        city: "liyue",
+        img: require(`${LIYUE_AVATAR_URL}/qiqi.png`).default
+    }, {
+        id: 17,
+        name: "Keqing",
+        city: "liyue",
+        img: require(`${LIYUE_AVATAR_URL}/keqing.png`).default
+    }, {
+        id: 18,
+        name: "Zhongli",
+        city: "liyue",
+        img: require(`${LIYUE_AVATAR_URL}/zhongli.png`).default
+    }
 ]
