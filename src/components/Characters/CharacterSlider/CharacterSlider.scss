@@ -37,6 +37,10 @@
             .avatar {
                 border-color: #fff;
                 background-color: #1a1a1a;
+                .name {
+                    color: #1a1a1a;
+                    background-color: #fff;
+                }
             }
         }
     }
@@ -48,11 +52,20 @@
         &:hover {
             border-color: #fff;
             background-color: #1a1a1a;
+            .name {
+                color: #1a1a1a;
+                background-color: #fff;
+            }
         }
         .img-wrapper {
             height: 106px;
         }
         .name {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            line-height: 1;
             background-color: #242221;
             color: #fff;
             text-align: center;
