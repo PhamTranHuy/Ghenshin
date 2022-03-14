@@ -1,5 +1,6 @@
 const MONDSTADT_AVATAR_URL = "./character-avatar/mondstadt"
 const LIYUE_AVATAR_URL = "./character-avatar/liyue"
+const INAZUMA_AVATAR_URL = "./character-avatar/inazuma"
 
 export const CHARACTER_IMG_LIST = [
     {
@@ -97,5 +98,55 @@ export const CHARACTER_IMG_LIST = [
         name: "Zhongli",
         city: "liyue",
         img: require(`${LIYUE_AVATAR_URL}/zhongli.png`).default
+    }, {
+        id: 19,
+        name: "Kamisato Ayaka",
+        city: "inazuma",
+        img: require(`${INAZUMA_AVATAR_URL}/kamisato-ayaka.png`).default
+    }, {
+        id: 20,
+        name: "Kaedehara Kazuha",
+        city: "inazuma",
+        img: require(`${INAZUMA_AVATAR_URL}/kaedehara-kazuha.png`).default
+    }, {
+        id: 21,
+        name: "Yoimiya",
+        city: "inazuma",
+        img: require(`${INAZUMA_AVATAR_URL}/yoimiya.png`).default
+    }, {
+        id: 22,
+        name: "Sayu",
+        city: "inazuma",
+        img: require(`${INAZUMA_AVATAR_URL}/sayu.png`).default
+    }, {
+        id: 23,
+        name: "Raiden Shogun",
+        city: "inazuma",
+        img: require(`${INAZUMA_AVATAR_URL}/raiden-shogun.png`).default
+    }, {
+        id: 24,
+        name: "Kujou Sara",
+        city: "inazuma",
+        img: require(`${INAZUMA_AVATAR_URL}/kujou-sara.png`).default
+    }, {
+        id: 25,
+        name: "Sangonomiya Kokomi",
+        city: "inazuma",
+        img: require(`${INAZUMA_AVATAR_URL}/sangonomiya-kokomi.png`).default
+    }, {
+        id: 26,
+        name: "Thoma",
+        city: "inazuma",
+        img: require(`${INAZUMA_AVATAR_URL}/thoma.png`).default
+    }, {
+        id: 27,
+        name: "Arataki Itto",
+        city: "inazuma",
+        img: require(`${INAZUMA_AVATAR_URL}/arataki-itto.png`).default
+    }, {
+        id: 28,
+        name: "Yae Miko",
+        city: "inazuma",
+        img: require(`${INAZUMA_AVATAR_URL}/yae-miko.png`).default
     }
 ]
