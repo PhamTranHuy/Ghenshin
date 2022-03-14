@@ -41,6 +41,7 @@ function Carousel({
                         <div key={i} 
                             className={clsx('item', activeIndex === i && "is-active")}
                             onMouseDown={dragToSlide}
+                            onClick={() => {jumpTo(i)}}
                         >{item}</div>
                     ))}
                 </div>

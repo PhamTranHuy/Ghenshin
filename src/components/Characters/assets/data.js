@@ -49,4 +49,16 @@ export const CHARACTER_IMG_LIST = [
         city: "mondstadt",
         img: require(`${MONDSTADT_AVATAR_URL}/venti.png`).default
     },
+    {
+        id: 8,
+        name: "Klee",
+        city: "mondstadt",
+        img: require(`${MONDSTADT_AVATAR_URL}/klee.png`).default
+    },
+    {
+        id: 9,
+        name: "Benefit",
+        city: "mondstadt",
+        img: require(`${MONDSTADT_AVATAR_URL}/benefit.png`).default
+    },
 ]
