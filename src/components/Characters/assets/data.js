@@ -2,7 +2,7 @@ const MONDSTADT_AVATAR_URL = "./character-avatar/mondstadt"
 const LIYUE_AVATAR_URL = "./character-avatar/liyue"
 const INAZUMA_AVATAR_URL = "./character-avatar/inazuma"
 
-export const CHARACTER_IMG_LIST = [
+export const CHARACTER_AVATAR_LIST = [
     {
         id: 0,
         name: "Jean",
@@ -148,5 +148,31 @@ export const CHARACTER_IMG_LIST = [
         name: "Yae Miko",
         city: "inazuma",
         img: require(`${INAZUMA_AVATAR_URL}/yae-miko.png`).default
+    }
+]
+
+const getCharacterImg = (name) => {
+    return require(`./character-img/desktop/${name}.png`).default
+}
+const getCharacterMobileImg = (name) => {
+    return require(`./character-img/mobile/${name}.png`).default
+}
+const getQualityImg = (quality) => {
+    return require(`./character-quality/${quality}.png`).default
+}
+const getConversationImg = (name) => {
+    return require(`./character-conversation/${name}.png`).default
+}
+export const CHARACTER_DETAIL_LIST = [
+    {
+        id: 0,
+        name: "Jean",
+        img: getCharacterImg('jean'),
+        mobile_img: getCharacterMobileImg('jean'),
+        quality_img: getQualityImg('wind'),
+        conversation_img: getConversationImg('jean'),
+        cv: `SAITO Chiwa`,
+        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
+        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
     }
 ]
