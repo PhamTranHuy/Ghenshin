@@ -1,10 +1,11 @@
 import "./CharacterDetail.scss"
+import { CHARACTER_DETAIL_LIST } from "../../assets/data"
 
 function CharacterDetail() {
     return (
         <div className="character-detail">
-            <img className="character-img" src="" alt="" />
-            <img className="character-conversation" src="" alt="" />
+            <img className="character-img" src={CHARACTER_DETAIL_LIST[0].img} alt="" />
+            <img className="character-conversation" src={CHARACTER_DETAIL_LIST[0].conversation_img} alt="" />
             <img className="character-quality" src="" alt="" />
             <div className="character-info">
                 <h1 className="name">name</h1>

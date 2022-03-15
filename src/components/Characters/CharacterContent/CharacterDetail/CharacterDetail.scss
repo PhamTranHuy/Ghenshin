@@ -6,6 +6,7 @@
     width: 70%;
     min-width: calc(100% - 300px);
     height: 100%;
+    overflow: hidden;
     &::after {
         content: '';
         position: absolute;
@@ -15,5 +16,18 @@
         width: calc(100% + 300px);
         background: url(../../assets/detail/background.png) center no-repeat;
         background-size: 100rem 20rem;
+    }
+    .character-img {
+        position: absolute;
+        left: calc(50% - 50rem);
+        z-index: 1;
+        width: auto;
+        height: 100%;
+    }
+    .character-conversation {
+        position: absolute;
+        bottom: 20%;
+        left: calc(50% - 18rem);
+        z-index: 2;
     }
 }
