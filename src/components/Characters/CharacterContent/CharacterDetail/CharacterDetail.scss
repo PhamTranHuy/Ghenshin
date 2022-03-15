@@ -1,0 +1,19 @@
+.character-detail {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 70%;
+    min-width: calc(100% - 300px);
+    height: 100%;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        top: 50%;
+        right: 0;
+        width: calc(100% + 300px);
+        background: url(../../assets/detail/background.png) center no-repeat;
+        background-size: 100rem 20rem;
+    }
+}
