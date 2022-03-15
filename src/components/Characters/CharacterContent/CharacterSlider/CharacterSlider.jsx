@@ -1,5 +1,5 @@
 import "./CharacterSlider.scss"
-import Carousel from "../../../ShareComponent/Carousel/Carousel"
+import Carousel from "../../../../ShareComponent/Carousel/Carousel"
 import { useState} from "react"
 
 function CharacterSlider({characterAvatars = []}) {

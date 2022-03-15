@@ -1,6 +1,6 @@
 import "./CharacterContent.scss"
 import AnimateBackground from "./AnimateBackground/AnimateBackground"
-import CharacterSlider from "../CharacterSlider/CharacterSlider"
+import CharacterSlider from "./CharacterSlider/CharacterSlider"
 
 function CharacterView({ background, characterAvatars}) {
     return (
