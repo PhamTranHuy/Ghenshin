@@ -6,7 +6,10 @@ function CustomScrollbar({children}) {
     const scrollThumbRef = useRef(null);
     const scrollTrackRef = useRef(null);
     const observer = useRef(null);
-    const [thumbHeight, setThumbHeight] = useState();
+    const [thumbHeight, setThumbHeight] = useState(0);
+    const [isDragging, setIsDragging] = useState(false);
+    const [scrollStartPosition, setScrollStartPosition] = useState(null);
+    const [initialScrollTop, setInitialScrollTop] = useState(null);
 
     const handleResize = (contentRef, scrollTrackRef) => {
         const { clientHeight, scrollHeight } = contentRef.current;
@@ -46,7 +49,32 @@ function CustomScrollbar({children}) {
             });
         }
     }
-
+    const handleMouseDown = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsDragging(true);
+        setScrollStartPosition(e.clientY);
+        if (contentRef.current) {
+            setInitialScrollTop(contentRef.current.scrollTop);
+        }
+        document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('mouseup', handleMouseUp);
+    }
+    const handleMouseMove = useCallback((e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const { offsetHeight: contentOffsetHeight, scrollHeight: contentScrollHeight } = contentRef.current;
+        const distanceScrollMore = (e.clientY - scrollStartPosition) / (contentOffsetHeight / thumbHeight);
+        const newScrollTop = Math.min(initialScrollTop + distanceScrollMore, contentScrollHeight - contentOffsetHeight);
+        contentRef.current.scrollTop = newScrollTop;
+    }, [scrollStartPosition, thumbHeight])
+    const handleMouseUp = useCallback((e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsDragging(false);
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mouseup', handleMouseUp);
+    }, [handleMouseMove])
     // If the content and the scrollbar track exist, use a ResizeObserver 
     // to adjust height of thumb and listen for scroll event to move the thumb
     useEffect(() => {
@@ -70,7 +98,10 @@ function CustomScrollbar({children}) {
             </div>
             <div className="scrollbar">
                 <div className="track" ref={scrollTrackRef} onClick={handleTrackClick}></div>
-                <div className="thumb" ref={scrollThumbRef} style={{height: `${thumbHeight}px`}}></div>
+                <div className="thumb" ref={scrollThumbRef} style={{
+                    height: `${thumbHeight}px`,
+                    transition: isDragging ? 'none' : `linear 0.2s`
+                }} onMouseDown={handleMouseDown}></div>
             </div>
         </div>
     )
