@@ -1,5 +1,6 @@
 import "./CharacterDetail.scss"
 import blackDiamond from "../../assets/detail/black-diamond.jpg";
+import whiteDiamond from "../../assets/detail/white-diamond.png";
 import { CHARACTER_DETAIL_LIST } from "../../assets/data"
 
 function CharacterDetail() {
@@ -14,7 +15,10 @@ function CharacterDetail() {
                     <img src={blackDiamond} alt="" />
                     <p>CV: {CHARACTER_DETAIL_LIST[0].cv}</p>
                 </div>
-                <div className="intro-content">{CHARACTER_DETAIL_LIST[0].intro}</div>
+                <div className="intro-content">
+                    <img src={whiteDiamond} alt="" />
+                    <p>{`${CHARACTER_DETAIL_LIST[0].intro}`}</p>
+                </div>
             </div>
         </div>
     )

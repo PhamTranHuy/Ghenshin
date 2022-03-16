@@ -71,5 +71,25 @@
                 font-weight: 600;
             }
         }
+        .intro-content {
+            display: flex;
+            max-width: 38rem;
+            max-height: 10rem;
+            margin: 1rem 0;
+            padding: .5rem 0 .5rem 1rem;
+            background: #01010180;
+            font-size: 1.4rem;
+            line-height: 1.35;
+            overflow: hidden;
+            img {
+                width: 20px;
+                height: 20px;
+                margin: 0.4rem 1.5rem 0 0;
+            }
+            p {
+                margin-right: 3rem;
+                white-space: pre-line;
+            }
+        }
     }
 }
