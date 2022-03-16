@@ -5,6 +5,7 @@
     right: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     &::after {
         content: '';
         position: absolute;
@@ -34,7 +35,41 @@
         height: 23rem;
         width: auto;
         top: 7rem;
-        left: calc(50% - 42rem);
-        opacity: 0.1;
+        left: 15%;
+        opacity: 0.15;
+    }
+    .character-info {
+        position: absolute;
+        z-index: 1;
+        top: 12rem;
+        left: 20%;
+        max-width: 40rem;
+        color: #fff;
+        line-height: 1;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            height: 0.25rem;
+            width: 30%;
+            background: #cda474;
+        }
+        .name {
+            margin: 2rem 0;
+            font-size: 7rem;
+            text-transform: uppercase;
+        }
+        .cv {
+            display: flex;
+            align-items: center;
+            max-width: 25rem;
+            border: 2px solid #957145;
+            background-color: #cda474;
+            color: #393126;
+            font-size: 2rem;
+            p {
+                font-weight: 600;
+            }
+        }
     }
 }
