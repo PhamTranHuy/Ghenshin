@@ -1,11 +1,11 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import "./CustomScrollbar.scss"
 
 function CustomScrollbar({children}) {
     const contentRef = useRef(null);
     const scrollThumbRef = useRef(null);
     const scrollTrackRef = useRef(null);
-    const observable = useRef(null);
+    const observer = useRef(null);
     const [thumbHeight, setThumbHeight] = useState();
 
     const handleResize = (contentRef, scrollTrackRef) => {
@@ -14,14 +14,24 @@ function CustomScrollbar({children}) {
         const thumbHeight = (clientHeight / scrollHeight) * trackSize;
         setThumbHeight(thumbHeight);
     }
+    const handleThumbPosition = useCallback(() => {
+        if (!contentRef.current || !scrollTrackRef.current || !scrollThumbRef.current) {
+            return;
+        }
+    }, [])
+
+    // If the content and the scrollbar track exist, use a ResizeObserver 
+    // to adjust height of thumb and listen for scroll event to move the thumb
     useEffect(() => {
         if (contentRef.current && scrollTrackRef.current) {
-            observable.current = new ResizeObserver(() => {
+            observer.current = new ResizeObserver(() => {
                 handleResize(contentRef, scrollTrackRef);
             });
-            observable.current.observe(contentRef)
+            observer.current.observe(contentRef.current);
+            contentRef.current.addEventListener('scroll', handleThumbPosition);
             return () => {
-                observable.current?.unobserve()
+                observer.current?.unobserve(contentRef.current);
+                contentRef.current.removeEventListener('scroll', handleThumbPosition);
             }
         }
     }, [])
@@ -31,7 +41,7 @@ function CustomScrollbar({children}) {
                 {children}
             </div>
             <div className="scrollbar">
-                <div className="track"></div>
+                <div className="track" ref={scrollTrackRef}></div>
                 <div className="thumb" style={{height: `${thumbHeight}px`}}></div>
             </div>
         </div>
