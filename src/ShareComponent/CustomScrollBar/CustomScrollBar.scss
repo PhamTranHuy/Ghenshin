@@ -2,7 +2,12 @@
     position: relative;
     .content {
         height: 100%;
-        overflow: hidden;
+        overflow: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
     .scrollbar {
         position: absolute;
@@ -19,6 +24,7 @@
         }
         .thumb {
             position: absolute;
+            top: 0;
             width: 100%;
             border-radius: 2px;
             background: #ffffffbf;

@@ -18,6 +18,9 @@ function CustomScrollbar({children}) {
         if (!contentRef.current || !scrollTrackRef.current || !scrollThumbRef.current) {
             return;
         }
+        const {scrollTop, scrollHeight} = contentRef.current;
+        const newTop = (scrollTop / scrollHeight) * scrollTrackRef.current.clientHeight;
+        scrollThumbRef.current.style.top = `${newTop}px`;
     }, [])
 
     // If the content and the scrollbar track exist, use a ResizeObserver 
@@ -42,7 +45,7 @@ function CustomScrollbar({children}) {
             </div>
             <div className="scrollbar">
                 <div className="track" ref={scrollTrackRef}></div>
-                <div className="thumb" style={{height: `${thumbHeight}px`}}></div>
+                <div className="thumb" ref={scrollThumbRef} style={{height: `${thumbHeight}px`}}></div>
             </div>
         </div>
     )
