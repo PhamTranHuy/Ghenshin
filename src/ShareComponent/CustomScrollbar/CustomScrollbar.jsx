@@ -11,9 +11,9 @@ function CustomScrollbar({children}) {
     const [scrollStartPosition, setScrollStartPosition] = useState(null);
     const [initialScrollTop, setInitialScrollTop] = useState(null);
 
-    const handleResize = (contentRef, scrollTrackRef) => {
-        const { clientHeight, scrollHeight } = contentRef.current;
-        const {clientHeight: trackSize} = scrollTrackRef.current;
+    const handleResize = (contentElem, scrollTrackElem) => {
+        const { clientHeight, scrollHeight } = contentElem;
+        const { clientHeight: trackSize } = scrollTrackElem;
         const thumbHeight = (clientHeight / scrollHeight) * trackSize;
         setThumbHeight(thumbHeight);
     }
@@ -78,15 +78,21 @@ function CustomScrollbar({children}) {
     // If the content and the scrollbar track exist, use a ResizeObserver 
     // to adjust height of thumb and listen for scroll event to move the thumb
     useEffect(() => {
-        if (contentRef.current && scrollTrackRef.current) {
+        // Because handleResize and clean up run async, we should use a constant variable to save ref.current value
+        // in case ref.current is mutable
+        const contentElem = contentRef.current;
+        const scrollTrackElem = scrollTrackRef.current;
+        if (contentElem && scrollTrackElem) {
             observer.current = new ResizeObserver(() => {
-                handleResize(contentRef, scrollTrackRef);
+                handleResize(contentElem, scrollTrackElem);
             });
             observer.current.observe(contentRef.current);
             handleThumbPosition();
-            contentRef.current.addEventListener('scroll', handleThumbPosition);
+            contentElem.addEventListener('scroll', handleThumbPosition);
             return () => {
-                observer.current?.disconnect();
+                if (observer.current) {
+                    observer.current.unobserve(contentElem);
+                }
             }
         }
     }, [])
