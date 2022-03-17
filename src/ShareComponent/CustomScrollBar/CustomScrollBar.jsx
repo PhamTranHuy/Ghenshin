@@ -100,7 +100,7 @@ function CustomScrollbar({children}) {
                 <div className="track" ref={scrollTrackRef} onClick={handleTrackClick}></div>
                 <div className="thumb" ref={scrollThumbRef} style={{
                     height: `${thumbHeight}px`,
-                    transition: isDragging ? 'none' : `linear 0.2s`
+                    transition: isDragging ? 'none' : `linear 0.1s`
                 }} onMouseDown={handleMouseDown}></div>
             </div>
         </div>
