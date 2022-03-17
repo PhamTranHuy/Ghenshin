@@ -50,9 +50,9 @@ export const CHARACTER_AVATAR_LIST = [
         img: require(`${MONDSTADT_AVATAR_URL}/klee.png`).default
     }, {
         id: 9,
-        name: "Benefit",
+        name: "Bennett",
         city: "mondstadt",
-        img: require(`${MONDSTADT_AVATAR_URL}/benefit.png`).default
+        img: require(`${MONDSTADT_AVATAR_URL}/bennett.png`).default
     }, {
         id: 10,
         name: "Xiao",
@@ -155,7 +155,7 @@ const getCharacterImg = (name) => {
     return require(`./character-img/desktop/${name}.png`).default
 }
 const getCharacterMobileImg = (name) => {
-    return require(`./character-img/mobile/${name}.png`).default
+    //return require(`./character-img/mobile/${name}.png`).default
 }
 const getQualityImg = (quality) => {
     return require(`./character-quality/${quality}.png`).default
@@ -174,5 +174,95 @@ export const CHARACTER_DETAIL_LIST = [
         cv: `SAITO Chiwa`,
         intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
         She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
-    }
+    }, {
+        id: 1,
+        name: "Amber",
+        img: getCharacterImg('amber'),
+        mobile_img: getCharacterMobileImg('amber'),
+        quality_img: getQualityImg('fire'),
+        conversation_img: getConversationImg('amber'),
+        cv: `SAITO Chiwa`,
+        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
+        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+    }, {
+        id: 2,
+        name: "Lisa",
+        img: getCharacterImg('lisa'),
+        mobile_img: getCharacterMobileImg('lisa'),
+        quality_img: getQualityImg('electro'),
+        conversation_img: getConversationImg('lisa'),
+        cv: `SAITO Chiwa`,
+        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
+        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+    }, {
+        id: 3,
+        name: "Kaeya",
+        img: getCharacterImg('kaeya'),
+        mobile_img: getCharacterMobileImg('kaeya'),
+        quality_img: getQualityImg('freeze'),
+        conversation_img: getConversationImg('kaeya'),
+        cv: `SAITO Chiwa`,
+        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
+        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+    }, {
+        id: 4,
+        name: "Barbara",
+        img: getCharacterImg('barbara'),
+        mobile_img: getCharacterMobileImg('barbara'),
+        quality_img: getQualityImg('water'),
+        conversation_img: getConversationImg('barbara'),
+        cv: `SAITO Chiwa`,
+        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
+        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+    }, {
+        id: 5,
+        name: "Diluc",
+        img: getCharacterImg('diluc'),
+        mobile_img: getCharacterMobileImg('diluc'),
+        quality_img: getQualityImg('fire'),
+        conversation_img: getConversationImg('diluc'),
+        cv: `SAITO Chiwa`,
+        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
+        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+    }, {
+        id: 6,
+        name: "Razor",
+        img: getCharacterImg('razor'),
+        mobile_img: getCharacterMobileImg('razor'),
+        quality_img: getQualityImg('electro'),
+        conversation_img: getConversationImg('razor'),
+        cv: `SAITO Chiwa`,
+        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
+        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+    }, {
+        id: 7,
+        name: "Venti",
+        img: getCharacterImg('venti'),
+        mobile_img: getCharacterMobileImg('venti'),
+        quality_img: getQualityImg('wind'),
+        conversation_img: getConversationImg('venti'),
+        cv: `SAITO Chiwa`,
+        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
+        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+    }, {
+        id: 8,
+        name: "Klee",
+        img: getCharacterImg('klee'),
+        mobile_img: getCharacterMobileImg('klee'),
+        quality_img: getQualityImg('fire'),
+        conversation_img: getConversationImg('klee'),
+        cv: `SAITO Chiwa`,
+        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
+        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+    }, {
+        id: 9,
+        name: "Bennett",
+        img: getCharacterImg('bennett'),
+        mobile_img: getCharacterMobileImg('bennett'),
+        quality_img: getQualityImg('fire'),
+        conversation_img: getConversationImg('bennett'),
+        cv: `SAITO Chiwa`,
+        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
+        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+    }, 
 ]
