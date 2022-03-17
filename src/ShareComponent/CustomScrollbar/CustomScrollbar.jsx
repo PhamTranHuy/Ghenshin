@@ -86,8 +86,7 @@ function CustomScrollbar({children}) {
             handleThumbPosition();
             contentRef.current.addEventListener('scroll', handleThumbPosition);
             return () => {
-                observer.current?.unobserve(contentRef.current);
-                contentRef.current.removeEventListener('scroll', handleThumbPosition);
+                observer.current?.disconnect();
             }
         }
     }, [])
