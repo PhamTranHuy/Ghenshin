@@ -1,6 +1,6 @@
 import "./CharacterSlider.scss"
 import Carousel from "../../../../ShareComponent/Carousel/Carousel"
-import { useState} from "react"
+import { useState, memo } from "react"
 
 function CharacterSlider({characterAvatars = [], onItemClick}) {
     const [translateSize, setTranslateSize] = useState(140);
@@ -20,4 +20,4 @@ function CharacterSlider({characterAvatars = [], onItemClick}) {
     )
 }
 
-export default CharacterSlider
+export default memo(CharacterSlider)

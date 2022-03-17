@@ -3,17 +3,17 @@ import AnimateBackground from "./AnimateBackground/AnimateBackground"
 import CharacterSlider from "./CharacterSlider/CharacterSlider"
 import CharacterDetail from "./CharacterDetail/CharacterDetail"
 import * as CharactersApi from "../assets/fake-api";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 function CharacterView({ background, characterAvatars}) {
     const [characterDetail, setCharacterDetail] = useState(null);
-    const handleItemClick = (name) => {
+    const handleItemClick = useCallback((name) => {
         console.log(`clicked: ${name}`);
         CharactersApi.getDetail(name).then((detail) => {
             console.log(detail);
             setCharacterDetail(detail);
         })
-    }
+    }, [])
     return (
         <div className="character-content-wrapper">
             <AnimateBackground background={background}/>
