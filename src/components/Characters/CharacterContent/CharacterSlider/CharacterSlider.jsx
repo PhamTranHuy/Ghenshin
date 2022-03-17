@@ -25,7 +25,7 @@ function CharacterSlider({characterAvatars, onActiveChange}) {
                     onActiveChange={handleActiveChange}
             >
                 {characterAvatars.map((item) => (
-                    <div key={item.id} className="avatar" onClick={()=>{onActiveChange(item.name)}}>
+                    <div key={item.id} className="avatar">
                         <div className="img-wrapper">
                             <img src={item.img} alt="" />
                         </div>
