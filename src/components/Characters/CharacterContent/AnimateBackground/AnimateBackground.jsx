@@ -1,5 +1,5 @@
 import "./AnimateBackground.scss"
-
+import { memo } from "react"
 function AnimateBackground({ background }) {
     return (
         <div className="background-wrapper">
@@ -9,4 +9,4 @@ function AnimateBackground({ background }) {
     )
 }
 
-export default AnimateBackground
+export default memo(AnimateBackground)
