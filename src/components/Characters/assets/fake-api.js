@@ -7,7 +7,8 @@ export const getAvatars = async (city) => {
     })
 }
 export const getDetail = async (name) => {
-    return CHARACTER_DETAIL_LIST.filter((item) => {
+    const detail = CHARACTER_DETAIL_LIST.filter((item) => {
         return item.name === name;
-    })
+    });
+    return {...detail[0]};
 }
