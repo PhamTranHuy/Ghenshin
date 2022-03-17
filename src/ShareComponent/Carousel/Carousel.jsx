@@ -13,7 +13,8 @@ function Carousel({
     paginationButton = true, 
     slideButton = true,
     slidesPerView = 1,
-    dragAble = true
+    dragAble = true,
+    onActiveChange
 }) {
     const {
         slide,
@@ -33,6 +34,7 @@ function Carousel({
                 clearTimeout(timer);
             }
         }
+        onActiveChange(activeIndex);
     }, [autoSlideTime, activeIndex])
     return (
         <div className={'carousel-container'} style={{width: `${width}px` }}>

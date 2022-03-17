@@ -7,7 +7,7 @@ import { useState, useCallback } from "react";
 
 function CharacterView({ background, characterAvatars}) {
     const [characterDetail, setCharacterDetail] = useState(null);
-    const handleItemClick = useCallback((name) => {
+    const handleItemActive = useCallback((name) => {
         console.log(`clicked: ${name}`);
         CharactersApi.getDetail(name).then((detail) => {
             console.log(detail);
@@ -17,7 +17,7 @@ function CharacterView({ background, characterAvatars}) {
     return (
         <div className="character-content-wrapper">
             <AnimateBackground background={background}/>
-            <CharacterSlider characterAvatars={characterAvatars} onItemClick={handleItemClick}/>
+            <CharacterSlider characterAvatars={characterAvatars} onActiveChange={handleItemActive}/>
             <CharacterDetail character={characterDetail} />
         </div>
     )
