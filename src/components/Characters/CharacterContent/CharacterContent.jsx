@@ -8,9 +8,7 @@ import { useState, useCallback } from "react";
 function CharacterView({ background, characterAvatars}) {
     const [characterDetail, setCharacterDetail] = useState(null);
     const handleItemActive = useCallback((name) => {
-        console.log(`clicked: ${name}`);
         CharactersApi.getDetail(name).then((detail) => {
-            console.log(detail);
             setCharacterDetail(detail);
         })
     }, [])
