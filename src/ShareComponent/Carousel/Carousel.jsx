@@ -14,7 +14,7 @@ function Carousel({
     slideButton = true,
     slidesPerView = 1,
     dragAble = true,
-    onActiveChange
+    onActiveChange = (avtiveIndex) => {}
 }) {
     const {
         slide,
