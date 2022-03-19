@@ -13,7 +13,12 @@ function CharacterDetail({ character }) {
                 <h1 className="name">{character.name}</h1>
                 <div className="cv">
                     <img src={blackDiamond} alt="" />
-                    <p>CV: {character.cv}</p>
+                    <div className="cv-name-container">
+                        <div className="cv-name-wrapper">
+                            <p>CV: {character.cv}</p>
+                            <p>CV: {character.cv}</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="intro-content">
