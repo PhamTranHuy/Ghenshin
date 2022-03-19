@@ -13,7 +13,9 @@ function Inazuma() {
     }, [])
 
     return (
-        <CharacterContent background={[inazuma_background_1, inazuma_background_2]} characterAvatars={characterAvatars}/>
+        <div className="character-page_inazuma" style={{width: '100%', height: '100%'}}>
+            <CharacterContent background={[inazuma_background_1, inazuma_background_2]} characterAvatars={characterAvatars}/>
+        </div>
     )
 }
 

@@ -12,7 +12,9 @@ function Liyue() {
         })
     }, [])
     return (
-        <CharacterContent background={[liyue_background_1, liyue_background_2]} characterAvatars={characterAvatars}/>
+        <div className="character-page_liyue" style={{width: '100%', height: '100%'}}>
+            <CharacterContent background={[liyue_background_1, liyue_background_2]} characterAvatars={characterAvatars}/>
+        </div>
     )
 }
 

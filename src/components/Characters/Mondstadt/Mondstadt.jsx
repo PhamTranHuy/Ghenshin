@@ -12,7 +12,9 @@ function Mondstadt() {
         })
     }, [])
     return (
+        <div className="character-page_mondstadt" style={{width: '100%', height: '100%'}}>
         <CharacterContent background={[mondstadt_background_1, mondstadt_background_2]} characterAvatars={characterAvatars} />
+        </div>
     )
 }
 
