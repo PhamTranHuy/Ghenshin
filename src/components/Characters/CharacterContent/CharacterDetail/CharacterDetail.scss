@@ -79,30 +79,10 @@
             text-transform: uppercase;
             text-shadow: 0 1px 6px #0000006b;
         }
-        .cv {
-            display: flex;
-            align-items: center;
-            max-width: 25rem;
-            border: 2px solid #957145;
-            background-color: #cda474;
-            color: #393126;
-            font-size: 2rem;
-            .cv-name-container {
-                overflow: hidden;
-                .cv-name-wrapper {
-                    display: flex;
-                    p {
-                        font-weight: 600;
-                        margin-right: 0.8rem;
-                        white-space: nowrap;
-                    }
-                }
-            }
-        }
         .intro-content {
             display: flex;
             max-width: 38rem;
-            max-height: 10rem;
+            max-height: 10.5rem;
             margin: 1rem 0;
             padding: .5rem 0 .5rem 1rem;
             background: #01010180;

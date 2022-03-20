@@ -1,0 +1,20 @@
+.character-page .cv {
+    display: flex;
+    align-items: center;
+    max-width: 25rem;
+    border: 2px solid #957145;
+    background-color: #cda474;
+    color: #393126;
+    font-size: 2rem;
+    .cv-name-container {
+        overflow: hidden;
+        .cv-name-wrapper {
+            display: flex;
+            p {
+                font-weight: 600;
+                margin-right: 0.8rem;
+                white-space: nowrap;
+            }
+        }
+    }
+}
