@@ -79,22 +79,10 @@
             text-transform: uppercase;
             text-shadow: 0 1px 6px #0000006b;
         }
-        .cv {
-            display: flex;
-            align-items: center;
-            max-width: 25rem;
-            border: 2px solid #957145;
-            background-color: #cda474;
-            color: #393126;
-            font-size: 2rem;
-            p {
-                font-weight: 600;
-            }
-        }
         .intro-content {
             display: flex;
             max-width: 38rem;
-            max-height: 10rem;
+            max-height: 10.5rem;
             margin: 1rem 0;
             padding: .5rem 0 .5rem 1rem;
             background: #01010180;
@@ -111,4 +99,15 @@
             }
         }
     }
+}
+
+.character-page_inazuma .character-detail .character-info .name {
+    font-size: 3rem;
+    text-shadow: 0 1px 6px #da0000;
+}
+.character-page_liyue .character-detail .character-info .name {
+    text-shadow: 0 1px 6px #ff7c00;
+}
+.character-page_mondstadt .character-detail .character-info .name {
+    text-shadow: 0 1px 6px #00bdb9ba;
 }

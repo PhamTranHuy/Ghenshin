@@ -1,9 +1,9 @@
 import "./CharacterDetail.scss"
-import blackDiamond from "../../assets/detail/black-diamond.jpg";
 import whiteDiamond from "../../assets/detail/white-diamond.png";
 import CustomScrollbar from "../../../../ShareComponent/CustomScrollbar/CustomScrollbar";
-
+import CharacterCv from "./CharacterCv/CharacterCv";
 function CharacterDetail({ character }) {
+    
     return character && (
         <div className="character-detail" key={character.name}>
             <img className="character-img" src={character.img} alt="" />
@@ -11,11 +11,7 @@ function CharacterDetail({ character }) {
             <img className="character-quality" src={character.quality_img} alt="" />
             <div className="character-info">
                 <h1 className="name">{character.name}</h1>
-                <div className="cv">
-                    <img src={blackDiamond} alt="" />
-                    <p>CV: {character.cv}</p>
-                </div>
-
+                <CharacterCv name={character.cv}/>
                 <div className="intro-content">
                     <img src={whiteDiamond} alt="" />
                     <CustomScrollbar>
