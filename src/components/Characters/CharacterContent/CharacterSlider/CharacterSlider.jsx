@@ -8,6 +8,7 @@ function CharacterSlider({characterAvatars, onActiveChange}) {
     const windowSize = useWindowSize();
     const [translateSize, setTranslateSize] = useState(null);
     const [carouselWidth, setCarouselWidth] = useState(840);
+    const [activeIndex, setActiveIndex] = useState(0);
     const handleActiveChange = (index) => {
         if (characterAvatars.length > 0) {
             onActiveChange(characterAvatars[index].name);
@@ -37,9 +38,12 @@ function CharacterSlider({characterAvatars, onActiveChange}) {
                     slidesPerView={3} 
                     dragAble={false}
                     onActiveChange={handleActiveChange}
+                    initialIndex={activeIndex}
             >
-                {characterAvatars.map((item) => (
-                    <div key={item.id} className="avatar" ref={(ref) => {avatarRef.current.push(ref)}}>
+                {characterAvatars.map((item, index) => (
+                    <div key={item.id} className="avatar" 
+                        ref={(ref) => {avatarRef.current.push(ref)}}
+                        onClick={() => {setActiveIndex(index)}}>
                         <div className="img-wrapper">
                             <img src={item.img} alt="" />
                         </div>
