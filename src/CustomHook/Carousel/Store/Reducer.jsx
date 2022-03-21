@@ -19,19 +19,16 @@ export const carouselReducer = (state, action) => {
         case INIT_STATE:
             (() => {
                 let { children: items, translateSize, transitionDuration, infinite, slidesPerView } = action.payload;
-                let slide, translate;
-
                 if(slidesPerView > 1) {
                     infinite = false;
                 }
 
                 // set initial translate coord and slide frame
+                let slide;
                 if (infinite) {
                     slide = [items[items.length-1], ...items, items[0]];
-                    translate = (translateSize * state.activeIndex) + translateSize;
                 } else {
                     slide = [...items];
-                    translate = state.activeIndex * translateSize;
                 }
 
                 // set slide coord obj with key = transition coord and value = index
@@ -51,6 +48,8 @@ export const carouselReducer = (state, action) => {
                         }
                     }
                 });
+                const translate = slideCoordTemp[state.activeIndex];
+
                 newState = {
                     ...state, 
                     items,
