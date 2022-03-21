@@ -6,7 +6,7 @@ import { useState, useEffect, useRef, memo } from "react"
 function CharacterSlider({characterAvatars, onActiveChange}) {
     const avatarRef = useRef([])
     const windowSize = useWindowSize();
-    const [translateSize, setTranslateSize] = useState(null);
+    const [translateSize, setTranslateSize] = useState(140);
     const [carouselWidth, setCarouselWidth] = useState(840);
     const [activeIndex, setActiveIndex] = useState(0);
     const handleActiveChange = (index) => {
