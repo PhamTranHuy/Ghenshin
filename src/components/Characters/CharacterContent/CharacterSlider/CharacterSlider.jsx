@@ -1,9 +1,10 @@
 import "./CharacterSlider.scss"
 import Carousel from "../../../../ShareComponent/Carousel/Carousel"
-import { useState, useEffect, memo } from "react"
+import { useState, useEffect, useRef, memo } from "react"
 
 function CharacterSlider({characterAvatars, onActiveChange}) {
-    const [translateSize, setTranslateSize] = useState(140);
+    const avatarRef = useRef([])
+    const [translateSize, setTranslateSize] = useState(null);
     const handleActiveChange = (index) => {
         if (characterAvatars.length > 0) {
             onActiveChange(characterAvatars[index].name);
@@ -13,6 +14,15 @@ function CharacterSlider({characterAvatars, onActiveChange}) {
         if (characterAvatars.length > 0)
         onActiveChange(characterAvatars[0].name);
     }, [characterAvatars])
+
+    useEffect(() => {
+        if (avatarRef.current.length) {
+            const avatarElem = avatarRef.current[0];
+            const style = getComputedStyle(avatarElem);
+            const avatarWidth = avatarElem.offsetWidth + parseInt(style.marginLeft) + parseInt(style.marginRight);
+            setTranslateSize(avatarWidth);
+        }
+    }, [])
 
     return (
         <div className="character-slider-wrapper">
@@ -25,7 +35,7 @@ function CharacterSlider({characterAvatars, onActiveChange}) {
                     onActiveChange={handleActiveChange}
             >
                 {characterAvatars.map((item) => (
-                    <div key={item.id} className="avatar">
+                    <div key={item.id} className="avatar" ref={(ref) => {avatarRef.current.push(ref)}}>
                         <div className="img-wrapper">
                             <img src={item.img} alt="" />
                         </div>

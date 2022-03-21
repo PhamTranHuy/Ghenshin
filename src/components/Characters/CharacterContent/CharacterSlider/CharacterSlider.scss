@@ -6,8 +6,11 @@
     display: flex;
     justify-content: center;
     background: #cccccc33;
-    z-index: 999;
-    display: none;
+    z-index: 3;
+    @media screen and (max-width: 1200px) {
+        padding: 8rem 0;
+        background: none;
+    }
     &::after {
         content: '';
         position: absolute;
@@ -18,6 +21,9 @@
         background-image: url(../../assets/slider/dark-banner.png);
         background-size: contain;
         z-index: -1;
+        @media screen and (max-width: 1200px) {
+            background-image: none;
+        }
     }
     .carousel-container {
         .carousel-btn {
@@ -28,10 +34,16 @@
             &.next {
                 right: -5rem;
                 transform: rotateY(180deg);
+                @media screen and (max-width: 1200px) {
+                    display: none;
+                }
             }
             &.prev {
                 left: -5rem;
                 transform: none;
+                @media screen and (max-width: 1200px) {
+                    display: none;
+                }
             }
         }
         .item.is-active {
