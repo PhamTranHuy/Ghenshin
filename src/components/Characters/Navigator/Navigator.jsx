@@ -1,6 +1,7 @@
 import { NavLink, useLocation} from "react-router-dom"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./Navigator.scss"
+import clsx from "clsx";
 
 function Navigator() {
     const { pathname } = useLocation();
@@ -12,6 +13,10 @@ function Navigator() {
     const toggle = () => {
         setToggleNavigator((prevState) => !prevState)
     }
+    useEffect(() => {
+        setToggleNavigator(false);
+    }, [pathname]);
+
     return (
         <>
             <div className="character-navigator">
@@ -39,7 +44,7 @@ function Navigator() {
                 </ul>
             </div>
             <div className="character-navigator_mobile">
-                <div onClick={toggle} className="navigator-current-city">{getCurrentCity(pathname)}</div>
+                <div onClick={toggle} className={clsx("navigator-current-city", toggleNavigator && "active")}>{getCurrentCity(pathname)}</div>
                 { toggleNavigator && (<ul className="navigator-wrapper">
                     <li className="navigate-button">
                         <NavLink to="./mondstadt">
