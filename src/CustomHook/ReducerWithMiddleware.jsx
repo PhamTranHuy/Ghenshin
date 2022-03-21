@@ -11,8 +11,16 @@ function useReducerWithMiddleware(reducer, initialState, middlewareFns, afterwar
     }
     useEffect(() => {
         if (!actionRef.current) return;
-        afterwareFns.forEach((afterwareFn) => afterwareFn(actionRef.current, dispatch, state));
+        const cleanups = afterwareFns.map((afterwareFn) => afterwareFn(actionRef.current, dispatch, state));
         actionRef.current = null;
+        return () => {
+            if (cleanups.length > 0) {
+                cleanups.forEach((cleanup) => {
+                    if (cleanup)
+                    cleanup();
+                })
+            }
+        }
     }, [state])
 
     return [state, dispatchWithMiddleWare];
