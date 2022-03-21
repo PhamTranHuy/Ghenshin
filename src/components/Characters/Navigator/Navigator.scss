@@ -6,7 +6,10 @@
     max-width: 400px;
     width: 30%;
     padding-top: 12.5rem;
-    z-index: 1;
+    z-index: 3;
+    @media screen and (max-width: 1200px) {
+        display: none;
+    }
     .navigator-wrapper::after {
         content: '';
         position: absolute;
@@ -34,5 +37,21 @@
                 font-size: 1.4rem;
             }
         }
+    }
+}
+
+.character-navigator_mobile {
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+    width: 100%;
+    .navigator-current-city {
+        width: 100%;
+        padding: 1rem;
+        background-color: black;
+        color: #fff;
+        font-size: 2rem;
+        text-align: center;
+        text-transform: capitalize;
     }
 }
