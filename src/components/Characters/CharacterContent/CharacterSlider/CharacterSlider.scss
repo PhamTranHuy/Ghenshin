@@ -12,6 +12,9 @@
         padding: 8rem 0;
         background: none;
     }
+    @media screen and (max-width: 500px) {
+        padding: 6rem 0;
+    }
     &::after {
         content: '';
         position: absolute;
@@ -63,6 +66,9 @@
         background-color: #1a1a1a7a;
         border: 2px solid #ffffff17;
         border-radius: 4px;
+        @media screen and (max-width: 1200px) {
+            margin: 0 5px;
+        }
         &:hover {
             border-color: #fff;
             background-color: #1a1a1a;
@@ -73,6 +79,15 @@
         }
         .img-wrapper {
             height: 106px;
+            @media screen and (max-width: 1200px) {
+                height: 80px;
+            }
+            @media screen and (max-width: 500px) {
+                height: 50px;
+            }
+            img {
+                height: 100%;
+            }
         }
         .name {
             display: flex;
@@ -84,6 +99,11 @@
             color: #fff;
             text-align: center;
             font-size: 1.3rem;
+            @media screen and (max-width: 1200px) {
+                height: 30px;
+                font-size: 1.1rem;
+                font-weight: bold;
+            }
         }
     }
 }

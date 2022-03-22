@@ -1,16 +1,14 @@
 import "./CharacterSlider.scss"
 import Carousel from "../../../../ShareComponent/Carousel/Carousel"
 import useWindowSize from "../../../../CustomHook/WindowSize"
-import { useState, useEffect, useRef, memo } from "react"
+import { useState, useEffect, memo } from "react"
 
 function CharacterSlider({characterAvatars, onActiveChange}) {
-    const avatarRef = useRef([])
     const windowSize = useWindowSize();
     const [ translateSize, setTranslateSize ] = useState(140);
-    const [ carouselWidth, setCarouselWidth ] = useState(840);
+    const [ carouselWidth, setCarouselWidth ] = useState(0);
     const [ activeIndex, setActiveIndex ] = useState(0);
     const [ numberItemOnView, setNumberItemOnView ] = useState(6);
-    const [ isMobile, setIsMobile ] = useState(false);
     const handleActiveChange = (index) => {
         if (characterAvatars.length > 0) {
             onActiveChange(characterAvatars[index].name);
@@ -22,24 +20,24 @@ function CharacterSlider({characterAvatars, onActiveChange}) {
     }, [characterAvatars])
 
     useEffect(() => {
-        if( windowSize.width <= 1200 && !isMobile) {
-            setIsMobile(true);
+        if (windowSize.width <= 1200) {
             setNumberItemOnView(5);
-        } else if (windowSize.width > 1200 && isMobile) {
-            setIsMobile(false);
+        } else {
             setNumberItemOnView(6);
         }
-    }, [windowSize])
-
-    useEffect(() => {
-        if (avatarRef.current.length) {
-            const avatarElem = avatarRef.current[0];
-            const style = getComputedStyle(avatarElem);
-            const avatarWidth = avatarElem.offsetWidth + parseInt(style.marginLeft) + parseInt(style.marginRight);
-            setTranslateSize(avatarWidth);
+        const timer = setTimeout(() => {
+            const avatarElem = document.querySelector('.avatar');
+            if (avatarElem) {
+                const style = getComputedStyle(avatarElem);
+                const avatarWidth = avatarElem.offsetWidth + parseInt(style.marginLeft) + parseInt(style.marginRight);
+                setTranslateSize(avatarWidth);
+                setCarouselWidth(avatarWidth * numberItemOnView);
+            }
+        });
+        return () => {
+            clearTimeout(timer);
         }
-        setCarouselWidth(translateSize*numberItemOnView);
-    }, [numberItemOnView])
+    }, [windowSize])
 
     return (
         <div className="character-slider-wrapper">
@@ -53,8 +51,7 @@ function CharacterSlider({characterAvatars, onActiveChange}) {
                     initialIndex={activeIndex}
             >
                 {characterAvatars.map((item, index) => (
-                    <div key={item.id} className="avatar" 
-                        ref={(ref) => {avatarRef.current.push(ref)}}
+                    <div key={item.id} className="avatar"
                         onClick={() => {setActiveIndex(index)}}>
                         <div className="img-wrapper">
                             <img src={item.img} alt="" />

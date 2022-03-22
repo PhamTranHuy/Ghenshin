@@ -60,6 +60,9 @@
         text-align: center;
         text-transform: capitalize;
         cursor: pointer;
+        @media screen and (max-width: 500px) {
+            padding: 0;
+        }
         &::after {
             content: '';
             position: absolute;
