@@ -1,14 +1,14 @@
 import "./CharacterSlider.scss"
 import Carousel from "../../../../ShareComponent/Carousel/Carousel"
 import useWindowSize from "../../../../CustomHook/WindowSize"
-import { useState, useEffect, memo } from "react"
+import { useState, useEffect, useRef, memo } from "react"
 
 function CharacterSlider({characterAvatars, onActiveChange}) {
     const windowSize = useWindowSize();
     const [ translateSize, setTranslateSize ] = useState(140);
     const [ carouselWidth, setCarouselWidth ] = useState(0);
     const [ activeIndex, setActiveIndex ] = useState(0);
-    const [ numberItemOnView, setNumberItemOnView ] = useState(6);
+    const numberItemOnViewRef = useRef(6);
     const handleActiveChange = (index) => {
         if (characterAvatars.length > 0) {
             onActiveChange(characterAvatars[index].name);
@@ -21,9 +21,9 @@ function CharacterSlider({characterAvatars, onActiveChange}) {
 
     useEffect(() => {
         if (windowSize.width <= 1200) {
-            setNumberItemOnView(5);
+            numberItemOnViewRef.current = 5;
         } else {
-            setNumberItemOnView(6);
+            numberItemOnViewRef.current = 6;
         }
         const timer = setTimeout(() => {
             const avatarElem = document.querySelector('.avatar');
@@ -31,7 +31,7 @@ function CharacterSlider({characterAvatars, onActiveChange}) {
                 const style = getComputedStyle(avatarElem);
                 const avatarWidth = avatarElem.offsetWidth + parseInt(style.marginLeft) + parseInt(style.marginRight);
                 setTranslateSize(avatarWidth);
-                setCarouselWidth(avatarWidth * numberItemOnView);
+                setCarouselWidth(avatarWidth * numberItemOnViewRef.current);
             }
         });
         return () => {

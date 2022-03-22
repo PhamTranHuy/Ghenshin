@@ -79,14 +79,18 @@
         }
         .img-wrapper {
             height: 106px;
+            width: 106px;
             @media screen and (max-width: 1200px) {
                 height: 80px;
+                width: 80px;
             }
             @media screen and (max-width: 500px) {
                 height: 50px;
+                width: 50px;
             }
             img {
                 height: 100%;
+                width: 100%;
             }
         }
         .name {
