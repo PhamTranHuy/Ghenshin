@@ -181,9 +181,10 @@ export const CHARACTER_DETAIL_LIST = [
         mobile_img: getCharacterMobileImg('amber'),
         quality_img: getQualityImg('fire'),
         conversation_img: getConversationImg('amber'),
-        cv: `SAITO Chiwa`,
-        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
-        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+        cv: `IWAMI Manaka`,
+        intro: `A perky, straightforward girl, who is also the only Outrider of the Knights of Favonius.
+        Her amazing mastery of the glider has made her a three-time winner of the Gliding Champion in Mondstadt.
+        As a rising star within the Knights of Favonius, Amber is always ready for any challenging tasks.`
     }, {
         id: 2,
         name: "Lisa",
@@ -191,9 +192,9 @@ export const CHARACTER_DETAIL_LIST = [
         mobile_img: getCharacterMobileImg('lisa'),
         quality_img: getQualityImg('electro'),
         conversation_img: getConversationImg('lisa'),
-        cv: `SAITO Chiwa`,
-        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
-        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+        cv: `TANAKA Rie`,
+        intro: `She is an intellectual witch who can never get enough naps. As the Librarian of the Knights of Favonius, Lisa is smart in that she always knows exactly what to do with whatever troubles her.
+        As much as she loves her sleep, she still manages to keep everything under control in a calm, composed manner.`
     }, {
         id: 3,
         name: "Kaeya",
@@ -201,9 +202,9 @@ export const CHARACTER_DETAIL_LIST = [
         mobile_img: getCharacterMobileImg('kaeya'),
         quality_img: getQualityImg('freeze'),
         conversation_img: getConversationImg('kaeya'),
-        cv: `SAITO Chiwa`,
-        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
-        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+        cv: `TORIUMI Kohsuke`,
+        intro: `In the Knights of Favonius, Kaeya is the most trusted aide for the Acting Grand Master Jean. You can always count on him to solve any intractable problems.
+        Everyone in Mondstadt loves Kaeya, but no one knows what secrets this witty, charming knight has...`
     }, {
         id: 4,
         name: "Barbara",
@@ -211,9 +212,10 @@ export const CHARACTER_DETAIL_LIST = [
         mobile_img: getCharacterMobileImg('barbara'),
         quality_img: getQualityImg('water'),
         conversation_img: getConversationImg('barbara'),
-        cv: `SAITO Chiwa`,
-        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
-        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+        cv: `KITO Akari`,
+        intro: `The Deaconess of the Church of Favonius and a shining idol adored by all.
+        Although the concept of an idol is rather novel in a city of bards, the people of Mondstadt love Barbara nonetheless.
+        "I owe everything to the city's spirit of freedom." — Barbara, regarding her popularity.`
     }, {
         id: 5,
         name: "Diluc",
@@ -221,9 +223,9 @@ export const CHARACTER_DETAIL_LIST = [
         mobile_img: getCharacterMobileImg('diluc'),
         quality_img: getQualityImg('fire'),
         conversation_img: getConversationImg('diluc'),
-        cv: `SAITO Chiwa`,
-        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
-        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+        cv: `ONO Kenshou`,
+        intro: `As the wealthiest gentleman in Mondstadt, the ever-dapper Diluc always presents himself as the epitome of perfection.
+        But behind the courteous visage burns a zealous soul that has sworn to protect Mondstadt at all costs, allowing him to mercilessly vanquish all who threaten his city.`
     }, {
         id: 6,
         name: "Razor",
@@ -231,9 +233,10 @@ export const CHARACTER_DETAIL_LIST = [
         mobile_img: getCharacterMobileImg('razor'),
         quality_img: getQualityImg('electro'),
         conversation_img: getConversationImg('razor'),
-        cv: `SAITO Chiwa`,
-        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
-        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+        cv: `UCHIYAMA Koki`,
+        intro: `Some say he is an orphan raised by wolves. Others say he is a wolf spirit in human form.
+        He is most at home in the wild, fighting with claw and thunder.
+        To this day the wolf boy can be found prowling the forest, where he and his wolf pack hunt to survive using nothing more than their animal instincts.`
     }, {
         id: 7,
         name: "Venti",
@@ -241,9 +244,10 @@ export const CHARACTER_DETAIL_LIST = [
         mobile_img: getCharacterMobileImg('venti'),
         quality_img: getQualityImg('wind'),
         conversation_img: getConversationImg('venti'),
-        cv: `SAITO Chiwa`,
-        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
-        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+        cv: `MURASE Ayumu`,
+        intro: `A bard that seems to have arrived on some unknown wind — sometimes sings songs as old as the hills, and other times recites poems fresh and new.
+        Likes apples and lively places, but is not a fan of cheese or anything sticky.
+        When using his Anemo power to control the wind, it often appears as feathers, as he's fond of that which appears light and breezy.`
     }, {
         id: 8,
         name: "Klee",
@@ -251,9 +255,11 @@ export const CHARACTER_DETAIL_LIST = [
         mobile_img: getCharacterMobileImg('klee'),
         quality_img: getQualityImg('fire'),
         conversation_img: getConversationImg('klee'),
-        cv: `SAITO Chiwa`,
-        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
-        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+        cv: `KUNO Misaki`,
+        intro: `Knights of Favonius Spark Knight! Forever with a bang and a flash!
+        —And then disappearing from the stern gaze of Acting Grand Master Jean.
+        Sure, time in solitary confinement gives lots of time to think about new gunpowder formulas...
+        But it'd still be better to not be in solitary in the first place.`
     }, {
         id: 9,
         name: "Bennett",
@@ -261,9 +267,10 @@ export const CHARACTER_DETAIL_LIST = [
         mobile_img: getCharacterMobileImg('bennett'),
         quality_img: getQualityImg('fire'),
         conversation_img: getConversationImg('bennett'),
-        cv: `SAITO Chiwa`,
-        intro: `As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
-        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.`
+        cv: `OSAKA Ryota`,
+        intro: `One of the few young adventurers of the Mondstadt Adventurers' Guild, he is always plagued with inexplicable bad luck.
+        He is the only active member of his own adventure group, known as "Benny's Adventure Team," after all the other members decided to "take leave" following a series of unfortunate incidents. As a result, the team is currently on the verge of being dissolved.
+        Being unable to break the poor boy's heart, Katheryne of the Adventurers' Guild has kept "Benny's Adventure Team" on the books, whilst also hiding from him the fact that all the other members have long since officially left the team.`
     }, {
         id: 10,
         name: "Xiao",
