@@ -6,7 +6,8 @@ function CharacterDetail({ character }) {
     
     return character && (
         <div className="character-detail" key={character.name}>
-            <img className="character-img" src={character.img} alt="" />
+            <img className="character-img desktop" src={character.img} alt="" />
+            <img className="character-img mobile" src={character.mobile_img} alt="" />
             <img className="character-conversation" src={character.conversation_img} alt="" />
             <img className="character-quality" src={character.quality_img} alt="" />
             <div className="character-info">
