@@ -10,9 +10,10 @@ function useReducerWithMiddleware(reducer, initialState, middlewareFns, afterwar
         dispatch(action);
     }
     useEffect(() => {
-        if (!actionRef.current) return;
-        afterwareFns.forEach((afterwareFn) => afterwareFn(actionRef.current, dispatch, state));
-        actionRef.current = null;
+        if (actionRef.current) {
+            afterwareFns.map((afterwareFn) => afterwareFn(actionRef.current, dispatch, state));
+            actionRef.current = null;
+        }
     }, [state])
 
     return [state, dispatchWithMiddleWare];
