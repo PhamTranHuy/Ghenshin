@@ -1,9 +1,14 @@
 import "./CharacterSlider.scss"
 import Carousel from "../../../../ShareComponent/Carousel/Carousel"
-import { useState, useEffect, memo } from "react"
+import useWindowSize from "../../../../CustomHook/WindowSize"
+import { useState, useEffect, useRef, memo } from "react"
 
 function CharacterSlider({characterAvatars, onActiveChange}) {
-    const [translateSize, setTranslateSize] = useState(140);
+    const windowSize = useWindowSize();
+    const [ translateSize, setTranslateSize ] = useState(140);
+    const [ carouselWidth, setCarouselWidth ] = useState(0);
+    const [ activeIndex, setActiveIndex ] = useState(0);
+    const numberItemOnViewRef = useRef(6);
     const handleActiveChange = (index) => {
         if (characterAvatars.length > 0) {
             onActiveChange(characterAvatars[index].name);
@@ -14,18 +19,40 @@ function CharacterSlider({characterAvatars, onActiveChange}) {
         onActiveChange(characterAvatars[0].name);
     }, [characterAvatars])
 
+    useEffect(() => {
+        if (windowSize.width <= 1200) {
+            numberItemOnViewRef.current = 5;
+        } else {
+            numberItemOnViewRef.current = 6;
+        }
+        const timer = setTimeout(() => {
+            const avatarElem = document.querySelector('.avatar');
+            if (avatarElem) {
+                const style = getComputedStyle(avatarElem);
+                const avatarWidth = avatarElem.offsetWidth + parseInt(style.marginLeft) + parseInt(style.marginRight);
+                setTranslateSize(avatarWidth);
+                setCarouselWidth(avatarWidth * numberItemOnViewRef.current);
+            }
+        });
+        return () => {
+            clearTimeout(timer);
+        }
+    }, [windowSize])
+
     return (
         <div className="character-slider-wrapper">
-            <Carousel width={830} 
+            <Carousel width={carouselWidth} 
                     translateSize={translateSize} 
                     infinite={false} 
                     paginationButton={false} 
                     slidesPerView={3} 
                     dragAble={false}
                     onActiveChange={handleActiveChange}
+                    initialIndex={activeIndex}
             >
-                {characterAvatars.map((item) => (
-                    <div key={item.id} className="avatar">
+                {characterAvatars.map((item, index) => (
+                    <div key={item.id} className="avatar"
+                        onClick={() => {setActiveIndex(index)}}>
                         <div className="img-wrapper">
                             <img src={item.img} alt="" />
                         </div>
