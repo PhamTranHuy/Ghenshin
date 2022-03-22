@@ -6,9 +6,11 @@ import { useState, useEffect, useRef, memo } from "react"
 function CharacterSlider({characterAvatars, onActiveChange}) {
     const avatarRef = useRef([])
     const windowSize = useWindowSize();
-    const [translateSize, setTranslateSize] = useState(140);
-    const [carouselWidth, setCarouselWidth] = useState(840);
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [ translateSize, setTranslateSize ] = useState(140);
+    const [ carouselWidth, setCarouselWidth ] = useState(840);
+    const [ activeIndex, setActiveIndex ] = useState(0);
+    const [ numberItemOnView, setNumberItemOnView ] = useState(6);
+    const [ isMobile, setIsMobile ] = useState(false);
     const handleActiveChange = (index) => {
         if (characterAvatars.length > 0) {
             onActiveChange(characterAvatars[index].name);
@@ -20,14 +22,24 @@ function CharacterSlider({characterAvatars, onActiveChange}) {
     }, [characterAvatars])
 
     useEffect(() => {
+        if( windowSize.width <= 1200 && !isMobile) {
+            setIsMobile(true);
+            setNumberItemOnView(5);
+        } else if (windowSize.width > 1200 && isMobile) {
+            setIsMobile(false);
+            setNumberItemOnView(6);
+        }
+    }, [windowSize])
+
+    useEffect(() => {
         if (avatarRef.current.length) {
             const avatarElem = avatarRef.current[0];
             const style = getComputedStyle(avatarElem);
             const avatarWidth = avatarElem.offsetWidth + parseInt(style.marginLeft) + parseInt(style.marginRight);
             setTranslateSize(avatarWidth);
-            setCarouselWidth(avatarWidth*6);
         }
-    }, [windowSize])
+        setCarouselWidth(translateSize*numberItemOnView);
+    }, [numberItemOnView])
 
     return (
         <div className="character-slider-wrapper">
