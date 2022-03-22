@@ -6,7 +6,7 @@ const getCharacterImg = (name) => {
     return require(`./character-img/desktop/${name}.png`).default
 }
 const getCharacterMobileImg = (name) => {
-    //return require(`./character-img/mobile/${name}.png`).default
+    return require(`./character-img/mobile/${name}.png`).default
 }
 const getQualityImg = (quality) => {
     return require(`./character-quality/${quality}.png`).default
