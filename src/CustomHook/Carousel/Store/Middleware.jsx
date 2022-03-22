@@ -2,13 +2,10 @@ import { finishSlide, startSlide } from "./Actions";
 import { DRAG, INIT_STATE, START_SLIDE, TRANS_DURATION } from "./Constants";
 
 export const slideAfterware = (action, dispatch, state) => {
-    if (action.type !== DRAG && action.type !== INIT_STATE && action.type !== START_SLIDE) {
+    if (action.type !== DRAG && action.type !== INIT_STATE) {
         dispatch(startSlide());
-        const timer = setTimeout(() => {
+        setTimeout(() => {
             dispatch(finishSlide());
         }, TRANS_DURATION)
-        return () => {
-            clearTimeout(timer);
-        }
     }
 }

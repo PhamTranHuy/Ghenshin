@@ -10,16 +10,9 @@ function useReducerWithMiddleware(reducer, initialState, middlewareFns, afterwar
         dispatch(action);
     }
     useEffect(() => {
-        if (!actionRef.current) return;
-        const cleanups = afterwareFns.map((afterwareFn) => afterwareFn(actionRef.current, dispatch, state));
-        actionRef.current = null;
-        return () => {
-            if (cleanups.length > 0) {
-                cleanups.forEach((cleanup) => {
-                    if (cleanup)
-                    cleanup();
-                })
-            }
+        if (actionRef.current) {
+            afterwareFns.map((afterwareFn) => afterwareFn(actionRef.current, dispatch, state));
+            actionRef.current = null;
         }
     }, [state])
 
