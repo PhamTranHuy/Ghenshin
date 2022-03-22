@@ -4,7 +4,19 @@ import clsx from 'clsx';
 import useCarousel from '../../CustomHook/Carousel/Carousel';
 import './Carousel.scss'
 
-function Carousel({children, width = 640, translateSize = width, infinite = true, autoSlideTime = 0, paginationButton = true, slideButton = true}) {
+function Carousel({
+    children, 
+    width = 640, 
+    translateSize = width, 
+    infinite = true, 
+    autoSlideTime = 0, 
+    paginationButton = true, 
+    slideButton = true,
+    slidesPerView = 1,
+    dragAble = true,
+    initialIndex = 0,
+    onActiveChange = () => {},
+}) {
     const {
         slide,
         activeIndex,
@@ -13,7 +25,8 @@ function Carousel({children, width = 640, translateSize = width, infinite = true
         next,
         prev,
         style
-    } = useCarousel({children, translateSize, infinite});
+    } = useCarousel({children, translateSize, infinite, slidesPerView});
+    
     useEffect(() => {
         if (autoSlideTime) {
             const timer = setTimeout(() => {
@@ -23,15 +36,21 @@ function Carousel({children, width = 640, translateSize = width, infinite = true
                 clearTimeout(timer);
             }
         }
+        onActiveChange(activeIndex);
     }, [autoSlideTime, activeIndex])
+
+    useEffect(() => {
+        jumpTo(initialIndex);
+    }, [initialIndex])
+
     return (
         <div className={'carousel-container'} style={{width: `${width}px` }}>
             <div className={'carousel-outer'}>
                 <div className={'carousel-inner'} style={style}>
                     {slide?.map((item, i) => (
                         <div key={i} 
-                            className='item'
-                            onMouseDown={dragToSlide}
+                            className={clsx('item', activeIndex === i && "is-active")}
+                            onMouseDown={dragAble ? dragToSlide : () => {}}
                         >{item}</div>
                     ))}
                 </div>
@@ -51,7 +70,6 @@ function Carousel({children, width = 640, translateSize = width, infinite = true
                     <div className="carousel-btn prev" onClick={prev}></div>
                 </>
             )}
-            
         </div>
     )
 }

@@ -1,11 +1,17 @@
+import { Outlet } from "react-router-dom"
 import Footer from "../Footer/Footer"
 import Header from "../Header/Header"
+import "./Characters.scss"
+import Navigator from "./Navigator/Navigator"
 
 const Characters = () => {
     return (
-        <div>
+        <div className="character-page">
             <Header />
-            <h1>Character</h1>
+            <Navigator />
+            <div className="character-content">
+                <Outlet />
+            </div>
             <Footer />
         </div>
     )

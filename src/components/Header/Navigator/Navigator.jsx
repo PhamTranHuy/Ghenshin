@@ -26,16 +26,6 @@ function Navigator() {
     }
 
     useEffect(() => {
-        // prevent pointer's animation during switch route
-        setTimeout(() => {
-            document.querySelector('.header_nav-pointer').style.transition = 'all 0.2s ease-out';
-        }, POINTER_TRANSITION_DURATION)
-        return () => {
-            document.querySelector('.header_nav-pointer').style.transition = 'none';
-        }
-    }, [])
-
-    useEffect(() => {
         // handle mouseover, mouseout event to set position to nav pointer
         const navButtons = document.querySelectorAll('.nav-button');
         const mouseoverHandle = (e) => {
@@ -71,7 +61,7 @@ function Navigator() {
     return (
         <div className="header_nav-wrapper" ref={navWrapper}>
             <nav className="header_nav">
-                <NavLink to="/" className="nav-button">HOME</NavLink>
+                <NavLink to="/home" className="nav-button">HOME</NavLink>
                 <NavLink to="/news" className="nav-button">NEWS</NavLink>
                 <NavLink to="/characters" className="nav-button">CHARACTERS</NavLink>
                 <div id="explore" className="sub-list-wrapper nav-button">
