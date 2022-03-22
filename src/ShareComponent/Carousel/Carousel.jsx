@@ -14,7 +14,8 @@ function Carousel({
     slideButton = true,
     slidesPerView = 1,
     dragAble = true,
-    onActiveChange = (avtiveIndex) => {}
+    initialIndex = 0,
+    onActiveChange = () => {},
 }) {
     const {
         slide,
@@ -25,6 +26,7 @@ function Carousel({
         prev,
         style
     } = useCarousel({children, translateSize, infinite, slidesPerView});
+    
     useEffect(() => {
         if (autoSlideTime) {
             const timer = setTimeout(() => {
@@ -36,6 +38,11 @@ function Carousel({
         }
         onActiveChange(activeIndex);
     }, [autoSlideTime, activeIndex])
+
+    useEffect(() => {
+        jumpTo(initialIndex);
+    }, [initialIndex])
+
     return (
         <div className={'carousel-container'} style={{width: `${width}px` }}>
             <div className={'carousel-outer'}>
@@ -44,7 +51,6 @@ function Carousel({
                         <div key={i} 
                             className={clsx('item', activeIndex === i && "is-active")}
                             onMouseDown={dragAble ? dragToSlide : () => {}}
-                            onClick={() => {jumpTo(i)}}
                         >{item}</div>
                     ))}
                 </div>
