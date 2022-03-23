@@ -42,8 +42,8 @@ ul, li {
 }
 
 .disable-button {
-  cursor: default !important;
   opacity: 0.6;
+  cursor: default !important;
   color: inherit !important;
   background: none !important;
   text-shadow: none !important;

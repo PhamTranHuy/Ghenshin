@@ -61,7 +61,7 @@ function NewsSection() {
                     </ul>
                     <div className="news">
                         {NEWS.map((item) => (
-                            <a key={item.id} href={item.url} className="new-wrapper">
+                            <a key={item.id} className="new-wrapper">
                                 <p className="title">{item.title}</p>
                                 <p className="date">{formatDate(item.date)}</p>
                             </a>
