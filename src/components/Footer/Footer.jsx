@@ -31,7 +31,7 @@ function Footer() {
                         <i className="fas fa-dragon"></i>
                     </a>
                 </div>
-                <div className="languages">
+                <div className="languages disable-button">
                     <i className="fas fa-globe-asia"></i>
                     <p className="language">English</p>
                     <div className="arrow"></div>

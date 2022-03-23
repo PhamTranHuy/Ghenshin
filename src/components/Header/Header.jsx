@@ -8,7 +8,6 @@ import './Header.scss'
 import UnMusic from './assets/icon/un-music.png'
 import Music from './assets/icon/music.png'
 import Logo from './assets/icon/logo.png'
-import User from './assets/icon/user.png'
 import useWindowSize from '../../CustomHook/WindowSize'
 import useWindowScroll from '../../CustomHook/WindowScroll'
 
@@ -70,10 +69,6 @@ function Header() {
             </div>
             <Navigator />
             <div className="space"></div>
-            <div className="login">
-                <div>Log In</div>
-                <div className="icon"><img src={User} alt="logo" /></div>
-            </div>
             <div className="download">
                 <div>Download</div>
             </div>
