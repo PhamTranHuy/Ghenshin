@@ -54,27 +54,6 @@
             order: 2;
         }
     }
-    .login {
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-        cursor: pointer;
-        @media screen and (max-width: 1200px) {
-            display: none;
-        }
-        .icon {
-            margin-left: 18px;
-            width: 28px;
-            height: 28px;
-            opacity: 0.6;
-        }
-        &:hover {
-            color: #fff;
-            .icon {
-                opacity: 1;
-            }
-        }
-    }
     .download {
         display: flex;
         justify-content: center;
