@@ -24,7 +24,7 @@ function HamburgerMenu() {
                 <NavLink to="/characters" className="nav-button">CHARACTERS</NavLink>
                 <div id="explore" className={`${explore ? 'is-active' : ''} nav-button`} onClick={handleExploreClicked}>
                     <p>EXPLORE</p>
-                    <ul className={`${explore ? 'is-active' : ''} explore-sub-menu`}>
+                    <ul className={`${explore ? 'is-active' : ''} explore-sub-menu disable-button`}>
                         <li>ABOUT GAME</li>
                         <li>TEYVAT</li>
                         <li>ITINERARY</li>
@@ -33,7 +33,7 @@ function HamburgerMenu() {
                 </div>
                 <a className="nav-button" href="">HoYoLAB</a>
                 <a className="nav-button" href="">TOP-UP</a>
-                <a className="nav-button" href="">REDEEM CODE</a>
+                <a className="nav-button disable-button">REDEEM CODE</a>
             </nav>
             <div></div>
         </div>
