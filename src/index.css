@@ -40,3 +40,12 @@ ul, li {
     font-size: 11px;
   }
 }
+
+.disable-button {
+  cursor: default !important;
+  opacity: 0.6;
+  color: inherit !important;
+  background: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
