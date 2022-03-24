@@ -67,10 +67,10 @@ function Navigator() {
                 <div id="explore" className="sub-list-wrapper nav-button">
                     <div className="nav-button--explore">EXPLORE</div>
                     <ul className="sub-list explore">
-                        <li className="sub-items">ABOUT GAME</li>
-                        <li className="sub-items">TEYVAT</li>
-                        <li className="sub-items">ITINERARY</li>
-                        <li className="sub-items">MANGA</li>
+                        <li className="sub-items disable-button">ABOUT GAME</li>
+                        <li className="sub-items disable-button">TEYVAT</li>
+                        <li className="sub-items disable-button">ITINERARY</li>
+                        <li className="sub-items disable-button">MANGA</li>
                     </ul>
                 </div>
                 <div id="more-menu" className="sub-list-wrapper nav-button">
@@ -78,12 +78,12 @@ function Navigator() {
                     <ul className="sub-list explore">
                         <li className="sub-items">HoYoLAB</li>
                         <li className="sub-items">TOP-UP</li>
-                        <li className="sub-items">REDEEM CODE</li>
+                        <li className="sub-items disable-button">REDEEM CODE</li>
                     </ul>
                 </div>
                 <div className="nav-button more-item">HoYoLAB</div>
                 <div className="nav-button more-item">TOP-UP</div>
-                <div className="nav-button more-item">REDEEM CODE</div>
+                <div className="nav-button more-item disable-button">REDEEM CODE</div>
             </nav>
             <div className="header_nav-pointer" style={{
                 left: navPointerPosition.left + 'px',
