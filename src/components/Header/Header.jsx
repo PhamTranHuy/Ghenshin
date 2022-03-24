@@ -1,47 +1,32 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import useAudio from '../../CustomHook/Audio'
+
 import Navigator from './Navigator/Navigator'
 import Popup from '../../ShareComponent/Popup/Popup'
 import HamburgerMenu from './HamburgerMenu/HamburgerMenu'
+
 import './Header.scss'
+
 import UnMusic from './assets/icon/un-music.png'
 import Music from './assets/icon/music.png'
 import Logo from './assets/icon/logo.png'
+
 import useWindowSize from '../../CustomHook/WindowSize'
 import useWindowScroll from '../../CustomHook/WindowScroll'
-
-const WAVE_SOUND = 'https://genshin.mihoyo.com/_nuxt/medias/video-play.06ec9738.mp3';
-const MUSIC = 'https://genshin.mihoyo.com/_nuxt/medias/video-bgm.d8637316.mp3';
+import { MusicContext } from '../../Context'
 
 function Header() {
-    const [playMusic, setPlayMusic] = useState(false);
+    const [playMusic, toggleMusic] = useContext(MusicContext);
     const [activeHamburger, setActiveHamburger] = useState(false);
     const [hideHeaderMobile, setHideHeaderMobile] = useState(false);
-    const setPlayingWaveSound = useAudio(WAVE_SOUND);
-    const setPlayingMusic = useAudio(MUSIC);
     const windowSize = useWindowSize();
     const windowScroll = useWindowScroll();
     const location = useLocation();
-    const handleMusicClicked = () => {
-        setPlayMusic((playMusic) => !playMusic);
-    }
-    const toggleMusic = () => {
-        if (playMusic) {
-            setPlayingMusic(true);
-            setPlayingWaveSound(true);
-        } else {
-            setPlayingMusic(false);
-            setPlayingWaveSound(false);
-        }
-    }
+
     const handleHamburgerClicked = () => {
         setActiveHamburger((activeHamburger) => !activeHamburger);
     }
-    useEffect(() => {
-        toggleMusic();
-    }, [playMusic])
-
+    
     useEffect(() => {
         if (windowSize.width >= 1200) {
             setActiveHamburger(false);
@@ -62,7 +47,7 @@ function Header() {
     return (
         <header className={`home_header ${hideHeaderMobile ? 'none-active' : ''}`}>
             <div className="music-box">
-                <img src={playMusic ? Music : UnMusic} alt="music" onClick={handleMusicClicked}/>
+                <img src={playMusic ? Music : UnMusic} alt="music" onClick={toggleMusic}/>
             </div>
             <div className="logo">
                 <img src={Logo} alt="logo" />
