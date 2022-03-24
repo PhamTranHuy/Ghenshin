@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+
 import HomePage from "./components/HomePage/HomePage";
 import NewsPage from "./components/NewsPage/NewsPage";
 import Characters from "./components/Characters/Characters";
@@ -8,9 +9,34 @@ import Mondstadt from "./components/Characters/Mondstadt/Mondstadt";
 import Liyue from "./components/Characters/Liyue/Liyue";
 import Inazuma from "./components/Characters/Inazuma/Inazuma";
 
+import { useState, useEffect } from "react";
+import { MusicContext } from "./Context";
+import useAudio from "./CustomHook/Audio"
+
+const WAVE_SOUND = 'https://genshin.mihoyo.com/_nuxt/medias/video-play.06ec9738.mp3';
+const MUSIC = 'https://genshin.mihoyo.com/_nuxt/medias/video-bgm.d8637316.mp3';
+
 function App() {
+    const setPlayingWaveSound = useAudio(WAVE_SOUND);
+    const setPlayingMusic = useAudio(MUSIC);
+    const [playMusic, setPlayMusic] = useState(false);
+
+    const toggleMusic = () => {
+        setPlayMusic(state => !state);
+    }
+
+    useEffect(() => {
+        if (playMusic) {
+            setPlayingMusic(true);
+            setPlayingWaveSound(true);
+        } else {
+            setPlayingMusic(false);
+            setPlayingWaveSound(false);
+        }
+    }, [playMusic])
+
     return (
-        <div className="App">
+        <MusicContext.Provider value={[playMusic, toggleMusic]}>
             <RestoreWindowScroll>
                 <Routes>
                     <Route path="/" element={<Navigate to="home" replace={true} />} />
@@ -37,7 +63,7 @@ function App() {
                     <Route path='*' element={<NotFound />} />
                 </Routes>
             </RestoreWindowScroll>
-        </div>
+        </MusicContext.Provider>
     );
 }
 
