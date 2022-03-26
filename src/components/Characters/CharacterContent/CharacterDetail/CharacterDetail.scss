@@ -39,20 +39,10 @@
         width: auto;
         height: 100%;
         animation: slideIn 0.2s ease-in-out, fadeIn 0.2s ease-in-out;
-        &.desktop {
-            display: block;
-            @media screen and (max-width: 1200px) {
-                display: none;
-            }
-        }
         &.mobile {
-            display: none;
             width: 100%;
             height: auto;
             left: 5%;
-            @media screen and (max-width: 1200px) {
-                display: block;
-            }
             @media screen and (max-width: 500px) {
                 width: 120%;
                 height: auto;
