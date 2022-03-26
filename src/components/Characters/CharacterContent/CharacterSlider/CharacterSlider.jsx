@@ -2,6 +2,7 @@ import "./CharacterSlider.scss"
 import Carousel from "../../../../ShareComponent/Carousel/Carousel"
 import useWindowSize from "../../../../CustomHook/WindowSize"
 import { useState, useEffect, useRef, memo } from "react"
+import ImgLoaderPlaceholder from "../../../../ShareComponent/ImgLoaderPlaceholder/ImgLoaderPlaceholder";
 
 function CharacterSlider({characterAvatars, onActiveChange}) {
     const windowSize = useWindowSize();
@@ -54,7 +55,7 @@ function CharacterSlider({characterAvatars, onActiveChange}) {
                     <div key={item.id} className="avatar"
                         onClick={() => {setActiveIndex(index)}}>
                         <div className="img-wrapper">
-                            <img src={item.img} alt="" />
+                            <ImgLoaderPlaceholder className="avatar-img" src={item.img} alt="" />
                         </div>
                         <p className="name">{item.name}</p>
                     </div>

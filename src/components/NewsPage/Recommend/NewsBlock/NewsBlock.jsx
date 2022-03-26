@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import useFormatDay from "../../../../CustomHook/FormatDay"
+import ImgLoaderPlaceholder from "../../../../ShareComponent/ImgLoaderPlaceholder/ImgLoaderPlaceholder";
 import "../NewsBlock/NewsBlock.scss"
 
 function NewsBlock({newsInfo}) {
@@ -7,7 +8,7 @@ function NewsBlock({newsInfo}) {
     return (
         <div className="news-block">
             <div className="img-wrapper">
-                <img src={newsInfo.img} alt="" />
+                <ImgLoaderPlaceholder className="news-img" src={newsInfo.img} alt="" />
             </div>
             <h1 className="title">{newsInfo.title}</h1>
             <p className="desc">{newsInfo.desc}</p>
