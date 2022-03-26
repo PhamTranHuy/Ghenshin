@@ -9,6 +9,7 @@ import news_img_4 from '../assets/news/news-img-4.jpg'
 import frame from '../assets/news/frame.png'
 import NEWS from './data'
 import useWindowSize from '../../../CustomHook/WindowSize'
+import ImgLoaderPlaceholder from '../../../ShareComponent/ImgLoaderPlaceholder/ImgLoaderPlaceholder'
 
 const CAROUSEL_ITEMS = [
     {
@@ -50,7 +51,7 @@ function NewsSection() {
                     <Carousel width={carouselWidth} autoSlideTime={5000} slideButton={false}>
                         {CAROUSEL_ITEMS.map((item, i) => (
                             <a style={{display: 'flex'}} key={i}>
-                                <img src={item.img} style={{width: `${carouselWidth}px`}} />
+                                <ImgLoaderPlaceholder src={item.img} style={{width: `${carouselWidth}px`}} />
                             </a>
                         ))}
                     </Carousel>

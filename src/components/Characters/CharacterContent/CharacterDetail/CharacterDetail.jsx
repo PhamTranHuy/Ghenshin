@@ -4,6 +4,7 @@ import CustomScrollbar from "../../../../ShareComponent/CustomScrollbar/CustomSc
 import CharacterCv from "./CharacterCv/CharacterCv";
 import useWindowSize from "../../../../CustomHook/WindowSize"
 import { useState, useEffect } from "react";
+import ImgLoaderPlaceholder from "../../../../ShareComponent/ImgLoaderPlaceholder/ImgLoaderPlaceholder";
 
 function CharacterDetail({ character }) {
     const windowSize = useWindowSize();
@@ -19,11 +20,11 @@ function CharacterDetail({ character }) {
         <div className="character-detail" key={character.name}>
             {
                 !mobileView ? 
-                <img className="character-img desktop" src={character.img} alt="" /> : 
-                <img className="character-img mobile" src={character.mobile_img} alt="" />
+                <ImgLoaderPlaceholder className="character-img desktop" src={character.img} alt="" /> : 
+                <ImgLoaderPlaceholder className="character-img mobile" src={character.mobile_img} alt="" />
             }
-            <img className="character-conversation" src={character.conversation_img} alt="" />
-            <img className="character-quality" src={character.quality_img} alt="" />
+            <ImgLoaderPlaceholder className="character-conversation" src={character.conversation_img} alt="" />
+            <ImgLoaderPlaceholder className="character-quality" src={character.quality_img} alt="" />
             <div className="character-info">
                 <h1 className="name">{character.name}</h1>
                 <CharacterCv name={character.cv}/>
