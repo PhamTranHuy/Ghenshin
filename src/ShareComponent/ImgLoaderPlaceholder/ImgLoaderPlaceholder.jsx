@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { useState } from "react"
 import "./ImgLoaderPlaceholder.scss"
 
-function ImgLoaderPlaceholder({className, style, src, alt, lazy = false, placeholderSize}) {
+function ImgLoaderPlaceholder({className, style, src, alt, lazy = false, placeholderSize={width: '100%', height: '100%'}}) {
     const [loaded, setLoaded] = useState(false);
     const handleLoaded = () => {
         setLoaded(false);

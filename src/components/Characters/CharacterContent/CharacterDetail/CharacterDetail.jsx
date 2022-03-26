@@ -20,10 +20,19 @@ function CharacterDetail({ character }) {
         <div className="character-detail" key={character.name}>
             {
                 !mobileView ? 
-                <ImgLoaderPlaceholder className="character-img desktop" src={character.img} alt="" /> : 
-                <ImgLoaderPlaceholder className="character-img mobile" src={character.mobile_img} alt="" />
+                <ImgLoaderPlaceholder 
+                    className="character-img desktop" 
+                    src={character.img} alt="" 
+                    placeholderSize={{width: '120vw', height: '100%'}}/> : 
+                <ImgLoaderPlaceholder 
+                    className="character-img mobile" 
+                    src={character.mobile_img} alt="" 
+                    placeholderSize={{width: '120vw', height: '100vh'}}/>
             }
-            <ImgLoaderPlaceholder className="character-conversation" src={character.conversation_img} alt="" />
+            <ImgLoaderPlaceholder 
+                className="character-conversation" 
+                src={character.conversation_img} alt="" 
+                placeholderSize={{width: '30vw', height: '10vw'}} />
             <ImgLoaderPlaceholder className="character-quality" src={character.quality_img} alt="" />
             <div className="character-info">
                 <h1 className="name">{character.name}</h1>
