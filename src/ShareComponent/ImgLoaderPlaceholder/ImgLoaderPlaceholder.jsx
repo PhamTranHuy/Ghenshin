@@ -9,7 +9,11 @@ function ImgLoaderPlaceholder({className, style, src, alt, lazy = false, placeho
     }
     return (
         <div style={style} className={clsx("img-loader-placeholder", className)}>
-            {!loaded && <div className="loader" style={placeholderSize}>loading...</div>}
+            {!loaded && <div className="loader" style={placeholderSize}>
+                <div class="lds-roller">
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                </div>
+            </div>}
             <img src={src} alt={alt} onLoad={handleLoaded} style={{display: loaded ? 'block' : 'none'}}/>
         </div>
     )
