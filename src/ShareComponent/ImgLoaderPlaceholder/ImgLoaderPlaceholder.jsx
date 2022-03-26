@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import react from "react";
 import { useState, useEffect, useRef } from "react"
 import useWindowScroll from "../../CustomHook/WindowScroll"
 import useWindowSize from "../../CustomHook/WindowSize"
@@ -7,7 +8,7 @@ import "./ImgLoaderPlaceholder.scss"
 function ImgLoaderPlaceholder({className, style, src, alt, lazy = true, placeholderSize={}}) {
     const [ loaded, setLoaded ] = useState(false);
     const [ isOnViewPort, setIsInViewPort ] = useState(false);
-    const imgRef = useRef();
+    const loaderRef = useRef();
     const windowSize = useWindowSize();
     const windowScroll = useWindowScroll();
     const handleLoaded = () => {
@@ -22,7 +23,7 @@ function ImgLoaderPlaceholder({className, style, src, alt, lazy = true, placehol
         );
     }
     useEffect(() => {
-        if (lazy && imgRef.current && !loaded && isImgOnViewPort(imgRef.current)) {
+        if (lazy && loaderRef.current && isImgOnViewPort(loaderRef.current)) {
             setIsInViewPort(true);
         }
     }, [windowSize, windowScroll])
@@ -30,8 +31,8 @@ function ImgLoaderPlaceholder({className, style, src, alt, lazy = true, placehol
         setLoaded(false);
     }, [src]);
     return (
-        <div className="img-loader-placeholder" ref={imgRef}>
-            {!loaded && <div className={clsx("loader",  className)} style={placeholderSize}>
+        <div className="img-loader-placeholder">
+            {!loaded && <div className={clsx("loader",  className)} style={placeholderSize} ref={loaderRef}>
                 <div className="lds-roller">
                     <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
                 </div>
