@@ -25,18 +25,32 @@ const CAROUSEL_ITEMS = [
         url: '',
         img: news_img_4
     }
-]
+];
+const newsImgWidthHeightRatio = 1.6;
+
 function NewsSection() {
     const formatDate = useFormatDay();
     const windowSize = useWindowSize();
     const [carouselWidth, setCarouselWidth] = useState(640);
-
+    const [placeholderImgSize, setPlaceholderImgSize] = useState({
+        width: 640,
+        height: 400
+    })
     useEffect(() => {
         if (windowSize.width <= 1200) {
             const newsWrapperWidth = document.querySelector('.news-wrapper').offsetWidth;
             setCarouselWidth(newsWrapperWidth);
+            const placeHolderHeight = newsWrapperWidth / newsImgWidthHeightRatio;
+            setPlaceholderImgSize({
+                width: newsWrapperWidth,
+                height: placeHolderHeight
+            });
         } else {
             setCarouselWidth(640);
+            setPlaceholderImgSize({
+                width: 640,
+                height: 400
+            });
         }
     }, [windowSize])
     return (
@@ -51,7 +65,7 @@ function NewsSection() {
                     <Carousel width={carouselWidth} autoSlideTime={5000} slideButton={false}>
                         {CAROUSEL_ITEMS.map((item, i) => (
                             <a style={{display: 'flex'}} key={i}>
-                                <ImgLoaderPlaceholder src={item.img} style={{width: `${carouselWidth}px`}} />
+                                <ImgLoaderPlaceholder src={item.img} style={{width: `${carouselWidth}px`}} placeholderSize={placeholderImgSize}/>
                             </a>
                         ))}
                     </Carousel>
