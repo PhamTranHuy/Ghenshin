@@ -1,20 +1,21 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import HomePage from "./components/HomePage/HomePage";
-import NewsPage from "./components/NewsPage/NewsPage";
-import Characters from "./components/Characters/Characters";
-import NotFound from "./components/NotFound/NotFound";
 import RestoreWindowScroll from "./ShareComponent/RestoreWindowScroll/RestoreWindowScroll";
 import Mondstadt from "./components/Characters/Mondstadt/Mondstadt";
 import Liyue from "./components/Characters/Liyue/Liyue";
 import Inazuma from "./components/Characters/Inazuma/Inazuma";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { MusicContext } from "./Context";
 import useAudio from "./CustomHook/Audio"
 
 const WAVE_SOUND = 'https://genshin.mihoyo.com/_nuxt/medias/video-play.06ec9738.mp3';
 const MUSIC = 'https://genshin.mihoyo.com/_nuxt/medias/video-bgm.d8637316.mp3';
+
+const NewsPage = lazy(() => import("./components/NewsPage/NewsPage"));
+const Characters = lazy(() => import("./components/Characters/Characters"));
+const NotFound = lazy(() => import("./components/NotFound/NotFound"));
 
 function App() {
     const setPlayingWaveSound = useAudio(WAVE_SOUND);
@@ -41,8 +42,18 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Navigate to="home" replace={true} />} />
                     <Route path="home" element={<HomePage />} />
-                    <Route path="news" element={<NewsPage />} />
-                    <Route path="characters" element={<Characters />}>
+                    <Route path="news" 
+                        element={
+                        <Suspense fallback={<>...</>}>
+                            <NewsPage />
+                        </Suspense>
+                    } />
+                    <Route path="characters" 
+                        element={
+                            <Suspense fallback={<>...</>}>
+                                <Characters />
+                            </Suspense>
+                        }>
                         <Route
                             path="mondstadt"
                             element={<Mondstadt />}
