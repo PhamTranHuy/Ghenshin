@@ -55,9 +55,9 @@ function Header() {
             </div>
             <Navigator />
             <div className="space"></div>
-            <div className="download">
+            <a href="https://genshin.hoyoverse.com/en/download" target="_blank" className="download">
                 <div>Download</div>
-            </div>
+            </a>
             <button className= {
                     `${'hamburger'} 
                     ${activeHamburger ? 'is-active' : ''}`

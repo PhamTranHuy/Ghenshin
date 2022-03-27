@@ -46,7 +46,9 @@ function Poster() {
                     <a href="#" className="download-img"><img src={app_store_logo}/></a>
                     <a href="#" className="download-img"><img src={google_play_logo}/></a>
                     <a href="#" className="download-img"><img src={windows_logo}/></a>
-                    <a href="" className="download-button">
+                    <a href="https://apps.apple.com/app/id1517783697?mt=8" 
+                        target="_blank"
+                        className="download-button">
                         <div>Download Now</div>
                     </a>
                 </div>
