@@ -10,6 +10,7 @@ import frame from '../assets/news/frame.png'
 import NEWS from './data'
 import useWindowSize from '../../../CustomHook/WindowSize'
 import ImgLoaderPlaceholder from '../../../ShareComponent/ImgLoaderPlaceholder/ImgLoaderPlaceholder'
+import { NavLink } from 'react-router-dom'
 
 const CAROUSEL_ITEMS = [
     {
@@ -82,7 +83,7 @@ function NewsSection() {
                             </a>
                         ))}
                     </div>
-                    <a href='' className="more-button">More</a>
+                    <NavLink to="/news" className="more-button">More</NavLink>
                 </div>
             </div>
         </div>
