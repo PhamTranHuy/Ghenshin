@@ -26,6 +26,7 @@
         width: 2rem;
         height: 2rem;
         margin-left: 6rem;
+        z-index: 1;
         cursor: pointer;
         @media screen and (max-width: 1200px) {
             order: 3;
@@ -34,10 +35,10 @@
         }
     }
     .logo {
+        position: relative;
         height: 100%;
         min-width: 180px;
         margin: 0 -55px 0 -70px;
-        pointer-events: none;
         @media screen and (max-width: 1200px) {
             width: 250px;
             height: auto;
@@ -46,6 +47,13 @@
             img {
                 vertical-align: middle;
             }
+        }
+        .logo-nav-link {
+            display: block;
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            left: 25%;
         }
     }
     .space {
