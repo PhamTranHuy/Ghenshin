@@ -15,7 +15,7 @@ function FollowUs() {
                 <ul className="list-container">
                     {HOME_DATA.SOCIALS.map((social, index) => (
                         <li className="list-item" key={index}>
-                            <a href={social.url} className="social-wrapper">
+                            <a href={social.url} target="_blank" className="social-wrapper">
                                 <div>{social.icon}</div>
                                 <p>{social.name}</p>
                             </a>
@@ -25,7 +25,7 @@ function FollowUs() {
             </div>
             <FixedMenu>
                 {HOME_DATA.SOCIALS.map((social, index) => (
-                    <a key={index} href={social.url} className="social-wrapper">
+                    <a key={index} href={social.url} target="_blank" className="social-wrapper">
                         <div>{social.icon}</div>
                         <p>{social.name}</p>
                     </a>
