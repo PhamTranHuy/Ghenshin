@@ -3,33 +3,18 @@ import miHoYo_logo from './assets/miHoYo-logo.png'
 import genshin_logo from './assets/genshin-logo.png'
 import europe from './assets/europe.png'
 import us_canada from './assets/us-canada.png'
+import HOME_DATA from '../HomePage/data';
 
 function Footer() {
     return (
         <div className='footer'>
             <div className="footer-top">
                 <div className="social-wrapper">
-                    <a href="" className="social-button">
-                        <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="" className="social-button">
-                        <i className="fab fa-twitter"></i>
-                    </a>
-                    <a href="" className="social-button">
-                        <i className="fab fa-youtube"></i>
-                    </a>
-                    <a href="" className="social-button">
-                        <i className="fab fa-instagram"></i>
-                    </a>
-                    <a href="" className="social-button">
-                        <i className="fab fa-discord"></i>
-                    </a>
-                    <a href="" className="social-button">
-                        <i className="fab fa-reddit-alien"></i>
-                    </a>
-                    <a href="" className="social-button">
-                        <i className="fas fa-dragon"></i>
-                    </a>
+                    {HOME_DATA.SOCIALS.map((social, index) => (
+                        <a href={social.url} target="_blank" className="social-button">
+                            {social.icon}
+                        </a>
+                    ))}
                 </div>
                 <div className="languages disable-button">
                     <i className="fas fa-globe-asia"></i>
@@ -39,15 +24,23 @@ function Footer() {
             </div>
             <div className="footer-info">
                 <div className="logo-wrapper">
-                    <img src={miHoYo_logo} alt="" />
+                    <a href="https://www.hoyoverse.com/en-us?utm_source=genshin&utm_medium=footer" target="_blank">
+                        <img src={miHoYo_logo} alt="" />
+                    </a>
                     <img src={genshin_logo} alt="" />
                 </div>
                 <div className="content-wrapper">
                     <div className="links">
-                        <a href="" className="link">Privacy Policy</a>
-                        <a href="" className="link">Terms of Service</a>
-                        <a href="" className="link">About Us</a>
-                        <a href="" className="link">Contact Us</a>
+                        <a href="https://genshin.hoyoverse.com/en/company/privacy" 
+                            target="_blank"
+                            className="link">Privacy Policy</a>
+                        <a href="https://genshin.hoyoverse.com/en/company/terms" 
+                            target="_blank"
+                            className="link">Terms of Service</a>
+                        <a href="https://www.hoyoverse.com/en-us/about-us?utm_source=genshin&utm_medium=footer" 
+                            target="_blank"
+                            className="link">About Us</a>
+                        <a href="mailto:genshin_cs@hoyoverse.com" className="link">Contact Us</a>
                     </div>
                     <div className="copyright">
                         Copyright © 2020 miHoYo All Rights Reserved
@@ -60,7 +53,9 @@ function Footer() {
                         All other trademarks are the property of their respective owners.
                     </div>
                     <div className="logos">
+                    <a href="https://pegi.info/" target="_blank">
                         <img src={europe} alt="" />
+                    </a>
                         <img src={us_canada} alt="" />
                     </div>
                 </div>

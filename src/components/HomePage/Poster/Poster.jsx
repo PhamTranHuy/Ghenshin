@@ -42,11 +42,29 @@ function Poster() {
                 </div>
                 <div className="desc">Released on Multiple Platforms - Download Now!</div>
                 <div className="download-banner">
-                    <a href="#" className="download-img"><img src={ps4_logo}/></a>
-                    <a href="#" className="download-img"><img src={app_store_logo}/></a>
-                    <a href="#" className="download-img"><img src={google_play_logo}/></a>
-                    <a href="#" className="download-img"><img src={windows_logo}/></a>
-                    <a href="" className="download-button">
+                    <a href="https://www.playstation.com/en-vn/games/genshin-impact/" 
+                        target="_blank"
+                        className="download-img">
+                        <img src={ps4_logo}/>
+                    </a>
+                    <a href="https://apps.apple.com/app/id1517783697" 
+                        target="_blank" 
+                        className="download-img">
+                        <img src={app_store_logo}/>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.miHoYo.GenshinImpact" 
+                        target="_blank"
+                        className="download-img">
+                        <img src={google_play_logo}/>
+                    </a>
+                    <a href="https://sg-public-api.hoyoverse.com/event/download_porter/link/ys_global/genshinimpactpc/default"
+                        target="_blank"
+                        className="download-img">
+                        <img src={windows_logo}/>
+                    </a>
+                    <a href="https://apps.apple.com/app/id1517783697?mt=8" 
+                        target="_blank"
+                        className="download-button">
                         <div>Download Now</div>
                     </a>
                 </div>

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, NavLink } from 'react-router-dom'
 
 import Navigator from './Navigator/Navigator'
 import Popup from '../../ShareComponent/Popup/Popup'
@@ -50,13 +50,14 @@ function Header() {
                 <img src={playMusic ? Music : UnMusic} alt="music" onClick={toggleMusic}/>
             </div>
             <div className="logo">
+                <NavLink to="/home" className="logo-nav-link"></NavLink>
                 <img src={Logo} alt="logo" />
             </div>
             <Navigator />
             <div className="space"></div>
-            <div className="download">
+            <a href="https://genshin.hoyoverse.com/en/download" target="_blank" className="download">
                 <div>Download</div>
-            </div>
+            </a>
             <button className= {
                     `${'hamburger'} 
                     ${activeHamburger ? 'is-active' : ''}`

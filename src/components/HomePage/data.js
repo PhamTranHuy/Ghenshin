@@ -24,31 +24,31 @@ const HOME_DATA = {
         {
             name: 'Facebook',
             icon: <i className="fab fa-facebook-f"></i>,
-            url: ''
+            url: 'https://www.facebook.com/Genshinimpact/'
         }, {
             name: 'Twitter',
             icon: <i className="fab fa-twitter"></i>,
-            url: ''
+            url: 'https://twitter.com/GenshinImpact'
         }, {
             name: 'YouTube',
             icon: <i className="fab fa-youtube"></i>,
-            url: ''
+            url: 'https://www.youtube.com/c/GenshinImpact'
         }, {
             name: 'Instagram',
             icon: <i className="fab fa-instagram"></i>,
-            url: ''
+            url: 'https://www.instagram.com/genshinimpact/'
         }, {
             name: 'Discord',
             icon: <i className="fab fa-discord"></i>,
-            url: ''
+            url: 'https://discord.com/invite/genshinimpact'
         }, {
             name: 'Reddit',
             icon: <i className="fab fa-reddit-alien"></i>,
-            url: ''
+            url: 'https://www.reddit.com/r/Genshin_Impact'
         }, {
             name: 'HoYoLAB',
             icon: <i className="fas fa-dragon"></i>,
-            url: ''
+            url: 'https://www.hoyolab.com/home?utm_source=officialweb&utm_medium=game&utm_id=2'
         }
     ]
 }

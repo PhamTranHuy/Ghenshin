@@ -19,7 +19,7 @@ function HamburgerMenu() {
         <div className="hamburger-menu" onClick={(e) => {e.stopPropagation()}}>
             <div className="hamburger-header"></div>
             <nav className="hamburger-nav">
-                <NavLink to="/" className="nav-button">HOME</NavLink>
+                <NavLink to="/home" className="nav-button">HOME</NavLink>
                 <NavLink to="/news" className="nav-button">NEWS</NavLink>
                 <NavLink to="/characters" className="nav-button">CHARACTERS</NavLink>
                 <div id="explore" className={`${explore ? 'is-active' : ''} nav-button`} onClick={handleExploreClicked}>

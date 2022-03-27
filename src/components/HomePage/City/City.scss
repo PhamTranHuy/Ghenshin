@@ -67,7 +67,7 @@
         background-position: calc(50% + 24rem) 50%;
         opacity: 0;
         transition: 0.4s 0s ease-out;
-        z-index: 2;
+        z-index: 3;
         @media screen and (max-width: 1200px) {
             background-size: 55rem 15rem;
             background-position: calc(50% - 15rem);

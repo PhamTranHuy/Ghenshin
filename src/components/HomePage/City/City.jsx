@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { NavLink } from 'react-router-dom'
 import './City.scss'
 
 function City({name, background, character, disable}) {
@@ -8,7 +9,7 @@ function City({name, background, character, disable}) {
             <div className="city-name" style={disable ? {color: 'rgba(255,255,255,0.3)', background: 'rgba(0,0,0,0.3)'} : {}}>
                 <p className="name">{name}</p>
             </div>
-            <div className="city-character" style={{backgroundImage: `url(${character})`}}></div>
+            <NavLink to={`/characters/${name.toLowerCase()}`} className="city-character" style={{backgroundImage: `url(${character})`}} />
         </div>
     )
 }
