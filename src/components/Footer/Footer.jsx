@@ -11,7 +11,7 @@ function Footer() {
             <div className="footer-top">
                 <div className="social-wrapper">
                     {HOME_DATA.SOCIALS.map((social, index) => (
-                        <a href={social.url} target="_blank" className="social-button">
+                        <a key={index} href={social.url} target="_blank" className="social-button">
                             {social.icon}
                         </a>
                     ))}

@@ -9,6 +9,7 @@ import poster_arrow_icon from '../assets/poster/down-arrow.png'
 import poster_age_logo from '../assets/poster/poster-age.png'
 import close_button from '../assets/poster/close-icon.png'
 import Logo from '../assets/poster/mobile-logo.png'
+import video_poster from '../assets/poster/video-poster.jpg'
 
 import Popup from '../../../ShareComponent/Popup/Popup'
 import useWindowSize from '../../../CustomHook/WindowSize'
@@ -32,7 +33,7 @@ function Poster() {
                 <img src={Logo} alt="logo" />
             </div>
             <div className="background-wrapper">
-                <video autoPlay={true} muted={true} loop>
+                <video autoPlay={true} muted={true} loop poster={video_poster}>
                     <source src="https://genshin.mihoyo.com/_nuxt/videos/3e78e80.mp4" type="audio/mp4"/>
                 </video>
             </div>
