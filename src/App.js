@@ -71,7 +71,11 @@ function App() {
                             element={<Navigate to="mondstadt" />}
                         />
                     </Route>
-                    <Route path='*' element={<NotFound />} />
+                    <Route path='*' element={
+                        <Suspense fallback={<>...</>}>
+                            <NotFound />
+                        </Suspense>    
+                    } />
                 </Routes>
             </RestoreWindowScroll>
         </MusicContext.Provider>
