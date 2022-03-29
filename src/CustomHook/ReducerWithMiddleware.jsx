@@ -14,7 +14,7 @@ function useReducerWithMiddleware(reducer, initialState, middlewareFns, afterwar
             afterwareFns.map((afterwareFn) => afterwareFn(actionRef.current, dispatch, state));
             actionRef.current = null;
         }
-    }, [state])
+    }, [state, afterwareFns])
 
     return [state, dispatchWithMiddleWare];
 }

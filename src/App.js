@@ -34,7 +34,7 @@ function App() {
             setPlayingMusic(false);
             setPlayingWaveSound(false);
         }
-    }, [playMusic])
+    }, [playMusic, setPlayingMusic, setPlayingWaveSound])
 
     return (
         <MusicContext.Provider value={[playMusic, toggleMusic]}>

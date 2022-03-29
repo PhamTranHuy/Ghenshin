@@ -1,5 +1,5 @@
 import { finishSlide, startSlide } from "./Actions";
-import { DRAG, INIT_STATE, START_SLIDE, TRANS_DURATION } from "./Constants";
+import { DRAG, INIT_STATE, TRANS_DURATION } from "./Constants";
 
 export const slideAfterware = (action, dispatch, state) => {
     if (action.type !== DRAG && action.type !== INIT_STATE) {

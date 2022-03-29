@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import react from "react";
 import { useState, useEffect, useRef } from "react"
 import useWindowScroll from "../../CustomHook/WindowScroll"
 import useWindowSize from "../../CustomHook/WindowSize"

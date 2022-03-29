@@ -37,7 +37,7 @@ function Carousel({
             }
         }
         onActiveChange(activeIndex);
-    }, [autoSlideTime, activeIndex])
+    }, [autoSlideTime, activeIndex, jumpTo])
 
     useEffect(() => {
         jumpTo(initialIndex);
