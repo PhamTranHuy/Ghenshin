@@ -11,7 +11,7 @@ function Footer() {
             <div className="footer-top">
                 <div className="social-wrapper">
                     {HOME_DATA.SOCIALS.map((social, index) => (
-                        <a key={index} href={social.url} target="_blank" className="social-button">
+                        <a key={index} href={social.url} target="_blank" rel="noreferrer" className="social-button">
                             {social.icon}
                         </a>
                     ))}
@@ -24,7 +24,7 @@ function Footer() {
             </div>
             <div className="footer-info">
                 <div className="logo-wrapper">
-                    <a href="https://www.hoyoverse.com/en-us?utm_source=genshin&utm_medium=footer" target="_blank">
+                    <a href="https://www.hoyoverse.com/en-us?utm_source=genshin&utm_medium=footer" target="_blank" rel="noreferrer">
                         <img src={miHoYo_logo} alt="" />
                     </a>
                     <img src={genshin_logo} alt="" />
@@ -33,12 +33,15 @@ function Footer() {
                     <div className="links">
                         <a href="https://genshin.hoyoverse.com/en/company/privacy" 
                             target="_blank"
+                            rel="noreferrer"
                             className="link">Privacy Policy</a>
                         <a href="https://genshin.hoyoverse.com/en/company/terms" 
                             target="_blank"
+                            rel="noreferrer"
                             className="link">Terms of Service</a>
                         <a href="https://www.hoyoverse.com/en-us/about-us?utm_source=genshin&utm_medium=footer" 
                             target="_blank"
+                            rel="noreferrer"
                             className="link">About Us</a>
                         <a href="mailto:genshin_cs@hoyoverse.com" className="link">Contact Us</a>
                     </div>
@@ -53,7 +56,7 @@ function Footer() {
                         All other trademarks are the property of their respective owners.
                     </div>
                     <div className="logos">
-                    <a href="https://pegi.info/" target="_blank">
+                    <a href="https://pegi.info/" target="_blank" rel="noreferrer">
                         <img src={europe} alt="" />
                     </a>
                         <img src={us_canada} alt="" />

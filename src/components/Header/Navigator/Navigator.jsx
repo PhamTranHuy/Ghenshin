@@ -76,13 +76,27 @@ function Navigator() {
                 <div id="more-menu" className="sub-list-wrapper nav-button">
                     <div className="nav-button--explore">MORE</div>
                     <ul className="sub-list explore">
-                        <li className="sub-items">HoYoLAB</li>
-                        <li className="sub-items">TOP-UP</li>
+                        <li className="sub-items">
+                            <a href="https://www.hoyolab.com/home?utm_source=officialweb&utm_medium=game&utm_campaign=nav&utm_id=2/"
+                                target="_blank"
+                                rel="noreferrer">HoYoLAB</a>
+                        </li>
+                        <li className="sub-items">
+                            <a href="https://genshin.hoyoverse.com/payment"
+                                target="_blank"
+                                rel="noreferrer">TOP-UP</a>
+                        </li>
                         <li className="sub-items disable-button">REDEEM CODE</li>
                     </ul>
                 </div>
-                <div className="nav-button more-item">HoYoLAB</div>
-                <div className="nav-button more-item">TOP-UP</div>
+                <a className="nav-button more-item" 
+                    href="https://www.hoyolab.com/home?utm_source=officialweb&utm_medium=game&utm_campaign=nav&utm_id=2/"
+                    target="_blank"
+                    rel="noreferrer">HoYoLAB</a>
+                <a className="nav-button more-item"
+                    href="https://genshin.hoyoverse.com/payment"
+                    target="_blank"
+                    rel="noreferrer">TOP-UP</a>
                 <div className="nav-button more-item disable-button">REDEEM CODE</div>
             </nav>
             <div className="header_nav-pointer" style={{

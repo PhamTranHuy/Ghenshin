@@ -45,26 +45,31 @@ function Poster() {
                 <div className="download-banner">
                     <a href="https://www.playstation.com/en-vn/games/genshin-impact/" 
                         target="_blank"
+                        rel="noreferrer"
                         className="download-img">
-                        <img src={ps4_logo}/>
+                        <img src={ps4_logo} alt=""/>
                     </a>
                     <a href="https://apps.apple.com/app/id1517783697" 
                         target="_blank" 
+                        rel="noreferrer"
                         className="download-img">
-                        <img src={app_store_logo}/>
+                        <img src={app_store_logo} alt=""/>
                     </a>
                     <a href="https://play.google.com/store/apps/details?id=com.miHoYo.GenshinImpact" 
                         target="_blank"
+                        rel="noreferrer"
                         className="download-img">
-                        <img src={google_play_logo}/>
+                        <img src={google_play_logo} alt=""/>
                     </a>
                     <a href="https://sg-public-api.hoyoverse.com/event/download_porter/link/ys_global/genshinimpactpc/default"
                         target="_blank"
+                        rel="noreferrer"
                         className="download-img">
-                        <img src={windows_logo}/>
+                        <img src={windows_logo} alt=""/>
                     </a>
                     <a href="https://apps.apple.com/app/id1517783697?mt=8" 
                         target="_blank"
+                        rel="noreferrer"
                         className="download-button">
                         <div>Download Now</div>
                     </a>
@@ -80,12 +85,12 @@ function Poster() {
             </div>
             <Popup trigger={triggerPopup} handleMaskClicked={() => {setTriggerPopup(false)}}>
                 <div className="pop-up_video-wrapper" style={handleVideoPosterSize()}>
-                    <iframe className="video" src="https://www.youtube.com/embed/5DuZblVxG3I" 
+                    <iframe title="poster-video" className="video" src="https://www.youtube.com/embed/5DuZblVxG3I" 
                     scrolling="no" border="0" frameBorder="no" framespacing="0" 
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
                     allowFullScreen="allowfullscreen"></iframe>
                     <button className="close-button" onClick={() => {setTriggerPopup(false)}}>
-                        <img src={close_button} />
+                        <img src={close_button} alt=""/>
                     </button>
                 </div>
             </Popup>

@@ -57,17 +57,17 @@ function NewsSection() {
     return (
         <div className="home_news-section">
             <div className="news-title">
-                <div className="frame"><img src={frame} /></div>
+                <div className="frame"><img src={frame} alt="" /></div>
                 <h1 className="title">NEWS</h1>
-                <div className="frame"><img src={frame} style={{transform: 'scaleX(-1)'}}/></div>
+                <div className="frame"><img src={frame} alt="" style={{transform: 'scaleX(-1)'}}/></div>
             </div>
             <div className="news-container">
                 <div className="carousel-wrapper">
                     <Carousel width={carouselWidth} autoSlideTime={5000} slideButton={false}>
                         {CAROUSEL_ITEMS.map((item, i) => (
-                            <a style={{display: 'flex'}} key={i}>
+                            <div style={{display: 'flex'}} key={i}>
                                 <ImgLoaderPlaceholder src={item.img} style={{width: `${carouselWidth}px`}} placeholderSize={placeholderImgSize}/>
-                            </a>
+                            </div>
                         ))}
                     </Carousel>
                 </div>
@@ -77,10 +77,10 @@ function NewsSection() {
                     </ul>
                     <div className="news">
                         {NEWS.map((item) => (
-                            <a key={item.id} className="new-wrapper">
+                            <div key={item.id} className="new-wrapper">
                                 <p className="title">{item.title}</p>
                                 <p className="date">{formatDate(item.date)}</p>
-                            </a>
+                            </div>
                         ))}
                     </div>
                     <NavLink to="/news" className="more-button">More</NavLink>

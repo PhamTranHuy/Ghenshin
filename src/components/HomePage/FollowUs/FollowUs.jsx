@@ -9,13 +9,13 @@ function FollowUs() {
         <div className="follow-us">
             <div className="follow-us-container">
                 <div className="header">
-                    <div className="frame"><img src={frame} /></div>
-                    <div className="frame"><img src={frame} style={{transform: 'scaleX(-1)'}}/></div>
+                    <div className="frame"><img src={frame} alt="" /></div>
+                    <div className="frame"><img src={frame} alt="" style={{transform: 'scaleX(-1)'}}/></div>
                 </div>
                 <ul className="list-container">
                     {HOME_DATA.SOCIALS.map((social, index) => (
                         <li className="list-item" key={index}>
-                            <a href={social.url} target="_blank" className="social-wrapper">
+                            <a href={social.url} target="_blank" rel="noreferrer" className="social-wrapper">
                                 <div>{social.icon}</div>
                                 <p>{social.name}</p>
                             </a>
@@ -25,7 +25,7 @@ function FollowUs() {
             </div>
             <FixedMenu>
                 {HOME_DATA.SOCIALS.map((social, index) => (
-                    <a key={index} href={social.url} target="_blank" className="social-wrapper">
+                    <a key={index} href={social.url} target="_blank" rel="noreferrer" className="social-wrapper">
                         <div>{social.icon}</div>
                         <p>{social.name}</p>
                     </a>

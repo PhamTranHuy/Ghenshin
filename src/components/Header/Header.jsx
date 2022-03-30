@@ -42,7 +42,7 @@ function Header() {
         } else {
             setHideHeaderMobile(false);
         }
-    }, [windowScroll, windowSize])
+    }, [windowScroll, windowSize, location.pathname])
 
     return (
         <header className={`home_header ${hideHeaderMobile ? 'none-active' : ''}`}>
@@ -55,7 +55,7 @@ function Header() {
             </div>
             <Navigator />
             <div className="space"></div>
-            <a href="https://genshin.hoyoverse.com/en/download" target="_blank" className="download">
+            <a href="https://genshin.hoyoverse.com/en/download" target="_blank" rel="noreferrer" className="download">
                 <div>Download</div>
             </a>
             <button className= {

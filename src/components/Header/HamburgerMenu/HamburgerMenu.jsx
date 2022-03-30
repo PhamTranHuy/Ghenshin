@@ -31,9 +31,15 @@ function HamburgerMenu() {
                         <li>MANGA</li>
                     </ul>
                 </div>
-                <a className="nav-button" href="">HoYoLAB</a>
-                <a className="nav-button" href="">TOP-UP</a>
-                <a className="nav-button disable-button">REDEEM CODE</a>
+                <a className="nav-button" 
+                    href="https://www.hoyolab.com/home?utm_source=officialweb&utm_medium=game&utm_campaign=nav&utm_id=2/"
+                    target="_blank"
+                    rel="noreferrer">HoYoLAB</a>
+                <a className="nav-button"
+                    href="https://genshin.hoyoverse.com/payment"
+                    target="_blank"
+                    rel="noreferrer">TOP-UP</a>
+                <div className="nav-button disable-button">REDEEM CODE</div>
             </nav>
             <div></div>
         </div>
