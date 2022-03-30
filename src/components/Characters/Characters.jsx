@@ -9,7 +9,7 @@ const Characters = () => {
         <div className="character-page">
             <Header />
             <Navigator />
-            <div className="character-content">
+            <div className="character-content" style={{height: window.innerHeight}}>
                 <Outlet />
             </div>
             <Footer />
