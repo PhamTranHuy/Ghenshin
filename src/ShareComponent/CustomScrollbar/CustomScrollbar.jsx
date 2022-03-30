@@ -67,7 +67,7 @@ function CustomScrollbar({children}) {
         const distanceScrollMore = (e.clientY - scrollStartPosition) / (contentOffsetHeight / thumbHeight);
         const newScrollTop = Math.min(initialScrollTop + distanceScrollMore, contentScrollHeight - contentOffsetHeight);
         contentRef.current.scrollTop = newScrollTop;
-    }, [scrollStartPosition, thumbHeight])
+    }, [scrollStartPosition, thumbHeight, initialScrollTop])
     const handleMouseUp = useCallback((e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -93,9 +93,10 @@ function CustomScrollbar({children}) {
                 if (observer.current) {
                     observer.current.unobserve(contentElem);
                 }
+                contentElem.removeEventListener('scroll', handleThumbPosition);
             }
         }
-    }, [])
+    }, [handleThumbPosition])
     return (
         <div className="custom-scrollbar_container">
             <div className="content" ref={contentRef}>

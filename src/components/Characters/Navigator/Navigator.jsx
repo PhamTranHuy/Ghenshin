@@ -21,50 +21,50 @@ function Navigator() {
         <>
             <div className="character-navigator">
                 <ul className="navigator-wrapper">
-                    <li className="navigate-button">
-                        <NavLink to="./mondstadt">
+                    <li className="navigate-button-wrapper">
+                        <NavLink to="./mondstadt" className="navigate-button">
                             <p>Mondstadt</p>
                         </NavLink>
                     </li>
-                    <li className="navigate-button">
-                        <NavLink to="./liyue">
+                    <li className="navigate-button-wrapper">
+                        <NavLink to="./liyue" className="navigate-button" >
                             <p>Liyue</p>
                         </NavLink>
                     </li>
-                    <li className="navigate-button">
-                        <NavLink to="./inazuma">
+                    <li className="navigate-button-wrapper">
+                        <NavLink to="./inazuma" className="navigate-button">
                             <p>Inazuma</p>
                         </NavLink>
                     </li>
-                    <li className="navigate-button">
-                        <a>
+                    <li className="navigate-button-wrapper">
+                        <div className="navigate-button">
                             <p>Coming soon</p>
-                        </a>
+                        </div>
                     </li>
                 </ul>
             </div>
             <div className="character-navigator_mobile">
                 <div onClick={toggle} className={clsx("navigator-current-city", toggleNavigator && "active")}>{getCurrentCity(pathname)}</div>
                 { toggleNavigator && (<ul className="navigator-wrapper">
-                    <li className="navigate-button">
-                        <NavLink to="./mondstadt">
+                    <li className="navigate-button-wrapper">
+                        <NavLink to="./mondstadt" className="navigate-button">
                             <p>Mondstadt</p>
                         </NavLink>
                     </li>
-                    <li className="navigate-button">
-                        <NavLink to="./liyue">
+                    <li className="navigate-button-wrapper">
+                        <NavLink to="./liyue" className="navigate-button">
                             <p>Liyue</p>
                         </NavLink>
                     </li>
-                    <li className="navigate-button">
-                        <NavLink to="./inazuma">
+                    <li className="navigate-button-wrapper">
+                        <NavLink to="./inazuma" className="navigate-button">
                             <p>Inazuma</p>
                         </NavLink>
                     </li>
-                    <li className="navigate-button">
-                        <a>
+                    <li className="navigate-button-wrapper">
+                        <div className="navigate-button">
                             <p>Coming soon</p>
-                        </a>
+                        </div>
                     </li>
                 </ul>)}
             </div>

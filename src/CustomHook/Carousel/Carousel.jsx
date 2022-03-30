@@ -11,7 +11,7 @@ function useCarousel({children, translateSize, infinite, slidesPerView}) {
 
     const handleMouseMove = useCallback((e) => {
         dispatch(drag(e))
-    }, []);
+    }, [dispatch]);
     const handleMouseDown = (e) => {
         e.preventDefault();
         document.addEventListener("mousemove", handleMouseMove);
@@ -30,12 +30,12 @@ function useCarousel({children, translateSize, infinite, slidesPerView}) {
     const prev = () => {
         dispatch(jump(state.activeIndex - 1));
     }
-    const jumpTo = (index) => {
+    const jumpTo = useCallback((index) => {
         dispatch(jump(index));
-    }
+    }, [dispatch])
     useEffect(() => {
         dispatch(initState({children, translateSize, infinite, slidesPerView}));
-    }, [children, translateSize, infinite, slidesPerView])
+    }, [dispatch, children, translateSize, infinite, slidesPerView])
 
     useEffect(() => {
         setStyle({

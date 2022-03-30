@@ -18,7 +18,7 @@ function CharacterSlider({characterAvatars, onActiveChange}) {
     useEffect(() => {
         if (characterAvatars.length > 0)
         onActiveChange(characterAvatars[0].name);
-    }, [characterAvatars])
+    }, [characterAvatars, onActiveChange])
 
     useEffect(() => {
         if (windowSize.width <= 1200) {

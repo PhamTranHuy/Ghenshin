@@ -9,6 +9,7 @@ function useNonInitialEffect(effect, deps) {
         }  else {
 			effect();
 		}
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, deps)
 }
 useNonInitialEffect.propTypes = {

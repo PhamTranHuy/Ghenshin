@@ -37,11 +37,11 @@ function Carousel({
             }
         }
         onActiveChange(activeIndex);
-    }, [autoSlideTime, activeIndex, jumpTo])
+    }, [autoSlideTime, activeIndex, jumpTo, onActiveChange])
 
     useEffect(() => {
         jumpTo(initialIndex);
-    }, [initialIndex])
+    }, [initialIndex, jumpTo])
 
     return (
         <div className={'carousel-container'} style={{width: `${width}px` }}>

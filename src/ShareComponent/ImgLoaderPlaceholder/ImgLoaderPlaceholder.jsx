@@ -25,7 +25,7 @@ function ImgLoaderPlaceholder({className, style, src, alt, lazy = true, placehol
         if (lazy && loaderRef.current && isImgOnViewPort(loaderRef.current)) {
             setIsInViewPort(true);
         }
-    }, [windowSize, windowScroll])
+    }, [windowSize, windowScroll, lazy])
     useEffect(() => {
         setLoaded(false);
     }, [src]);

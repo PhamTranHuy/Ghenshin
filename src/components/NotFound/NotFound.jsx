@@ -9,7 +9,7 @@ function NotFound() {
         <div className="not-found-page">
             <div className="not-found-container">
                 <div className="not-found-content">
-                    <img src={error_img} className="error-img" />
+                    <img src={error_img} alt="" className="error-img" />
                     <div className="text">
                         <h2>This page cannot be found</h2>
                         <p>Perhaps it flew away with Venti.</p>
@@ -18,7 +18,7 @@ function NotFound() {
                         <img src={star_icon} alt="" className="star-img" />
                         <NavLink to="/home" className="back-to-home"><h2>Back to HOME</h2></NavLink>
                     </div>
-                    <img src={animal_img} className="animal-img" />
+                    <img src={animal_img} alt="" className="animal-img" />
                 </div>
             </div>
         </div>
