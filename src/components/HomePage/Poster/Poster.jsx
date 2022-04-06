@@ -14,12 +14,14 @@ import video_poster from '../assets/poster/video-poster.jpg'
 import Popup from '../../../ShareComponent/Popup/Popup'
 import useWindowSize from '../../../CustomHook/WindowSize'
 import useWindowScroll from '../../../CustomHook/WindowScroll'
+import useDetectDeviceType from '../../../CustomHook/DetectDeviceType'
 
 
 function Poster() {
     const [triggerPopup, setTriggerPopup] = useState(false);
     const windowSize = useWindowSize();
     const windowScroll = useWindowScroll();
+    const [currentDeviceType, DEVICE_TYPES] = useDetectDeviceType();
     const handleVideoPosterSize = () => {
         if (windowSize.width <= 850) {
             return {
@@ -33,9 +35,14 @@ function Poster() {
                 <img src={Logo} alt="logo" />
             </div>
             <div className="background-wrapper">
-                <video autoPlay={true} muted={true} loop poster={video_poster}>
-                    <source src="https://genshin.mihoyo.com/_nuxt/videos/3e78e80.mp4" type="audio/mp4"/>
-                </video>
+                { currentDeviceType === DEVICE_TYPES.DESKTOP ? (
+                    <video autoPlay={true} muted={true} loop poster={video_poster}>
+                        <source src="https://genshin.mihoyo.com/_nuxt/videos/3e78e80.mp4" type="audio/mp4"/>
+                    </video>
+                ) : (
+                    <img src={video_poster} alt=""/>
+                )}
+                
             </div>
             <div className="poster-sign">
                 <div className="play-button-wrapper">
