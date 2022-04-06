@@ -1,5 +1,8 @@
 .character-page {
     .character-content {
         max-height: 100vh;
+        @media screen and (min-width: 1200px) {
+            min-height: 950px;
+        }
     }
 }
